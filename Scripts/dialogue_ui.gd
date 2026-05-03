@@ -1,12 +1,12 @@
 extends Control
 
 # Récupération des nodes
-@onready var portrait:TextureRect = $GlobalContainer/Portrait
-@onready var player_portrait:TextureRect = $GlobalContainer/PlayerPortrait
-@onready var character_name:RichTextLabel = $GlobalContainer/TextBoxContainer/NameBoxMargin/CharacterPanel/NameMargin/Name
-@onready var character_name_panel:PanelContainer = $GlobalContainer/TextBoxContainer/NameBoxMargin/CharacterPanel
-@onready var text:RichTextLabel = $GlobalContainer/TextBoxContainer/TextBoxMargin/TextPanel/TextMargin/Text
-@onready var textbox_panel:PanelContainer = $GlobalContainer/TextBoxContainer/TextBoxMargin/TextPanel
+@onready var portrait:TextureRect = $Portrait
+@onready var player_portrait:TextureRect = $PlayerPortrait
+@onready var character_name:RichTextLabel = $TextBoxContainer/NameBoxMargin/CharacterPanel/NameMargin/Name
+@onready var character_name_panel:PanelContainer = $TextBoxContainer/NameBoxMargin/CharacterPanel
+@onready var text:RichTextLabel = $TextBoxContainer/TextBoxMargin/TextPanel/TextMargin/Text
+@onready var textbox_panel:PanelContainer = $TextBoxContainer/TextBoxMargin/TextPanel
 
 
 const portrait_path:String = "res://Assets/Sprites/Portraits/"
@@ -96,7 +96,7 @@ func display_line(line: Dictionary):
 	var img = Image.load_from_file(path)
 	var texture = ImageTexture.create_from_image(img) # Chargement de la texture du portrait pour le TextureRect
 	
-	portrait.texture = texture # Changement portrait
+	
 	character_name.text = line["character_name"] # Changement nom du perso
 	text.text = line["text"] # Changement contenu du texte
 	
@@ -115,20 +115,26 @@ func display_line(line: Dictionary):
 	if line["character"] != previous_character:
 		previous_character = line["character"]
 		if previous_character == player_character:
-			switch_to_right()
+			switch_to_right(texture)
 		else:
-			switch_to_left()
+			switch_to_left(texture)
 		textbox_animation()
 
-func switch_to_left():
+func switch_to_left(texture:Texture2D):
 	print("switch left")
-	player_portrait.texture=null
+	portrait.show()
+	portrait.texture = texture # Changement portrait
+	# player_portrait.texture=null
+	player_portrait.hide()
 	character_name_panel.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	character_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 
-func switch_to_right():
+func switch_to_right(texture:Texture2D):
 	print("switch right")
-	portrait.texture=null
+	player_portrait.show()
+	player_portrait.texture = texture # Changement portrait
+	# portrait.texture=null
+	portrait.hide()
 	character_name_panel.size_flags_horizontal = Control.SIZE_SHRINK_END
 	character_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	

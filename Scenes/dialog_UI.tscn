@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://df6s3t1wxotbo"]
+
+[ext_resource type="Script" uid="uid://2hnsunu5ooxv" path="res://Scripts/dialogue_ui.gd" id="1_7cant"]
+[ext_resource type="Texture2D" uid="uid://b1psp36vk1y3h" path="res://Assets/Sprites/Portraits/mishima/neutral.png" id="2_pabmb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrlft"]
+bg_color = Color(0, 0.6447846, 0.9170492, 0.17254902)
+
+[node name="DialogUI" type="HBoxContainer" unique_id=865221122]
+offset_right = 1920.0
+offset_bottom = 350.0
+script = ExtResource("1_7cant")
+
+[node name="Portrait" type="TextureRect" parent="." unique_id=1013634959]
+custom_minimum_size = Vector2(350, 350)
+layout_mode = 2
+size_flags_vertical = 8
+texture = ExtResource("2_pabmb")
+expand_mode = 1
+
+[node name="TextBoxContainer" type="VBoxContainer" parent="." unique_id=1674787029]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameBoxMargin" type="MarginContainer" parent="TextBoxContainer" unique_id=1878516167]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 10
+
+[node name="CharacterPanel" type="PanelContainer" parent="TextBoxContainer/NameBoxMargin" unique_id=2122302507]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xrlft")
+
+[node name="NameMargin" type="MarginContainer" parent="TextBoxContainer/NameBoxMargin/CharacterPanel" unique_id=1452282062]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="Name" type="RichTextLabel" parent="TextBoxContainer/NameBoxMargin/CharacterPanel/NameMargin" unique_id=1975756227]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "[b]Mishima[/b]"
+vertical_alignment = 1
+
+[node name="TextBoxMargin" type="MarginContainer" parent="TextBoxContainer" unique_id=298792639]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 30
+
+[node name="TextPanel" type="PanelContainer" parent="TextBoxContainer/TextBoxMargin" unique_id=1511679186]
+layout_mode = 2
+
+[node name="TextMargin" type="MarginContainer" parent="TextBoxContainer/TextBoxMargin/TextPanel" unique_id=1772320653]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Text" type="RichTextLabel" parent="TextBoxContainer/TextBoxMargin/TextPanel/TextMargin" unique_id=347247859]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "Salut, je n'ai rien de vraiment intéressant à dire. Ceci est un [color=red]dialogue[/color]."
+
+[node name="PlayerPortrait" type="TextureRect" parent="." unique_id=914911652]
+custom_minimum_size = Vector2(350, 350)
+layout_mode = 2
+size_flags_vertical = 8
+texture = ExtResource("2_pabmb")
+expand_mode = 1

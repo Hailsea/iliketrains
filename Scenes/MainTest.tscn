@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cgkk25uwth81n"]
+
+[ext_resource type="Script" uid="uid://dyeyfchd3juk4" path="res://Scripts/main_test.gd" id="1_bhhyf"]
+[ext_resource type="PackedScene" uid="uid://df6s3t1wxotbo" path="res://Scenes/dialog_UI.tscn" id="2_oqdhm"]
+[ext_resource type="Texture2D" uid="uid://bnyax2ch5gbix" path="res://Assets/Sprites/station.jpg" id="2_ycov7"]
+[ext_resource type="PackedScene" uid="uid://se12xrrmy3jc" path="res://Scenes/think_UI.tscn" id="3_ycov7"]
+
+[node name="MainTest" type="Node" unique_id=1940308254]
+script = ExtResource("1_bhhyf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1065668249]
+position = Vector2(942, 574)
+scale = Vector2(1.0682292, 1.0757812)
+texture = ExtResource("2_ycov7")
+
+[node name="DialogUI" parent="." unique_id=865221122 instance=ExtResource("2_oqdhm")]
+anchors_preset = -1
+anchor_top = 0.65
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="ThinkUI" parent="." unique_id=1741717176 instance=ExtResource("3_ycov7")]
+visible = false
+anchors_preset = -1
+anchor_top = 0.62
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0

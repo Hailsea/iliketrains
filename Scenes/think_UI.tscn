@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://se12xrrmy3jc"]
+
+[ext_resource type="Texture2D" uid="uid://b1psp36vk1y3h" path="res://Assets/Sprites/Portraits/mishima/neutral.png" id="2_qnf2k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvtue"]
+bg_color = Color(0.6313726, 0.5019608, 0.9607843, 0.2509804)
+
+[node name="ThinkUI" type="HBoxContainer" unique_id=865221122]
+offset_right = 1920.0
+offset_bottom = 350.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=854754653]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextBoxMargin" type="MarginContainer" parent="HBoxContainer" unique_id=298792639]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 30
+
+[node name="TextPanel" type="PanelContainer" parent="HBoxContainer/TextBoxMargin" unique_id=1511679186]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rvtue")
+
+[node name="TextMargin" type="MarginContainer" parent="HBoxContainer/TextBoxMargin/TextPanel" unique_id=1772320653]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Text" type="RichTextLabel" parent="HBoxContainer/TextBoxMargin/TextPanel/TextMargin" unique_id=347247859]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "Salut, je n'ai rien de vraiment intéressant à dire. Ceci est un [color=red]dialogue[/color]."
+
+[node name="ButtonsMargin" type="MarginContainer" parent="HBoxContainer" unique_id=1108688897]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ButtonsMargin" unique_id=16738618]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="HBoxContainer/ButtonsMargin/VBoxContainer" unique_id=1101969254]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+text = "Choix 1"
+
+[node name="Button2" type="Button" parent="HBoxContainer/ButtonsMargin/VBoxContainer" unique_id=1982521848]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+text = "Choix 1"
+
+[node name="Button3" type="Button" parent="HBoxContainer/ButtonsMargin/VBoxContainer" unique_id=751428777]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+text = "Choix 1"
+
+[node name="PlayerPortrait" type="TextureRect" parent="." unique_id=914911652]
+custom_minimum_size = Vector2(350, 350)
+layout_mode = 2
+size_flags_vertical = 8
+texture = ExtResource("2_qnf2k")
+expand_mode = 1
+flip_h = true
