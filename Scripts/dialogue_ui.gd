@@ -1,36 +1,66 @@
 extends Control
 
-@onready var portrait = $GlobalContainer/Portrait
-@onready var character_name = $GlobalContainer/TextBoxContainer/NameBoxMargin/MarginPanel/NameMargin/Name
-@onready var text = $GlobalContainer/TextBoxContainer/TextBoxMargin/TextPanel/TextMargin/Text
-@onready var textbox_panel = $GlobalContainer/TextBoxContainer/TextBoxMargin/TextPanel
+# Récupération des nodes
+@onready var portrait:TextureRect = $GlobalContainer/Portrait
+@onready var player_portrait:TextureRect = $GlobalContainer/PlayerPortrait
+@onready var character_name:RichTextLabel = $GlobalContainer/TextBoxContainer/NameBoxMargin/CharacterPanel/NameMargin/Name
+@onready var character_name_panel:PanelContainer = $GlobalContainer/TextBoxContainer/NameBoxMargin/CharacterPanel
+@onready var text:RichTextLabel = $GlobalContainer/TextBoxContainer/TextBoxMargin/TextPanel/TextMargin/Text
+@onready var textbox_panel:PanelContainer = $GlobalContainer/TextBoxContainer/TextBoxMargin/TextPanel
 
-@onready var timer = $TypewriterTimer
 
+const portrait_path:String = "res://Assets/Sprites/Portraits/"
+const player_character:String = "mishima"
+
+# Variables pour l'effect Machine à [color=redÉcrire
 const DEFAULT_SPEED = 40
 var anim_speed = DEFAULT_SPEED
 var animate_text = false
 var displayed_text = ""
 var visible_characters_ratio = 0
 
-var unskip : bool = false
-var previous_character: String = ""
 
-var index:int = 0
+var unskip : bool = false # true si la ligne en cours est unskippable
+var previous_character: String = "" # Pour lancer l'animation de changement de perso
+
+# ==== Potentiellement à supprimer ====
+var index:int = 0 # Index de la ligne en cours 
 var lines:Array[Dictionary] = [
 	{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"Salut ! Voila où j'en suis pour l'interface de dialogue, c'est pas encore très avancé mais c'est un début.","properties":["unskip"]},
 	{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"Ça supporte la [color=red]couleur[/color] et le rich text de Godot donc c'est sympa !","properties":[]},
 	{"character":"futaba","emotion":"neutral","character_name":"Futaba","text":"Coucou ! On peut avoir plusieurs personnages !","properties":[]},
 	{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"Et vous savez quoi ?","properties":[]},
-	{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"J'ai perdu !","properties":[],"speed":5},
+	{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"J'ai perdu !","properties":[],"speed":1},
 	{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"...","properties":[],"speed":10},
-]
+	{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"Salut ! Voila où j'en suis pour l'interface de dialogue, c'est pas encore très avancé mais c'est un début.","properties":["unskip"]},
+	{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"Ça supporte la [color=red]couleur[/color] et le rich text de Godot donc c'est sympa !","properties":[]},
+	{"character":"futaba","emotion":"neutral","character_name":"Futaba","text":"Coucou ! On peut avoir plusieurs personnages !","properties":[]},
+	{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"Et vous savez quoi ?","properties":[]},
+	{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"J'ai perdu !","properties":[],"speed":1},
+	{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"...","properties":[],"speed":10},
+	{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"Salut ! Voila où j'en suis pour l'interface de dialogue, c'est pas encore très avancé mais c'est un début.","properties":["unskip"]},
+	{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"Ça supporte la [color=red]couleur[/color] et le rich text de Godot donc c'est sympa !","properties":[]},
+	{"character":"futaba","emotion":"neutral","character_name":"Futaba","text":"Coucou ! On peut avoir plusieurs personnages !","properties":[]},
+	{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"Et vous savez quoi ?","properties":[]},
+	{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"J'ai perdu !","properties":[],"speed":1},
+	{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"...","properties":[],"speed":10},
+	{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"Salut ! Voila où j'en suis pour l'interface de dialogue, c'est pas encore très avancé mais c'est un début.","properties":["unskip"]},
+	{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"Ça supporte la [color=red]couleur[/color] et le rich text de Godot donc c'est sympa !","properties":[]},
+	{"character":"futaba","emotion":"neutral","character_name":"Futaba","text":"Coucou ! On peut avoir plusieurs personnages !","properties":[]},
+	{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"Et vous savez quoi ?","properties":[]},
+	{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"J'ai perdu !","properties":[],"speed":1},
+	{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"...","properties":[],"speed":10},
+	{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"Salut ! Voila où j'en suis pour l'interface de dialogue, c'est pas encore très avancé mais c'est un début.","properties":["unskip"]},
+	{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"Ça supporte la [color=red]couleur[/color] et le rich text de Godot donc c'est sympa !","properties":[]},
+	{"character":"futaba","emotion":"neutral","character_name":"Futaba","text":"Coucou ! On peut avoir plusieurs personnages !","properties":[]},
+	{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"Et vous savez quoi ?","properties":[]},
+	{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"J'ai perdu !","properties":[],"speed":1},
+	{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"...","properties":[],"speed":10},
+] 
+# ====
 
-var tween : Tween
+var tween : Tween # Tween pour les animations
 
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	display_line(lines[index])
 	
@@ -41,46 +71,69 @@ func _process(delta):
 			text.visible_ratio += (1.0/text.text.length()) * (anim_speed * delta)
 		else:
 			animate_text = false
+			
+func get_portrait_path(character, emotion) -> String:
+	return portrait_path + character + "/" + emotion + ".png"
 
-func skip_animation():
+func start_typewriter():
+	text.visible_characters = 0
+	animate_text = true
+
+func skip_typewriter():
 	text.visible_ratio = 1
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("dialog_next"):
 		if animate_text == true:
 			if !unskip:
-				skip_animation()
+				skip_typewriter()
 		elif index < len(lines) - 1:
 				index += 1
 				display_line(lines[index])
 
 func display_line(line: Dictionary):
-	var path = "res://Assets/Sprites/Portraits/" + line["character"] + "/" + line["emotion"] + ".png"
+	var path = get_portrait_path(line["character"],line["emotion"])
 	var img = Image.load_from_file(path)
-	var texture = ImageTexture.create_from_image(img)
+	var texture = ImageTexture.create_from_image(img) # Chargement de la texture du portrait pour le TextureRect
 	
-	portrait.texture = texture
-	character_name.text = line["character_name"]
-	text.text = line["text"]
+	portrait.texture = texture # Changement portrait
+	character_name.text = line["character_name"] # Changement nom du perso
+	text.text = line["text"] # Changement contenu du texte
 	
 	if "unskip" in line["properties"]:
 		unskip = true
 	else:
 		unskip = false
 	
-	if line.has("speed"):
+	if line.has("speed"): # Vitesse animation
 		anim_speed = line["speed"]
 	else:
 		anim_speed = DEFAULT_SPEED
+		
+	start_typewriter()
 	
-	text.visible_characters = 0
-	animate_text = true
-	
-	
-	
-	if line["character_name"] != previous_character:
-		previous_character = line["character_name"]
+	if line["character"] != previous_character:
+		previous_character = line["character"]
+		if previous_character == player_character:
+			switch_to_right()
+		else:
+			switch_to_left()
 		textbox_animation()
+
+func switch_to_left():
+	print("switch left")
+	player_portrait.texture=null
+	character_name_panel.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+	character_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+
+func switch_to_right():
+	print("switch right")
+	portrait.texture=null
+	character_name_panel.size_flags_horizontal = Control.SIZE_SHRINK_END
+	character_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	
+	
+	
 
 func textbox_animation() -> void:
 	textbox_panel.pivot_offset_ratio = Vector2(0,0.5)
@@ -89,20 +142,5 @@ func textbox_animation() -> void:
 	tween.tween_property(textbox_panel, "scale:y", 0, 0)
 	tween.tween_property(textbox_panel, "scale:y", 1, 0.2)
 
-#func clear_text():
-	#if text.text.length() > 0:
-		#text.text = ""
-	#
-#func typewriter(line_text:String) -> void:
-	#clear_text()
-	#timer.wait_time = delay
-	#timer.one_shot = true
-	#
-	#for char in line_text.length():
-		#text.text += line_text[char]
-		#
-		#timer.stop()
-		#timer.start()
-		#await timer.timeout
 		
 		
