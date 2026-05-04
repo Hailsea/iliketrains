@@ -9,23 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://cuswgh3ukii0" path="res://Assets/SI28_metro_assets/exterieur_metro_garçon.png" id="6_li70b"]
 [ext_resource type="Texture2D" uid="uid://ci7pwc68u4ov4" path="res://Assets/SI28_metro_assets/exterieur_metro_distributeuravant.png" id="7_d3bao"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h307s"]
-size = Vector2(1958.5, 1121.5)
-
 [node name="Platform_background" type="Node2D" unique_id=991292017]
 script = ExtResource("1_li70b")
 
-[node name="Fond_neutre" type="StaticBody2D" parent="." unique_id=1970033715]
-input_pickable = true
-
-[node name="Fond_img" type="Sprite2D" parent="Fond_neutre" unique_id=1970532212]
+[node name="Fond_img" type="Sprite2D" parent="." unique_id=1970532212]
 z_index = -1
 position = Vector2(958, 544)
 texture = ExtResource("3_li70b")
-
-[node name="Fond_hitbox" type="CollisionShape2D" parent="Fond_neutre" unique_id=1642526654]
-position = Vector2(964.75, 540.25)
-shape = SubResource("RectangleShape2D_h307s")
 
 [node name="Mere_fille" type="StaticBody2D" parent="." unique_id=426213223]
 input_pickable = true
