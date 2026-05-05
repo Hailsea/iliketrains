@@ -76,16 +76,3 @@ texture = ExtResource("7_d3bao")
 
 [node name="Distributeur_hitbox" type="CollisionPolygon2D" parent="Distributeur" unique_id=1376153329]
 polygon = PackedVector2Array(87, 1049, 0, 1055, 1, 303, 63, 302, 91, 302, 118, 306, 145, 309, 164, 317, 198, 328, 208, 337, 220, 343, 230, 353, 240, 366, 247, 383, 245, 432, 244, 445, 247, 483, 249, 557, 248, 630, 245, 688, 243, 748, 246, 858, 247, 903, 250, 941, 218, 953, 213, 961, 172, 991, 158, 996, 147, 1008, 124, 1019, 100, 1040)
-
-[connection signal="mouse_entered" from="Mere_fille" to="." method="_on_mere_fille_mouse_entered"]
-[connection signal="mouse_exited" from="Mere_fille" to="." method="_on_mere_fille_mouse_exited"]
-[connection signal="mouse_entered" from="Train_ouvert" to="." method="_on_train_ouvert_mouse_entered"]
-[connection signal="mouse_exited" from="Train_ouvert" to="." method="_on_train_ouvert_mouse_exited"]
-[connection signal="mouse_entered" from="Carte" to="." method="_on_carte_mouse_entered"]
-[connection signal="mouse_exited" from="Carte" to="." method="_on_carte_mouse_exited"]
-[connection signal="mouse_entered" from="Homme_fuyant" to="." method="_on_homme_fuyant_mouse_entered"]
-[connection signal="mouse_exited" from="Homme_fuyant" to="." method="_on_homme_fuyant_mouse_exited"]
-[connection signal="mouse_entered" from="Banc" to="." method="_on_banc_mouse_entered"]
-[connection signal="mouse_exited" from="Banc" to="." method="_on_banc_mouse_exited"]
-[connection signal="mouse_entered" from="Distributeur" to="." method="_on_distributeur_mouse_entered"]
-[connection signal="mouse_exited" from="Distributeur" to="." method="_on_distributeur_mouse_exited"]

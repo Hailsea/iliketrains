@@ -1,0 +1,7 @@
+[gd_scene format=3]
+
+[node name="Homme_fuyant" type="StaticBody2D" unique_id=1076014158]
+input_pickable = true
+
+[connection signal="mouse_entered" from="." to=".." method="_on_homme_fuyant_mouse_entered"]
+[connection signal="mouse_exited" from="." to=".." method="_on_homme_fuyant_mouse_exited"]

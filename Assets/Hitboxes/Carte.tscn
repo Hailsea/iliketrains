@@ -1,0 +1,7 @@
+[gd_scene format=3]
+
+[node name="Carte" type="StaticBody2D" unique_id=306854189]
+input_pickable = true
+
+[connection signal="mouse_entered" from="." to=".." method="_on_carte_mouse_entered"]
+[connection signal="mouse_exited" from="." to=".." method="_on_carte_mouse_exited"]
