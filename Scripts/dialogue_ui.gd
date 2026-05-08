@@ -90,6 +90,7 @@ func _input(event: InputEvent) -> void:
 		elif index < len(lines) - 1:
 				index += 1
 				display_line(lines[index])
+			
 
 func display_line(line: Dictionary):
 	var path = get_portrait_path(line["character"],line["emotion"])
@@ -149,4 +150,4 @@ func textbox_animation() -> void:
 	tween.tween_property(textbox_panel, "scale:y", 1, 0.2)
 
 		
-		
+signal end_dialog()

@@ -2,6 +2,3 @@
 
 [node name="Banc" type="StaticBody2D" unique_id=1999281062]
 input_pickable = true
-
-[connection signal="mouse_entered" from="." to=".." method="_on_banc_mouse_entered"]
-[connection signal="mouse_exited" from="." to=".." method="_on_banc_mouse_exited"]

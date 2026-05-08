@@ -2,6 +2,3 @@
 
 [node name="Mere_fille" type="StaticBody2D" unique_id=426213223]
 input_pickable = true
-
-[connection signal="mouse_entered" from="." to=".." method="_on_mere_fille_mouse_entered"]
-[connection signal="mouse_exited" from="." to=".." method="_on_mere_fille_mouse_exited"]

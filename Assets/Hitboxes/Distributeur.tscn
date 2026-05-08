@@ -1,0 +1,4 @@
+[gd_scene format=3]
+
+[node name="Distributeur" type="StaticBody2D" unique_id=553474282]
+input_pickable = true

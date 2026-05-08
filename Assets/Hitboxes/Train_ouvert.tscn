@@ -2,6 +2,3 @@
 
 [node name="Train_ouvert" type="StaticBody2D" unique_id=892828015]
 input_pickable = true
-
-[connection signal="mouse_entered" from="." to=".." method="_on_train_ouvert_mouse_entered"]
-[connection signal="mouse_exited" from="." to=".." method="_on_train_ouvert_mouse_exited"]
