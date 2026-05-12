@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c8dmhsv88hw8v"]
+
+[ext_resource type="Texture2D" uid="uid://du0tndmxqqsi1" path="res://Assets/SI28_metro_assets/Metro_ouvert_img.png" id="1_hmd7n"]
+
+[node name="Metro_ouvert" type="StaticBody2D" unique_id=892828015]
+input_pickable = true
+
+[node name="Metro_ouvert_img" type="Sprite2D" parent="." unique_id=52462108]
+position = Vector2(961, 547)
+texture = ExtResource("1_hmd7n")
+
+[node name="Metro_hitbox" type="CollisionPolygon2D" parent="." unique_id=356268934]
+polygon = PackedVector2Array(1106, 468, 1108, 394, 1271, 297, 1354, 263, 1381, 264, 1390, 244, 1486, 178, 1795, 8, 1920, 7, 1921, 1086, 1608, 1087, 1583, 1044, 1572, 1034, 1550, 1000, 1523, 969, 1492, 921, 1442, 868, 1398, 811, 1399, 801, 1382, 784, 1373, 763, 1363, 754, 1363, 731, 1343, 729, 1340, 711, 1326, 704, 1288, 672, 1287, 664, 1276, 658, 1191, 568, 1152, 517, 1147, 514, 1147, 519, 1133, 497)
+
+[node name="Porte_ouverte_hitbox" type="CollisionPolygon2D" parent="." unique_id=529333579]
+polygon = PackedVector2Array(1438, 299, 1433, 826, 1551, 981, 1570, 573, 1575, 517, 1585, 421, 1598, 293, 1609, 248)

@@ -1,0 +1,13 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://Assets/SI28_metro_assets/Pub_img.png" id="1_x0i6q"]
+
+[node name="Pub" type="StaticBody2D" unique_id=306854189]
+input_pickable = true
+
+[node name="Pub_img" type="Sprite2D" parent="." unique_id=577220901]
+position = Vector2(961, 547)
+texture = ExtResource("1_x0i6q")
+
+[node name="Pub_hitbox" type="CollisionPolygon2D" parent="." unique_id=1748727091]
+polygon = PackedVector2Array(71, 287, 87, 285, 142, 291, 195, 302, 476, 363, 463, 451, 458, 518, 456, 621, 458, 665, 51, 836, 39, 841, 34, 806, 28, 659, 31, 531, 37, 464, 43, 411, 52, 353)

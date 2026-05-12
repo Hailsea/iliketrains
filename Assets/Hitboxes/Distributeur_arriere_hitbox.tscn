@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://drbsu0n33wyj4"]
+
+[node name="Distributeur_arriere_hitbox" type="CollisionPolygon2D" unique_id=187876719]
+polygon = PackedVector2Array(853, 381, 851, 515, 893, 521, 920, 504, 923, 466, 923, 403, 920, 398, 917, 394)
