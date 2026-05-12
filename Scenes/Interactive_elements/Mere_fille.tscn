@@ -1,0 +1,4 @@
+[gd_scene format=3]
+
+[node name="Mere_fille" type="StaticBody2D" unique_id=426213223]
+input_pickable = true
