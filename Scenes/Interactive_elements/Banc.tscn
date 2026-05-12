@@ -1,4 +1,13 @@
 [gd_scene format=3]
 
+[ext_resource type="Texture2D" path="res://Assets/SI28_metro_assets/Banc_img.png" id="1_wckd8"]
+
 [node name="Banc" type="StaticBody2D" unique_id=1999281062]
 input_pickable = true
+
+[node name="Banc_img" type="Sprite2D" parent="." unique_id=1355885261]
+position = Vector2(961, 547)
+texture = ExtResource("1_wckd8")
+
+[node name="Banc_hitbox" type="CollisionPolygon2D" parent="." unique_id=1063794763]
+polygon = PackedVector2Array(203, 908, 198, 806, 189, 704, 239, 680, 299, 650, 335, 640, 389, 616, 405, 618, 404, 694, 407, 701, 417, 708, 490, 716, 496, 812, 477, 812, 471, 747, 420, 772, 420, 809, 411, 815, 394, 818, 396, 785, 342, 812, 343, 898, 329, 907, 326, 909, 311, 901, 310, 820, 236, 815, 227, 827, 229, 899, 219, 909)

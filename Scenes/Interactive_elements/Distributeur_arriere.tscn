@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dop3t3n1g32pd"]
+
+[ext_resource type="Texture2D" uid="uid://bfe1jnh0nns38" path="res://Assets/SI28_metro_assets/Distributeur_arriere_img.png" id="1_f1d44"]
+
+[node name="Distributeur_arriere" type="StaticBody2D" unique_id=496110658]
+
+[node name="Distributeur_arriere_img" type="Sprite2D" parent="." unique_id=320920396]
+position = Vector2(958, 548)
+texture = ExtResource("1_f1d44")
+
+[node name="Distributeur_arriere_hitbox" type="CollisionPolygon2D" parent="." unique_id=600956754]
+polygon = PackedVector2Array(853, 381, 851, 515, 893, 521, 920, 504, 923, 466, 923, 403, 920, 398, 917, 394)

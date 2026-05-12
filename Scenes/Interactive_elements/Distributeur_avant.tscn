@@ -1,0 +1,13 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://Assets/SI28_metro_assets/Distributeur_avant_img.png" id="1_bmxpk"]
+
+[node name="Distributeur_avant" type="StaticBody2D" unique_id=553474282]
+input_pickable = true
+
+[node name="Distributeur_avant_img" type="Sprite2D" parent="." unique_id=983271798]
+position = Vector2(961, 547)
+texture = ExtResource("1_bmxpk")
+
+[node name="Distributeur_avant_hitbox" type="CollisionPolygon2D" parent="." unique_id=1376153329]
+polygon = PackedVector2Array(87, 1049, 0, 1055, 1, 303, 63, 302, 91, 302, 118, 306, 145, 309, 164, 317, 198, 328, 208, 337, 220, 343, 230, 353, 240, 366, 247, 383, 245, 432, 244, 445, 247, 483, 249, 557, 248, 630, 245, 688, 243, 748, 246, 858, 247, 903, 250, 941, 218, 953, 213, 961, 172, 991, 158, 996, 147, 1008, 124, 1019, 100, 1040)
