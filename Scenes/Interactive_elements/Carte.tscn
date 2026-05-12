@@ -1,4 +1,12 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://pavtg7npjoc8"]
 
-[node name="Carte" type="StaticBody2D" unique_id=306854189]
-input_pickable = true
+[ext_resource type="Texture2D" uid="uid://bkyxve1l52vqi" path="res://Assets/SI28_metro_assets/Carte_img.png" id="1_jr3j8"]
+
+[node name="Carte" type="StaticBody2D" unique_id=520768144]
+
+[node name="Carte_img" type="Sprite2D" parent="." unique_id=1363701935]
+position = Vector2(957, 547)
+texture = ExtResource("1_jr3j8")
+
+[node name="Carte_hitbox" type="CollisionPolygon2D" parent="." unique_id=1642992139]
+polygon = PackedVector2Array(117, 333, 406, 357, 406, 366, 382, 411, 362, 462, 352, 498, 345, 536, 348, 595, 265, 621, 62, 669, 59, 635, 59, 567, 58, 513, 61, 464, 79, 401)
