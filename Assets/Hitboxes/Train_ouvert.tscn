@@ -1,4 +1,0 @@
-[gd_scene format=3]
-
-[node name="Train_ouvert" type="StaticBody2D" unique_id=892828015]
-input_pickable = true

@@ -1,4 +1,0 @@
-[gd_scene format=3]
-
-[node name="Homme_fuyant" type="StaticBody2D" unique_id=1076014158]
-input_pickable = true
