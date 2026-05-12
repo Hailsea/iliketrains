@@ -25,7 +25,7 @@ var previous_character: String = "" # Pour lancer l'animation de changement de p
 
 # ==== Potentiellement à supprimer ====
 var index:int = 0 # Index de la ligne en cours 
-var lines:Array[Dictionary] = [
+var lines = [
 	{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"Salut ! Voila où j'en suis pour l'interface de dialogue, c'est pas encore très avancé mais c'est un début.","properties":["unskip"]},
 	{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"Ça supporte la [color=red]couleur[/color] et le rich text de Godot donc c'est sympa !","properties":[]},
 	{"character":"futaba","emotion":"neutral","character_name":"Futaba","text":"Coucou ! On peut avoir plusieurs personnages !","properties":[]},
@@ -62,7 +62,7 @@ var lines:Array[Dictionary] = [
 var tween : Tween # Tween pour les animations
 
 func _ready() -> void:
-	display_line(lines[index])
+	pass
 	
 	
 func _process(delta):
@@ -90,7 +90,13 @@ func _input(event: InputEvent) -> void:
 		elif index < len(lines) - 1:
 				index += 1
 				display_line(lines[index])
-			
+		elif index == len(lines) - 1:
+			end_dialog.emit()
+
+func load_lines(dialog_lines):
+	lines = dialog_lines
+	index = 0
+	display_line(lines[index])
 
 func display_line(line: Dictionary):
 	var path = get_portrait_path(line["character"],line["emotion"])
