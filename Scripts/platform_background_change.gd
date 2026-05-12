@@ -10,12 +10,13 @@ func _ready() -> void:
 			interactive_element[child.name]=false
 			child.mouse_entered.connect(update_hover.bindv([child.name,true]))
 			child.mouse_exited.connect(update_hover.bindv([child.name,false]))
-			#sauvegarde les hitboxes
-			for i in child.get_children():
-				if i is CollisionPolygon2D: 
-					var hitbox = PackedScene.new()
-					hitbox.pack(child)
-					ResourceSaver.save(hitbox, "res://Assets/Hitboxes/"+child.name+".tscn")
+			#sauvegarde les scènes
+			#var element = PackedScene.new()
+			#for c in child.get_children():
+				#c.set_owner(child)
+			#element.pack(child)
+			#ResourceSaver.save(element, "res://Scenes/Interactive_elements/"+child.name+".tscn")
+			#print("res://Scenes/Interactive_elements/"+child.name+".tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
