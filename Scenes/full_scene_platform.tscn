@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://beftx2d4cbv4h"]
 
 [ext_resource type="Script" uid="uid://cwhvbpntyhyqk" path="res://Scripts/platform_background_change.gd" id="1_li70b"]
-[ext_resource type="Texture2D" uid="uid://lyqwnsmil4is" path="res://Assets/SI28_metro_assets/exterieur_metro_mamanfille.png" id="2_do2d4"]
-[ext_resource type="Texture2D" uid="uid://du0tndmxqqsi1" path="res://Assets/SI28_metro_assets/exterieur_metro_ouvert.png" id="2_m25kg"]
+[ext_resource type="Texture2D" uid="uid://lyqwnsmil4is" path="res://Assets/SI28_metro_assets/Mere_fille_img.png" id="2_do2d4"]
+[ext_resource type="Texture2D" uid="uid://du0tndmxqqsi1" path="res://Assets/SI28_metro_assets/Metro_ouvert_img.png" id="2_m25kg"]
 [ext_resource type="Texture2D" uid="uid://yrx2sbdjk8k3" path="res://Assets/SI28_metro_assets/environnement_exterieur_sansmetro.png" id="3_li70b"]
-[ext_resource type="Texture2D" uid="uid://7cg03daa6cgu" path="res://Assets/SI28_metro_assets/exterieur_metro_pub.png" id="5_h307s"]
+[ext_resource type="Texture2D" uid="uid://7cg03daa6cgu" path="res://Assets/SI28_metro_assets/Pub_img.png" id="5_h307s"]
 [ext_resource type="Texture2D" uid="uid://bxarb3tvafk5a" path="res://Assets/SI28_metro_assets/exterieur_metro_banc.png" id="6_2mlkf"]
-[ext_resource type="Texture2D" uid="uid://cuswgh3ukii0" path="res://Assets/SI28_metro_assets/exterieur_metro_garçon.png" id="6_li70b"]
+[ext_resource type="Texture2D" uid="uid://cuswgh3ukii0" path="res://Assets/SI28_metro_assets/Garcon_img.png" id="6_li70b"]
 [ext_resource type="Texture2D" uid="uid://ci7pwc68u4ov4" path="res://Assets/SI28_metro_assets/exterieur_metro_distributeuravant.png" id="7_d3bao"]
 
 [node name="Platform_background" type="Node2D" unique_id=991292017]
@@ -14,8 +14,8 @@ script = ExtResource("1_li70b")
 
 [node name="Fond_img" type="Sprite2D" parent="." unique_id=1970532212]
 z_index = -1
-position = Vector2(958, 544)
 texture = ExtResource("3_li70b")
+centered = false
 
 [node name="Mere_fille" type="StaticBody2D" parent="." unique_id=426213223]
 input_pickable = true
@@ -31,10 +31,12 @@ polygon = PackedVector2Array(844, 522, 836, 529, 833, 537, 836, 560, 829, 566, 8
 input_pickable = true
 
 [node name="Train_img" type="Sprite2D" parent="Train_ouvert" unique_id=52462108]
-position = Vector2(961, 547)
+position = Vector2(960, 540)
+scale = Vector2(0.99895835, 0.9953704)
 texture = ExtResource("2_m25kg")
 
 [node name="Train_hitbox" type="CollisionPolygon2D" parent="Train_ouvert" unique_id=356268934]
+position = Vector2(0, -4)
 polygon = PackedVector2Array(1106, 468, 1108, 394, 1271, 297, 1354, 263, 1381, 264, 1390, 244, 1486, 178, 1795, 8, 1920, 7, 1921, 1086, 1608, 1087, 1583, 1044, 1572, 1034, 1550, 1000, 1523, 969, 1492, 921, 1442, 868, 1398, 811, 1399, 801, 1382, 784, 1373, 763, 1363, 754, 1363, 731, 1343, 729, 1340, 711, 1326, 704, 1288, 672, 1287, 664, 1276, 658, 1191, 568, 1152, 517, 1147, 514, 1147, 519, 1133, 497)
 
 [node name="Carte" type="StaticBody2D" parent="." unique_id=306854189]

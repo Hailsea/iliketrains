@@ -6,7 +6,7 @@ extends Control
 @onready var character_name:RichTextLabel = $TextBoxContainer/NameBoxMargin/CharacterPanel/NameMargin/Name
 @onready var character_name_panel:PanelContainer = $TextBoxContainer/NameBoxMargin/CharacterPanel
 @onready var text:RichTextLabel = $TextBoxContainer/TextBoxMargin/TextPanel/TextMargin/Text
-@onready var textbox_panel:PanelContainer = $TextBoxContainer/TextBoxMargin/TextPanel
+@onready var textbox_panel = $TextBoxContainer
 
 
 const portrait_path:String = "res://Assets/Sprites/Portraits/"
@@ -96,6 +96,7 @@ func _input(event: InputEvent) -> void:
 func load_lines(dialog_lines):
 	lines = dialog_lines
 	index = 0
+	previous_character = ""
 	display_line(lines[index])
 
 func display_line(line: Dictionary):
