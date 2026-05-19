@@ -1,4 +1,0 @@
-[gd_scene format=3 uid="uid://f2awu4t7q73c"]
-
-[node name="Porte_ouverte_hitbox" type="CollisionPolygon2D" unique_id=2113997321]
-polygon = PackedVector2Array(1438, 299, 1433, 826, 1551, 981, 1570, 573, 1575, 517, 1585, 421, 1598, 293, 1609, 248)

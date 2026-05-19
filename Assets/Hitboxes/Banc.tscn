@@ -1,4 +1,0 @@
-[gd_scene format=3]
-
-[node name="Banc" type="StaticBody2D" unique_id=1999281062]
-input_pickable = true

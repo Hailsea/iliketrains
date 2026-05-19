@@ -1,4 +1,0 @@
-[gd_scene format=3]
-
-[node name="Carte_hitbox" type="CollisionPolygon2D" unique_id=1748727091]
-polygon = PackedVector2Array(71, 287, 87, 285, 142, 291, 195, 302, 476, 363, 463, 451, 458, 518, 456, 621, 458, 665, 51, 836, 39, 841, 34, 806, 28, 659, 31, 531, 37, 464, 43, 411, 52, 353)
