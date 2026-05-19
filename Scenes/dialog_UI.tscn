@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://calt6blihfs4u" path="res://Assets/UI/Textbox1.svg" id="3_pabmb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrlft"]
-bg_color = Color(0, 0.6447846, 0.9170492, 0.17254902)
+bg_color = Color(0, 0, 0, 0.17254902)
 
 [sub_resource type="Theme" id="Theme_7cant"]
 

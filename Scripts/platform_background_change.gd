@@ -20,12 +20,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	current_element=element_hovered()
-	print(current_element)
-	pass
+	#print(current_element)
+	#pass
 
 func update_hover(nom: String,action: bool) -> void:
+	print("update hover")
 	interactive_element["last"]=nom
 	interactive_element[nom]=action
+	update_element_hovered.emit(nom)
 
 func on_Background() -> bool:
 	for i in interactive_element:
@@ -36,3 +38,6 @@ func on_Background() -> bool:
 func element_hovered() -> String:
 	if on_Background(): return "Background"
 	return interactive_element["last"]
+	
+	
+signal update_element_hovered(nom)

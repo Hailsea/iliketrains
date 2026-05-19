@@ -1,0 +1,8 @@
+RichTextLabel
+PanelContainer
+Control
+StaticBody2D
+Panel
+TextureRect
+HBoxContainer
+Timer

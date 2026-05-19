@@ -74,7 +74,8 @@ var player_data:Dictionary = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	load_trigger("distributeur")
+	#load_trigger("distributeur")
+	pass
 
 func load_trigger(trigger:String):
 	if not dialog_data["triggers"].has(trigger):
@@ -135,3 +136,7 @@ func load_choices(choices):
 	
 	
 		
+
+
+func _on_platform_background_update_element_hovered(nom) -> void:
+	$UI_Elements/PanelContainer/Texte.text = nom
