@@ -1,6 +1,6 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://chowhf81p0o2r"]
 
-[ext_resource type="Texture2D" path="res://Assets/SI28_metro_assets/Garcon_img.png" id="1_d6jvr"]
+[ext_resource type="Texture2D" uid="uid://cuswgh3ukii0" path="res://Assets/SI28_metro_assets/Garcon_img.png" id="1_d6jvr"]
 
 [node name="Garcon" type="StaticBody2D" unique_id=1076014158]
 input_pickable = true

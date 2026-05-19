@@ -5,66 +5,7 @@ extends Node
 
 var in_event:bool = false
 var loaded_event:String = ""
-var dialog_data:Dictionary = {
-	"triggers" : {
-		"distributeur":[
-			{"condition":{"episode":["coucou"],"item":[]}, "event":"dialogue1"},
-			{"condition":{"episode":[],"item":[]}, "event":"dialogue2"}
-		]
-	},
-	"events":{
-		"dialogue1": [
-			{"type":"line","text":
-				[
-					{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"Salut ! Voila où j'en suis pour l'interface de dialogue, c'est pas encore très avancé mais c'est un début.","properties":["unskip"]},
-					{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"Ça supporte la [color=red]couleur[/color] et le rich text de Godot donc c'est sympa !","properties":[]},
-					{"character":"futaba","emotion":"neutral","character_name":"Futaba","text":"Coucou ! On peut avoir plusieurs personnages !","properties":[]},
-					{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"Et vous savez quoi ?","properties":[]},
-					{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"J'ai perdu !","properties":[],"speed":1},
-					{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"...","properties":[],"speed":10}
-				]
-			},
-			{"type":"print","parameter":"yeyyyy"},
-			{"type":"line","text":[{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"Nyark","properties":[]}]},
-		],
-		"dialogue2": [
-			{"type":"line","text":
-				[
-					{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"Dialogue2 1","properties":[]},
-					{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"Dialogue2 2","properties":[]},
-				]
-			},
-			{"type":"choice","choices":
-				[
-					{"condition":{"episode":[],"item":[]}, "text":"AGROUGROU", "event":"agrou"},
-					{"condition":{"episode":[],"item":[]}, "text":"AGROUGROUGROU", "event":"agrou2"},
-					{"condition":{"episode":["coucou"],"item":[]}, "text":"AGROU", "event":"agrou3"},
-				]
-			}
-		],
-		"agrou": [
-			{"type":"line","text":
-				[
-					{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"agrou 1","properties":[]},
-				]
-			},
-		],
-		"agrou2": [
-			{"type":"line","text":
-				[
-					{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"agrou 2","properties":[]},
-				]
-			},
-		],
-		"agrou3": [
-			{"type":"line","text":
-				[
-					{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"agrou 3","properties":[]},
-				]
-			},
-		]
-	}
-}
+var dialog_data:Dictionary
 
 var player_data:Dictionary = {
 	"episodes":[],
@@ -74,10 +15,22 @@ var player_data:Dictionary = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#load_trigger("distributeur")
-	pass
+	var file = $Platform_background.events_file
+	print(file)
+	var json_as_text = FileAccess.get_file_as_string(file)
+	dialog_data = JSON.parse_string(json_as_text)
+	
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if not in_event:
+			var element = $Platform_background.element_hovered()
+			in_event = true
+			load_trigger(element)
+			
+		
 
 func load_trigger(trigger:String):
+	print(dialog_data)
 	if not dialog_data["triggers"].has(trigger):
 		print("No trigger");
 	
@@ -104,6 +57,7 @@ func process_event(event:String):
 	
 	in_event = false
 	print("Fin de l'event " + event)
+	$UI_Elements/Thoughts.show()
 
 func process_action(action:Dictionary):
 	if action["type"] == "line":
@@ -138,5 +92,5 @@ func load_choices(choices):
 		
 
 
-func _on_platform_background_update_element_hovered(nom) -> void:
-	$UI_Elements/PanelContainer/Texte.text = nom
+func _on_platform_background_update_element_hovered() -> void:
+	$UI_Elements/Thoughts/Texte.text = $Platform_background.element_hovered()

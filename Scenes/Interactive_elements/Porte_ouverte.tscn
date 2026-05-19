@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://chckgrsuj4py4"]
+[gd_scene format=3 uid="uid://c6cyhmoi17le1"]
 
 [node name="Porte_ouverte" type="StaticBody2D" unique_id=470861941]
+input_pickable = true
 
 [node name="Porte_ouverte" type="CollisionPolygon2D" parent="." unique_id=746534166]
 polygon = PackedVector2Array(1438, 299, 1433, 826, 1551, 981, 1570, 573, 1575, 517, 1585, 421, 1598, 293, 1609, 248)

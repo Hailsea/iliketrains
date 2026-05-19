@@ -1,0 +1,60 @@
+{
+	"triggers" : {
+		"Distributeur_avant":[
+			{"condition":{"episode":["coucou"],"item":[]}, "event":"dialogue1"},
+			{"condition":{"episode":[],"item":[]}, "event":"dialogue2"}
+		]
+	},
+	"events":{
+		"dialogue1": [
+			{"type":"line","text":
+				[
+					{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"Salut ! Voila où j'en suis pour l'interface de dialogue, c'est pas encore très avancé mais c'est un début.","properties":["unskip"]},
+					{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"Ça supporte la [color=red]couleur[/color] et le rich text de Godot donc c'est sympa !","properties":[]},
+					{"character":"futaba","emotion":"neutral","character_name":"Futaba","text":"Coucou ! On peut avoir plusieurs personnages !","properties":[]},
+					{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"Et vous savez quoi ?","properties":[]},
+					{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"J'ai perdu !","properties":[],"speed":1},
+					{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"...","properties":[],"speed":10}
+				]
+			},
+			{"type":"print","parameter":"yeyyyy"},
+			{"type":"line","text":[{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"Nyark","properties":[]}]},
+		],
+		"dialogue2": [
+			{"type":"line","text":
+				[
+					{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"Dialogue2 1","properties":[]},
+					{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"Dialogue2 2","properties":[]},
+				]
+			},
+			{"type":"choice","choices":
+				[
+					{"condition":{"episode":[],"item":[]}, "text":"AGROUGROU", "event":"agrou"},
+					{"condition":{"episode":[],"item":[]}, "text":"AGROUGROUGROU", "event":"agrou2"},
+					{"condition":{"episode":["coucou"],"item":[]}, "text":"AGROU", "event":"agrou3"},
+				]
+			}
+		],
+		"agrou": [
+			{"type":"line","text":
+				[
+					{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"agrou 1","properties":[]},
+				]
+			},
+		],
+		"agrou2": [
+			{"type":"line","text":
+				[
+					{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"agrou 2","properties":[]},
+				]
+			},
+		],
+		"agrou3": [
+			{"type":"line","text":
+				[
+					{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"agrou 3","properties":[]},
+				]
+			},
+		]
+	}
+}
