@@ -2,17 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dyeyfchd3juk4" path="res://Scripts/main_test.gd" id="1_bhhyf"]
 [ext_resource type="PackedScene" uid="uid://df6s3t1wxotbo" path="res://Scenes/dialog_UI.tscn" id="2_oqdhm"]
-[ext_resource type="Texture2D" uid="uid://bnyax2ch5gbix" path="res://Assets/Sprites/station.jpg" id="2_ycov7"]
+[ext_resource type="PackedScene" uid="uid://beftx2d4cbv4h" path="res://Scenes/full_scene_platform.tscn" id="2_ycov7"]
 [ext_resource type="PackedScene" uid="uid://se12xrrmy3jc" path="res://Scenes/think_UI.tscn" id="3_ycov7"]
 
 [node name="MainTest" type="Node" unique_id=1940308254]
 script = ExtResource("1_bhhyf")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1065668249]
-visible = false
-position = Vector2(942, 574)
-scale = Vector2(1.0682292, 1.0757812)
-texture = ExtResource("2_ycov7")
+[node name="Platform_background" parent="." unique_id=991292017 instance=ExtResource("2_ycov7")]
 
 [node name="UI_Elements" type="Control" parent="." unique_id=1009208007]
 layout_mode = 3
@@ -21,14 +17,14 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 
 [node name="DialogUI" parent="UI_Elements" unique_id=865221122 instance=ExtResource("2_oqdhm")]
-visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.65
+anchor_top = 0.6
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 0.0
 offset_bottom = 0.0
+grow_vertical = 0
 
 [node name="ThinkUI" parent="UI_Elements" unique_id=1741717176 instance=ExtResource("3_ycov7")]
 visible = false
@@ -37,8 +33,7 @@ anchors_preset = -1
 anchor_top = 0.62
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 644.8
-offset_right = 579.0
-offset_bottom = 979.6
+offset_right = 0.0
+offset_bottom = 0.0
 
 [connection signal="end_dialog" from="UI_Elements/DialogUI" to="." method="_on_dialog_end"]

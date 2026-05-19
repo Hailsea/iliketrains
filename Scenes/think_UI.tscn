@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://se12xrrmy3jc"]
 
+[ext_resource type="Script" uid="uid://qxbjfl0nlcwd" path="res://Scripts/choices.gd" id="1_7fx7q"]
 [ext_resource type="Texture2D" uid="uid://b1psp36vk1y3h" path="res://Assets/Sprites/Portraits/mishima/neutral.png" id="2_qnf2k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvtue"]
@@ -8,6 +9,7 @@ bg_color = Color(0.6313726, 0.5019608, 0.9607843, 0.2509804)
 [node name="ThinkUI" type="HBoxContainer" unique_id=865221122]
 offset_right = 1920.0
 offset_bottom = 350.0
+script = ExtResource("1_7fx7q")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=854754653]
 layout_mode = 2
@@ -49,24 +51,24 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ButtonsMargin" unique_id=16738618]
+[node name="ContainerButton" type="VBoxContainer" parent="HBoxContainer/ButtonsMargin" unique_id=16738618]
 layout_mode = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="HBoxContainer/ButtonsMargin/VBoxContainer" unique_id=1101969254]
+[node name="Choix1" type="Button" parent="HBoxContainer/ButtonsMargin/ContainerButton" unique_id=1101969254]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 text = "Choix 1"
 
-[node name="Button2" type="Button" parent="HBoxContainer/ButtonsMargin/VBoxContainer" unique_id=1982521848]
+[node name="Choix2" type="Button" parent="HBoxContainer/ButtonsMargin/ContainerButton" unique_id=1982521848]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
-text = "Choix 1"
+text = "Choix 2"
 
-[node name="Button3" type="Button" parent="HBoxContainer/ButtonsMargin/VBoxContainer" unique_id=751428777]
+[node name="Choix3" type="Button" parent="HBoxContainer/ButtonsMargin/ContainerButton" unique_id=751428777]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
-text = "Choix 1"
+text = "Choix 3"
 
 [node name="PlayerPortrait" type="TextureRect" parent="." unique_id=914911652]
 custom_minimum_size = Vector2(350, 350)
@@ -75,3 +77,7 @@ size_flags_vertical = 8
 texture = ExtResource("2_qnf2k")
 expand_mode = 1
 flip_h = true
+
+[connection signal="pressed" from="HBoxContainer/ButtonsMargin/ContainerButton/Choix1" to="." method="_on_choix_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonsMargin/ContainerButton/Choix2" to="." method="_on_choix_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonsMargin/ContainerButton/Choix3" to="." method="_on_choix_3_pressed"]
