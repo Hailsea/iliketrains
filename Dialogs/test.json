@@ -1,8 +1,8 @@
 {
 	"triggers" : {
 		"Distributeur_avant":[
-			{"condition":{"episode":["coucou"],"item":[]}, "event":"dialogue1"},
-			{"condition":{"episode":[],"item":[]}, "event":"dialogue2"}
+			{"condition":[], "event":"dialogue1"},
+			{"condition":[], "event":"dialogue2"}
 		]
 	},
 	"events":{

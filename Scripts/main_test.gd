@@ -7,10 +7,7 @@ var in_event:bool = false
 var loaded_event:String = ""
 var dialog_data:Dictionary
 
-var player_data:Dictionary = {
-	"episodes":[],
-	"items":[]
-}
+var player_data:Array = []
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,6 +16,7 @@ func _ready() -> void:
 	print(file)
 	var json_as_text = FileAccess.get_file_as_string(file)
 	dialog_data = JSON.parse_string(json_as_text)
+	#load_trigger("alix")
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -40,13 +38,12 @@ func load_trigger(trigger:String):
 			await process_event(event["event"])
 		
 func verify_condition(condition):
-	for episode in condition["episode"]:
-		if episode not in player_data["episodes"]: return false
-	for item in condition["item"]:
-		if item not in player_data["item"]: return false
+	for episode in condition:
+		if episode not in player_data: return false
 	return true
 	
 func process_event(event:String):
+	$UI_Elements/Thoughts.hide()
 	if not dialog_data["events"].has(event):
 		print("No event")
 	
@@ -66,6 +63,18 @@ func process_action(action:Dictionary):
 		print(action["parameter"])
 	elif action["type"] == "choice":
 		await load_choices(action["choices"])
+	elif action["type"] == "trigger":
+		load_trigger(action["trigger"])
+	elif action["type"] == "silence":
+		$EventDelay.wait_time = action["time"]
+		$EventDelay.start()
+		await $EventDelay.timeout
+	elif action["type"] == "sceneload":
+		pass
+	elif action["type"] == "flashback":
+		pass 
+	elif action["type"] == "add_save":
+		player_data.push_back(action["episode"])
 		
 
 func load_dialog(lines):
@@ -89,8 +98,8 @@ func load_choices(choices):
 	process_event(choices[final_choice]["event"])
 	
 	
-		
-
-
 func _on_platform_background_update_element_hovered() -> void:
+	var tween = create_tween()
+	tween.tween_property($UI_Elements/Thoughts,"scale:y",0,0)
 	$UI_Elements/Thoughts/Texte.text = $Platform_background.element_hovered()
+	tween.tween_property($UI_Elements/Thoughts,"scale:y",1,0.15)

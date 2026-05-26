@@ -25,39 +25,13 @@ var previous_character: String = "" # Pour lancer l'animation de changement de p
 
 # ==== Potentiellement à supprimer ====
 var index:int = 0 # Index de la ligne en cours 
-var lines = [
-	{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"Salut ! Voila où j'en suis pour l'interface de dialogue, c'est pas encore très avancé mais c'est un début.","properties":["unskip"]},
-	{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"Ça supporte la [color=red]couleur[/color] et le rich text de Godot donc c'est sympa !","properties":[]},
-	{"character":"futaba","emotion":"neutral","character_name":"Futaba","text":"Coucou ! On peut avoir plusieurs personnages !","properties":[]},
-	{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"Et vous savez quoi ?","properties":[]},
-	{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"J'ai perdu !","properties":[],"speed":1},
-	{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"...","properties":[],"speed":10},
-	{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"Salut ! Voila où j'en suis pour l'interface de dialogue, c'est pas encore très avancé mais c'est un début.","properties":["unskip"]},
-	{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"Ça supporte la [color=red]couleur[/color] et le rich text de Godot donc c'est sympa !","properties":[]},
-	{"character":"futaba","emotion":"neutral","character_name":"Futaba","text":"Coucou ! On peut avoir plusieurs personnages !","properties":[]},
-	{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"Et vous savez quoi ?","properties":[]},
-	{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"J'ai perdu !","properties":[],"speed":1},
-	{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"...","properties":[],"speed":10},
-	{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"Salut ! Voila où j'en suis pour l'interface de dialogue, c'est pas encore très avancé mais c'est un début.","properties":["unskip"]},
-	{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"Ça supporte la [color=red]couleur[/color] et le rich text de Godot donc c'est sympa !","properties":[]},
-	{"character":"futaba","emotion":"neutral","character_name":"Futaba","text":"Coucou ! On peut avoir plusieurs personnages !","properties":[]},
-	{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"Et vous savez quoi ?","properties":[]},
-	{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"J'ai perdu !","properties":[],"speed":1},
-	{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"...","properties":[],"speed":10},
-	{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"Salut ! Voila où j'en suis pour l'interface de dialogue, c'est pas encore très avancé mais c'est un début.","properties":["unskip"]},
-	{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"Ça supporte la [color=red]couleur[/color] et le rich text de Godot donc c'est sympa !","properties":[]},
-	{"character":"futaba","emotion":"neutral","character_name":"Futaba","text":"Coucou ! On peut avoir plusieurs personnages !","properties":[]},
-	{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"Et vous savez quoi ?","properties":[]},
-	{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"J'ai perdu !","properties":[],"speed":1},
-	{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"...","properties":[],"speed":10},
-	{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"Salut ! Voila où j'en suis pour l'interface de dialogue, c'est pas encore très avancé mais c'est un début.","properties":["unskip"]},
-	{"character":"mishima","emotion":"neutral","character_name":"Mishima","text":"Ça supporte la [color=red]couleur[/color] et le rich text de Godot donc c'est sympa !","properties":[]},
-	{"character":"futaba","emotion":"neutral","character_name":"Futaba","text":"Coucou ! On peut avoir plusieurs personnages !","properties":[]},
-	{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"Et vous savez quoi ?","properties":[]},
-	{"character":"futaba","emotion":"smiling","character_name":"Futaba","text":"J'ai perdu !","properties":[],"speed":1},
-	{"character":"mishima","emotion":"sad","character_name":"Mishima","text":"...","properties":[],"speed":10},
-] 
+var lines = [] 
 # ====
+
+var characters_info = {
+	"protag":{"speed":40,"name":"Protagoniste"},
+	"alix":{"speed":40,"name":"Alix"},
+}
 
 var tween : Tween # Tween pour les animations
 
@@ -104,8 +78,10 @@ func display_line(line: Dictionary):
 	var img = Image.load_from_file(path)
 	var texture = ImageTexture.create_from_image(img) # Chargement de la texture du portrait pour le TextureRect
 	
-	
-	character_name.text = line["character_name"] # Changement nom du perso
+	if line.has("character_name"):
+		character_name.text = line["character_name"] # Changement nom du perso
+	else:
+		character_name.text = characters_info[line["character"]]["name"]
 	text.text = line["text"] # Changement contenu du texte
 	
 	if "unskip" in line["properties"]:

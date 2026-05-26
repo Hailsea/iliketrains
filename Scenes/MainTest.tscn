@@ -9,20 +9,16 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3a646"]
 shader = ExtResource("5_ycov7")
-shader_parameter/aberration_strength = 0.1600000076
-shader_parameter/blur_strength = 0.56400002679
-shader_parameter/noise_strength = 0.0
-shader_parameter/vignette_strength = 0.3330000158175
-shader_parameter/scanline_strength = 0.01600000076
-shader_parameter/distortion_strength = 0.010000000475
-shader_parameter/ghost_strength = 0.0210000009975
-shader_parameter/flicker_strength = 0.0070000003325
+shader_parameter/blur_radius = 0.13600000646
+shader_parameter/blur_amount = 1.0
+shader_parameter/blur_inner = 0.6
+shader_parameter/blur_outer = 0.66
 
-[node name="MainTest" type="Node" unique_id=1940308254]
+[node name="MainGame" type="Node" unique_id=1940308254]
 script = ExtResource("1_bhhyf")
 
 [node name="Platform_background" parent="." unique_id=991292017 instance=ExtResource("2_ycov7")]
-events_file = "res://Dialogs/test.json"
+events_file = "res://Dialogs/jardindesplantes_quai.json"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1128689314]
 zoom = Vector2(1.2, 1.2)
@@ -61,6 +57,7 @@ offset_right = 0.0
 offset_bottom = 0.0
 
 [node name="Thoughts" type="PanelContainer" parent="UI_Elements" unique_id=608800302]
+visible = false
 anchors_preset = -1
 anchor_right = 0.29000002
 anchor_bottom = 0.347
@@ -68,6 +65,7 @@ offset_left = 901.0
 offset_top = 812.0
 offset_right = 1299.2
 offset_bottom = 670.24
+pivot_offset_ratio = Vector2(0, 0.5)
 
 [node name="Texte" type="RichTextLabel" parent="UI_Elements/Thoughts" unique_id=1722894126]
 layout_mode = 2
@@ -75,6 +73,8 @@ theme_override_font_sizes/normal_font_size = 50
 text = "Scène"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="EventDelay" type="Timer" parent="." unique_id=1926915563]
 
 [connection signal="update_element_hovered" from="Platform_background" to="." method="_on_platform_background_update_element_hovered"]
 [connection signal="end_dialog" from="UI_Elements/DialogUI" to="." method="_on_dialog_end"]
