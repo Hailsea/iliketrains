@@ -14,7 +14,7 @@ var scene_background
 func _ready() -> void:
 	var file = $Platform_background.events_file
 	load_scene_events(file)
-	
+	print(get_child(0).position)
 	scene_background=preload("res://Scenes/full_scene_platform_with_templates.tscn")
 	#load_trigger("alix")
 	
@@ -30,8 +30,9 @@ func _input(event: InputEvent) -> void:
 			in_event = true
 			load_trigger(element)
 	if Input.is_key_pressed(KEY_R):
-		print("Key pressed")
-		change_scene("full_scene_platform_with_templates",["Pub","Distributeur_arriere","Garcon","Banc"])
+		change_scene("environnement_exterieur_sansmetro",["Pub","Distributeur_arriere","Garcon","Banc"])
+	if Input.is_key_pressed(KEY_T):
+		change_scene("environnement_exterieur_sansmetro",["Pub","Distributeur_avant","Banc","Metro_ouvert","Porte_ouverte"])
 
 func load_trigger(trigger:String):
 	print(dialog_data)
@@ -104,11 +105,7 @@ func load_choices(choices):
 	process_event(choices[final_choice]["event"])
 
 func change_scene(Background:String, Elements:Array[String]):
-	for i in get_children():
-		if i.name=="Platform_background":
-			i.queue_free()
-	var background_node=scene_background.instantiate()
-	move_child(background_node,0)
+	var background_node=get_child(0)
 	background_node.change_elements(Background,Elements)
 
 func _on_platform_background_update_element_hovered() -> void:

@@ -55,6 +55,11 @@ func element_hovered() -> String:
 	return interactive_element["last"]
 
 func change_elements(background: String, elements: Array[String]) -> void:
-	backgrounds[background].instantiate()
-	for element in elements:
-		scene_instances[element].instantiate()
+	get_child(0).texture=load("res://Assets/SI28_metro_assets/"+background+".png")
+	for child in get_children():
+		if child==get_child(0):
+			continue
+		child.queue_free()
+	for i in scene_instances:
+		if i in elements:
+			add_child(scene_instances[i].instantiate())

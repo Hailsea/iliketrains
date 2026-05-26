@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d188vvdtys7pi"]
 
 [ext_resource type="Script" uid="uid://cwhvbpntyhyqk" path="res://Scripts/platform_background_change.gd" id="1_n8bsg"]
-[ext_resource type="Texture2D" uid="uid://yrx2sbdjk8k3" path="res://Assets/SI28_metro_assets/environnement_exterieur_sansmetro.png" id="2_oxau7"]
+[ext_resource type="Texture2D" uid="uid://3yocw0vbu64c" path="res://Assets/SI28_metro_assets/environnement_exterieur_sansmetro.png" id="2_oxau7"]
 [ext_resource type="PackedScene" path="res://Scenes/Interactive_elements/Pub.tscn" id="3_oxau7"]
 [ext_resource type="PackedScene" path="res://Scenes/Interactive_elements/Banc.tscn" id="4_dm7ll"]
 [ext_resource type="PackedScene" path="res://Scenes/Interactive_elements/Distributeur_avant.tscn" id="5_jfpto"]
