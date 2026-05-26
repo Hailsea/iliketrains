@@ -8,7 +8,7 @@ var loaded_event:String = ""
 var dialog_data:Dictionary
 
 var player_data:Array = []
-
+var scene_background
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,6 +16,7 @@ func _ready() -> void:
 	print(file)
 	var json_as_text = FileAccess.get_file_as_string(file)
 	dialog_data = JSON.parse_string(json_as_text)
+	scene_background=preload("res://Scenes/full_scene_platform_with_templates.tscn")
 	#load_trigger("alix")
 	
 func _input(event: InputEvent) -> void:
@@ -24,8 +25,9 @@ func _input(event: InputEvent) -> void:
 			var element = $Platform_background.element_hovered()
 			in_event = true
 			load_trigger(element)
-			
-		
+	if Input.is_key_pressed(KEY_R):
+		print("Key pressed")
+		change_scene("full_scene_platform_with_templates",["Pub","Distributeur_arriere","Garcon","Banc"])
 
 func load_trigger(trigger:String):
 	print(dialog_data)
@@ -96,8 +98,15 @@ func load_choices(choices):
 	choices_ui.hide()
 	
 	process_event(choices[final_choice]["event"])
-	
-	
+
+func change_scene(Background:String, Elements:Array[String]):
+	for i in get_children():
+		if i.name=="Platform_background":
+			i.queue_free()
+	var background_node=scene_background.instantiate()
+	move_child(background_node,0)
+	background_node.change_elements(Background,Elements)
+
 func _on_platform_background_update_element_hovered() -> void:
 	var tween = create_tween()
 	tween.tween_property($UI_Elements/Thoughts,"scale:y",0,0)

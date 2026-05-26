@@ -1,9 +1,11 @@
 extends Node2D
 
+@export var events_file:String
+
 var interactive_element:Dictionary={"last":"Background"}
 var current_element:String=interactive_element["last"]
-var scene_instances:Dictionary={}
-var backgrounds:Dictionary={}
+var scene_instances:Dictionary[String,PackedScene]={}
+var backgrounds:Dictionary[String,PackedScene]={}
 
 func _instantiate() -> void:
 	pass
@@ -11,9 +13,10 @@ func _instantiate() -> void:
 func _ready() -> void:
 	for i in ["environnement_exterieur_sansmetro"]:
 		var sprite_node = Sprite2D.new()
-		sprite_node.texture = load("res://Assets/"+i+".png")
+		sprite_node.texture = load("res://Assets/SI28_metro_assets/"+i+".png")
 		var scene = PackedScene.new()
-		backgrounds[i]=scene.pack(sprite_node)
+		scene.pack(sprite_node)
+		backgrounds[i]=scene
 	for i in ["Distributeur_arriere", "Pub","Carte","Banc","Distributeur_avant","Metro_ferme","Metro_ouvert","Porte_ouverte","Mere_fille","Garcon"]:
 		scene_instances[i]=load("res://Scenes/Interactive_elements/"+i+".tscn")
 
@@ -35,7 +38,6 @@ func connect_signals() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	current_element=element_hovered()
-	print(current_element)
 	pass
 
 func update_hover(nom: String,action: bool) -> void:
@@ -56,7 +58,3 @@ func change_elements(background: String, elements: Array[String]) -> void:
 	backgrounds[background].instantiate()
 	for element in elements:
 		scene_instances[element].instantiate()
-
-func instantiate(path:String):
-	pass
-	
