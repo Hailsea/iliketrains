@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dyeyfchd3juk4" path="res://Scripts/main_test.gd" id="1_bhhyf"]
 [ext_resource type="PackedScene" uid="uid://df6s3t1wxotbo" path="res://Scenes/dialog_UI.tscn" id="2_oqdhm"]
-[ext_resource type="PackedScene" uid="uid://dfl2qeco70yhy" path="res://Scenes/full_scene_platform_with_templates.tscn" id="2_ycov7"]
-[ext_resource type="Script" uid="uid://bvkknqocf7xth" path="res://Scripts/camera_2d.gd" id="3_3a646"]
+[ext_resource type="PackedScene" uid="uid://d188vvdtys7pi" path="res://Scenes/full_scene_platform_with_templates.tscn" id="2_ycov7"]
+[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="3_3a646"]
 [ext_resource type="PackedScene" uid="uid://se12xrrmy3jc" path="res://Scenes/think_UI.tscn" id="3_ycov7"]
 [ext_resource type="Shader" uid="uid://bwkwny4mapsa" path="res://Shaders/Scene.gdshader" id="5_ycov7"]
 
@@ -75,5 +75,4 @@ vertical_alignment = 1
 
 [node name="EventDelay" type="Timer" parent="." unique_id=1926915563]
 
-[connection signal="update_element_hovered" from="Platform_background" to="." method="_on_platform_background_update_element_hovered"]
 [connection signal="end_dialog" from="UI_Elements/DialogUI" to="." method="_on_dialog_end"]
