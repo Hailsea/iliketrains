@@ -30,7 +30,7 @@ var lines = []
 
 var characters_info = {
 	"protag":{"speed":40,"name":"Protagoniste"},
-	"alix":{"speed":40,"name":"Alix"},
+	"alix":{"speed":30,"name":"Alix"},
 }
 
 var tween : Tween # Tween pour les animations

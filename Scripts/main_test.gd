@@ -14,8 +14,7 @@ var player_data:Array = []
 func _ready() -> void:
 	var file = $Platform_background.events_file
 	load_scene_events(file)
-	
-	#load_trigger("alix")
+	load_trigger("alix")
 	
 func load_scene_events(file:String):
 	var json_as_text = FileAccess.get_file_as_string(file)
