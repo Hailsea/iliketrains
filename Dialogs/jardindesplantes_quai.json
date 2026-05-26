@@ -1,18 +1,21 @@
 {
-	"triggers":{
-		"alix":[{"condition":[],"event":"rencontre_alix"}]
-	},
 	"events":{
-		"rencontre_alix":[
-			{"type":"line","text":[
-				{"character":"protag","emotion":"surprise","text":"Alix ? Ça fait un bail !","properties":[]},
-				{"character":"alix","emotion":"surprise","text":"Hein ? Oh ! Oui ça fait longtemps...","properties":[]},
-				{"character":"protag","emotion":"neutral","text":"Tu prends cette ligne ?","properties":[]},
-				{"character":"alix","emotion":"sad","text":"Ouais, je vais, euh, au terminus.","properties":[]},
-				{"character":"protag","emotion":"neutral","text":"Je vais aussi par là, on fait le trajet ensemble ?","properties":[]},
-				{"character":"alix","emotion":"surprise","text":"Euh, oui, oui. Avec plaisir. ","properties":[]},
-				
-			]}
-		]
-	}
+		"triggers":{
+			"alix":[{"condition":[],"event":"rencontre_alix"}]
+		},
+		"events":{
+			"rencontre_alix":[
+				{"type":"line","text":[
+					{"character":"protag","emotion":"surprise","text":"Alix ? Ça fait un bail !","properties":[]},
+					{"character":"alix","emotion":"surprise","text":"Hein ? Oh ! Oui ça fait longtemps...","properties":[]},
+					{"character":"protag","emotion":"neutral","text":"Tu prends cette ligne ?","properties":[]},
+					{"character":"alix","emotion":"sad","text":"Ouais, je vais, euh, au terminus.","properties":[]},
+					{"character":"protag","emotion":"neutral","text":"Je vais aussi par là, on fait le trajet ensemble ?","properties":[]},
+					{"character":"alix","emotion":"surprise","text":"Euh, oui, oui. Avec plaisir. ","properties":[]},
+					
+				]}
+			]
+		}
+	},
+	"thoughts":[]
 }

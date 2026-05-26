@@ -13,11 +13,15 @@ var player_data:Array = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var file = $Platform_background.events_file
-	print(file)
-	var json_as_text = FileAccess.get_file_as_string(file)
-	dialog_data = JSON.parse_string(json_as_text)
+	load_scene_events(file)
+	
 	#load_trigger("alix")
 	
+func load_scene_events(file:String):
+	var json_as_text = FileAccess.get_file_as_string(file)
+	var data = JSON.parse_string(json_as_text)
+	dialog_data = data["events"]
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if not in_event:
