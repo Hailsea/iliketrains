@@ -96,3 +96,5 @@ size_flags_vertical = 8
 texture = ExtResource("2_xrlft")
 expand_mode = 1
 stretch_mode = 6
+
+[node name="CharacterSoundEffect" type="AudioStreamPlayer" parent="." unique_id=1562103172]

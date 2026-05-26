@@ -1,5 +1,26 @@
 [gd_scene format=3 uid="uid://dc0kiumdanwtu"]
 
+[ext_resource type="Texture2D" uid="uid://yp87mludlns4" path="res://Assets/Sprites/phone.png" id="1_oju8d"]
+[ext_resource type="Texture2D" uid="uid://0hpkjk8cqt8i" path="res://Assets/Sprites/Portraits/lucien/happy.png" id="2_knwvw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_knwvw"]
+content_margin_left = 35.0
+content_margin_top = 30.0
+content_margin_right = 55.0
+content_margin_bottom = 45.0
+texture = ExtResource("1_oju8d")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5ye2"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knwvw"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.1, 0.1, 0.1, 1)
+corner_detail = 20
+
 [node name="Phone" type="Control" unique_id=820931979]
 layout_mode = 3
 anchors_preset = 15
@@ -10,5 +31,208 @@ grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1245196087]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 422.0
+offset_bottom = 665.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_knwvw")
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer" unique_id=1987083888]
+show_behind_parent = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m5ye2")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/PanelContainer" unique_id=1408357351]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 45
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer" unique_id=1807018211]
+layout_mode = 2
+
+[node name="TopName" type="HBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1670034675]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+alignment = 1
+
+[node name="Lucien" type="TextureRect" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/TopName" unique_id=863321940]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_knwvw")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/TopName" unique_id=16526071]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "[b]Lucien[/b]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1680547092]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2069378867]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Messages" type="VBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=524064129]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Corpus" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=903653108]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[color=green]Lucien[/color]
+J'aime les CHIPS"
+
+[node name="Corpus2" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=940437000]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[color=green]Lucien[/color]
+J'aime les CHIPS"
+
+[node name="Corpus3" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=322806460]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[color=green]Lucien[/color]
+J'aime les CHIPS"
+
+[node name="Corpus4" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1244421765]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[color=green]Lucien[/color]
+J'aime les CHIPS"
+
+[node name="Corpus5" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=948664090]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[color=green]Lucien[/color]
+J'aime les CHIPS"
+
+[node name="Corpus6" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=849499414]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[color=green]Lucien[/color]
+J'aime les CHIPS"
+
+[node name="Corpus7" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1230891282]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[color=green]Lucien[/color]
+J'aime les CHIPS"
+
+[node name="Corpus8" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1535923884]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[color=green]Lucien[/color]
+J'aime les CHIPS"
+
+[node name="Corpus9" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=111809913]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[color=green]Lucien[/color]
+J'aime les CHIPS"
+
+[node name="Corpus10" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=801903028]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[color=green]Lucien[/color]
+J'aime les CHIPS"
+
+[node name="Corpus11" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=93189423]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[color=green]Lucien[/color]
+J'aime les CHIPS"
+
+[node name="Corpus12" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=332604245]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[color=green]Lucien[/color]
+J'aime les CHIPS"
+
+[node name="Corpus13" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1739614260]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[color=green]Lucien[/color]
+J'aime les CHIPS"
+
+[node name="Corpus14" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1693914520]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[color=green]Lucien[/color]
+J'aime les CHIPS"

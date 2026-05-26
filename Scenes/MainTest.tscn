@@ -57,7 +57,6 @@ offset_right = 0.0
 offset_bottom = 0.0
 
 [node name="Thoughts" type="PanelContainer" parent="UI_Elements" unique_id=608800302]
-visible = false
 anchors_preset = -1
 anchor_right = 0.29000002
 anchor_bottom = 0.347
