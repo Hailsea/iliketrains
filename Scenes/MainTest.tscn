@@ -10,7 +10,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3a646"]
 shader = ExtResource("5_ycov7")
-shader_parameter/blur_radius = 0.13600000646
+shader_parameter/blur_radius = 0.2
 shader_parameter/blur_amount = 1.0
 shader_parameter/blur_inner = 0.6
 shader_parameter/blur_outer = 0.66
@@ -26,6 +26,7 @@ shader_parameter/blur_outer = 0.66
 script = ExtResource("1_bhhyf")
 
 [node name="Platform_background" parent="." unique_id=991292017 instance=ExtResource("2_ycov7")]
+modulate = Color(0.82, 0.82, 0.82, 1)
 events_file = "res://Dialogs/jardindesplantes_quai.json"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1128689314]
@@ -41,6 +42,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_filter = 2
 
 [node name="Flashback" type="CanvasLayer" parent="." unique_id=448420789]
@@ -81,7 +83,6 @@ offset_right = 0.0
 offset_bottom = 0.0
 
 [node name="Thoughts" type="PanelContainer" parent="UI_Elements" unique_id=608800302]
-visible = false
 anchors_preset = -1
 anchor_right = 0.29000002
 anchor_bottom = 0.347

@@ -35,18 +35,17 @@ func _input(event: InputEvent) -> void:
 			in_event = true
 			load_trigger(element)
 	if Input.is_key_pressed(KEY_R):
-		print("Key pressed")
 		change_scene("full_scene_platform_with_templates",["Pub","Distributeur_arriere","Garcon","Banc"])
 
 func load_trigger(trigger:String):
-	print(dialog_data)
 	if not dialog_data["triggers"].has(trigger):
 		print("No trigger");
 	
 	var events_list = dialog_data["triggers"][trigger]
 	for event in events_list:
 		if verify_condition(event["condition"]):
-			await process_event(event["event"])
+			process_event(event["event"])
+			break
 		
 func verify_condition(condition):
 	for episode in condition:
@@ -60,12 +59,15 @@ func process_event(event:String):
 	
 	in_event = true
 	var actions_list = dialog_data["events"][event]
+	var next = null
 	for action in actions_list:
-		await process_action(action) 
+		next = await process_action(action) 
 	
 	in_event = false
-	print("Fin de l'event " + event)
 	$UI_Elements/Thoughts.show()
+	
+	if next != null:
+		load_trigger(next)
 
 func process_action(action:Dictionary):
 	if action["type"] == "line":
@@ -74,8 +76,6 @@ func process_action(action:Dictionary):
 		print(action["parameter"])
 	elif action["type"] == "choice":
 		await load_choices(action["choices"])
-	elif action["type"] == "trigger":
-		load_trigger(action["trigger"])
 	elif action["type"] == "silence":
 		$EventDelay.wait_time = action["time"]
 		$EventDelay.start()
@@ -89,7 +89,9 @@ func process_action(action:Dictionary):
 	elif action["type"] == "add_save":
 		player_data.push_back(action["episode"])
 	elif action["type"] == "trigger":
-		process_event(action["trigger"])
+		return action["trigger"]
+	
+	return null
 		
 
 func load_dialog(lines):
