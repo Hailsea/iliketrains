@@ -29,11 +29,13 @@ var lines = []
 # ====
 
 var characters_info = {
-	"protag":{"speed":40,"name":"Protagoniste"},
-	"alix":{"speed":30,"name":"Alix"},
+	"protag":{"speed":40,"name":"Protagoniste","pitch":1},
+	"alix":{"speed":30,"name":"Alix","pitch":1},
 }
 
 var tween : Tween # Tween pour les animations
+
+var old_character_visible = -1
 
 func _ready() -> void:
 	pass
@@ -43,6 +45,9 @@ func _process(delta):
 	if animate_text:
 		if text.visible_ratio < 1:
 			text.visible_ratio += (1.0/text.text.length()) * (anim_speed * delta)
+			if old_character_visible != text.visible_characters:
+				old_character_visible = text.visible_characters
+				$CharacterSoundEffect.play()
 		else:
 			animate_text = false
 			
@@ -78,6 +83,8 @@ func display_line(line: Dictionary):
 	var img = Image.load_from_file(path)
 	var texture = ImageTexture.create_from_image(img) # Chargement de la texture du portrait pour le TextureRect
 	
+	$CharacterSoundEffect.pitch_scale = characters_info[line["character"]]["pitch"]
+	
 	if line.has("character_name"):
 		character_name.text = line["character_name"] # Changement nom du perso
 	else:
@@ -92,7 +99,8 @@ func display_line(line: Dictionary):
 	if line.has("speed"): # Vitesse animation
 		anim_speed = line["speed"]
 	else:
-		anim_speed = DEFAULT_SPEED
+		anim_speed = characters_info[line["character"]]["speed"]
+		#anim_speed = DEFAULT_SPEED
 		
 	start_typewriter()
 	

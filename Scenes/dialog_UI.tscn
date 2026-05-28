@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://2hnsunu5ooxv" path="res://Scripts/dialogue_ui.gd" id="1_7cant"]
 [ext_resource type="Texture2D" uid="uid://b8m8myo8lfxuh" path="res://Assets/Sprites/Portraits/protag/neutral.png" id="2_xrlft"]
+[ext_resource type="AudioStream" uid="uid://cn5swl0ae5new" path="res://Assets/Sounds/letter.ogg" id="3_pabmb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrlft"]
 bg_color = Color(0.12156863, 0.12156863, 0.12156863, 0.9098039)
@@ -98,3 +99,4 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="CharacterSoundEffect" type="AudioStreamPlayer" parent="." unique_id=1562103172]
+stream = ExtResource("3_pabmb")

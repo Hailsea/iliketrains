@@ -3,14 +3,22 @@
 [ext_resource type="Script" uid="uid://dyeyfchd3juk4" path="res://Scripts/main_test.gd" id="1_bhhyf"]
 [ext_resource type="PackedScene" uid="uid://df6s3t1wxotbo" path="res://Scenes/dialog_UI.tscn" id="2_oqdhm"]
 [ext_resource type="PackedScene" uid="uid://d188vvdtys7pi" path="res://Scenes/full_scene_platform_with_templates.tscn" id="2_ycov7"]
-[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="3_3a646"]
+[ext_resource type="Script" uid="uid://bvkknqocf7xth" path="res://Scripts/camera_2d.gd" id="3_3a646"]
 [ext_resource type="PackedScene" uid="uid://se12xrrmy3jc" path="res://Scenes/think_UI.tscn" id="3_ycov7"]
+[ext_resource type="Texture2D" uid="uid://csdfcxeqvcnxk" path="res://Assets/Sprites/table_de_jeux.png" id="5_4rwog"]
 [ext_resource type="Shader" uid="uid://bwkwny4mapsa" path="res://Shaders/Scene.gdshader" id="5_ycov7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3a646"]
 shader = ExtResource("5_ycov7")
 shader_parameter/blur_radius = 0.13600000646
 shader_parameter/blur_amount = 1.0
+shader_parameter/blur_inner = 0.6
+shader_parameter/blur_outer = 0.66
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nivcm"]
+shader = ExtResource("5_ycov7")
+shader_parameter/blur_radius = 0.4450000211375
+shader_parameter/blur_amount = 1.7450000828875
 shader_parameter/blur_inner = 0.6
 shader_parameter/blur_outer = 0.66
 
@@ -24,10 +32,26 @@ events_file = "res://Dialogs/jardindesplantes_quai.json"
 zoom = Vector2(1.2, 1.2)
 script = ExtResource("3_3a646")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1966071459]
+[node name="Shader" type="CanvasLayer" parent="." unique_id=1966071459]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=23576384]
+[node name="ColorRect" type="ColorRect" parent="Shader" unique_id=23576384]
 material = SubResource("ShaderMaterial_3a646")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Flashback" type="CanvasLayer" parent="." unique_id=448420789]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Flashback" unique_id=1457579723]
+texture = ExtResource("5_4rwog")
+centered = false
+
+[node name="Blur" type="ColorRect" parent="Flashback" unique_id=1286823155]
+material = SubResource("ShaderMaterial_nivcm")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -57,6 +81,7 @@ offset_right = 0.0
 offset_bottom = 0.0
 
 [node name="Thoughts" type="PanelContainer" parent="UI_Elements" unique_id=608800302]
+visible = false
 anchors_preset = -1
 anchor_right = 0.29000002
 anchor_bottom = 0.347

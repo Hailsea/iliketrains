@@ -9,14 +9,19 @@ var dialog_data:Dictionary
 
 var player_data:Array = []
 var scene_background
+var scene_data:Dictionary
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var file = $Platform_background.events_file
 	load_scene_events(file)
 	
+	var json_as_text = FileAccess.get_file_as_string(file)
+	scene_data = JSON.parse_string(json_as_text)
+	
+	
 	scene_background=preload("res://Scenes/full_scene_platform_with_templates.tscn")
-	#load_trigger("alix")
+	load_trigger("alix")
 	
 func load_scene_events(file:String):
 	var json_as_text = FileAccess.get_file_as_string(file)
@@ -76,11 +81,15 @@ func process_action(action:Dictionary):
 		$EventDelay.start()
 		await $EventDelay.timeout
 	elif action["type"] == "sceneload":
-		pass
+		var toload = scene_data[action["scene"]]
+		change_scene(toload["background"],toload["elements"])
+		load_scene_events(toload["events"])
 	elif action["type"] == "flashback":
 		pass 
 	elif action["type"] == "add_save":
 		player_data.push_back(action["episode"])
+	elif action["type"] == "trigger":
+		process_event(action["trigger"])
 		
 
 func load_dialog(lines):
