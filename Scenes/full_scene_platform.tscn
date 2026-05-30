@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cwhvbpntyhyqk" path="res://Scripts/platform_background_change.gd" id="1_li70b"]
 [ext_resource type="Texture2D" uid="uid://lyqwnsmil4is" path="res://Assets/SI28_metro_assets/Mere_fille_img.png" id="2_do2d4"]
 [ext_resource type="Texture2D" uid="uid://du0tndmxqqsi1" path="res://Assets/SI28_metro_assets/Metro_ouvert_img.png" id="2_m25kg"]
-[ext_resource type="Texture2D" uid="uid://3yocw0vbu64c" path="res://Assets/SI28_metro_assets/environnement_exterieur_sansmetro.png" id="3_li70b"]
+[ext_resource type="Texture2D" uid="uid://yrx2sbdjk8k3" path="res://Assets/SI28_metro_assets/environnement_exterieur_sansmetro.png" id="3_li70b"]
 [ext_resource type="Texture2D" uid="uid://7cg03daa6cgu" path="res://Assets/SI28_metro_assets/Pub_img.png" id="5_h307s"]
 [ext_resource type="Texture2D" uid="uid://bxarb3tvafk5a" path="res://Assets/SI28_metro_assets/Banc_img.png" id="6_2mlkf"]
 [ext_resource type="Texture2D" uid="uid://cuswgh3ukii0" path="res://Assets/SI28_metro_assets/Garcon_img.png" id="6_li70b"]

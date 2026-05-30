@@ -13,8 +13,7 @@
 					{"character":"protag","emotion":"neutral","text":"Je vais aussi par là, on fait le trajet ensemble ?","properties":[]},
 					{"character":"alix","emotion":"surprise","text":"Euh, oui, oui. Avec plaisir. ","properties":[]},
 					
-				]},
-				{"type":"trigger","trigger":"alix"}
+				]}
 			]
 		}
 	},
