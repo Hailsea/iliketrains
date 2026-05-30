@@ -1,7 +1,10 @@
+StaticBody2D
+CollisionPolygon2D
+Polygon2D
+Sprite2D
 RichTextLabel
 PanelContainer
 Control
-StaticBody2D
 Panel
 TextureRect
 HBoxContainer
