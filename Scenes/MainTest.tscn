@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://df6s3t1wxotbo" path="res://Scenes/dialog_UI.tscn" id="2_oqdhm"]
 [ext_resource type="PackedScene" uid="uid://d188vvdtys7pi" path="res://Scenes/full_scene_platform_with_templates.tscn" id="2_ycov7"]
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="3_3a646"]
+[ext_resource type="PackedScene" uid="uid://co74ofwm4yf3r" path="res://Scenes/metro_interieur.tscn" id="3_nivcm"]
 [ext_resource type="PackedScene" uid="uid://se12xrrmy3jc" path="res://Scenes/think_UI.tscn" id="3_ycov7"]
 [ext_resource type="Shader" uid="uid://bwkwny4mapsa" path="res://Shaders/Scene.gdshader" id="5_ycov7"]
 
@@ -19,6 +20,9 @@ script = ExtResource("1_bhhyf")
 
 [node name="Platform_background" parent="." unique_id=991292017 instance=ExtResource("2_ycov7")]
 events_file = "res://Dialogs/jardindesplantes_quai.json"
+
+[node name="Metro_background" parent="." unique_id=2044040248 instance=ExtResource("3_nivcm")]
+visible = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1128689314]
 zoom = Vector2(1.2, 1.2)
