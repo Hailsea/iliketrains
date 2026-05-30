@@ -2,13 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cwhvbpntyhyqk" path="res://Scripts/platform_background_change.gd" id="1_n8bsg"]
 [ext_resource type="Texture2D" uid="uid://3yocw0vbu64c" path="res://Assets/SI28_metro_assets/environnement_exterieur_sansmetro.png" id="2_oxau7"]
-[ext_resource type="PackedScene" path="res://Scenes/Interactive_elements/Pub.tscn" id="3_oxau7"]
-[ext_resource type="PackedScene" path="res://Scenes/Interactive_elements/Banc.tscn" id="4_dm7ll"]
-[ext_resource type="PackedScene" path="res://Scenes/Interactive_elements/Distributeur_avant.tscn" id="5_jfpto"]
-[ext_resource type="PackedScene" uid="uid://c8dmhsv88hw8v" path="res://Scenes/Interactive_elements/Metro_ouvert.tscn" id="6_75r75"]
-[ext_resource type="PackedScene" path="res://Scenes/Interactive_elements/Garcon.tscn" id="7_nfhf6"]
-[ext_resource type="PackedScene" uid="uid://chckgrsuj4py4" path="res://Scenes/Interactive_elements/Porte_ouverte.tscn" id="8_pxej5"]
-[ext_resource type="PackedScene" path="res://Scenes/Interactive_elements/Mere_fille.tscn" id="9_mm2v8"]
 
 [node name="Platform_background" type="Node2D" unique_id=991292017]
 script = ExtResource("1_n8bsg")
@@ -17,18 +10,3 @@ script = ExtResource("1_n8bsg")
 z_index = -1
 texture = ExtResource("2_oxau7")
 centered = false
-
-[node name="Pub" parent="." unique_id=306854189 instance=ExtResource("3_oxau7")]
-
-[node name="Banc" parent="." unique_id=1999281062 instance=ExtResource("4_dm7ll")]
-
-[node name="Distributeur_avant" parent="." unique_id=553474282 instance=ExtResource("5_jfpto")]
-
-[node name="Metro_ouvert" parent="." unique_id=892828015 instance=ExtResource("6_75r75")]
-position = Vector2(0, -7)
-
-[node name="Porte_ouverte" parent="." unique_id=470861941 instance=ExtResource("8_pxej5")]
-
-[node name="Mere_fille" parent="." unique_id=426213223 instance=ExtResource("9_mm2v8")]
-
-[node name="Garcon" parent="." unique_id=1076014158 instance=ExtResource("7_nfhf6")]

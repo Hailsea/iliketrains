@@ -1,5 +1,6 @@
-res://Scenes/full_scene_platform.tscn
-res://Scenes/dialog_UI.tscn
 res://Scenes/MainTest.tscn
-res://Scripts/platform_background_change.gd
 res://Scripts/main_test.gd
+res://Scenes/full_scene_platform_with_templates.tscn
+res://Scripts/platform_background_change.gd
+res://Scenes/dialog_UI.tscn
+res://Scenes/think_UI.tscn
