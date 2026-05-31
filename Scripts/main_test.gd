@@ -10,6 +10,8 @@ var dialog_data:Dictionary
 var player_data:Array = []
 var scene_type="platform"
 var scene_background
+var current_scene_elements:Array=[]
+var current_scene_background
 
 var scenes:Dictionary[String,Node2D]
 
@@ -128,6 +130,8 @@ func load_choices(choices):
 	process_event(choices[final_choice]["event"])
 
 func change_scene(Background:String, Elements:Array[String]):
+	current_scene_elements=Elements
+	current_scene_background=Background
 	print(Background)
 	var background_node
 	if Background.contains("exterieur"): 
@@ -142,6 +146,15 @@ func change_scene(Background:String, Elements:Array[String]):
 	background_node=scenes[scene_type]
 	background_node.change_elements(Background,Elements)
 	background_node.show_tree("-------------------------------Children")
+
+#bool=true -> ajouter un élément
+#bool=false -> enlever un élément
+func single_change_scene(element:String,mode:bool):
+	if mode:
+		current_scene_elements.append(element)
+	else:
+		current_scene_elements.erase(element)
+	change_scene(current_scene_background,current_scene_elements)
 
 func switch_door():
 	print(scene_type)
