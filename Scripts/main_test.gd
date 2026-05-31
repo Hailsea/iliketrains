@@ -10,31 +10,20 @@ var dialog_data:Dictionary
 var player_data:Array = []
 var scene_type="platform"
 var scene_background
-<<<<<<< HEAD
-var scene_data:Dictionary
-=======
+
 var scenes:Dictionary[String,Node2D]
->>>>>>> changements_laurent
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var file = $Platform_background.events_file
 	scenes={"platform":get_child(0),"metro":get_child(1)}
 	load_scene_events(file)
-<<<<<<< HEAD
-	
-	var json_as_text = FileAccess.get_file_as_string(file)
-	scene_data = JSON.parse_string(json_as_text)
-	
-	
-	scene_background=preload("res://Scenes/full_scene_platform_with_templates.tscn")
-	load_trigger("alix")
-=======
 	print(get_child(0).position)
 	scene_background=preload("res://Scenes/full_scene_platform_with_templates.tscn")
 	#load_trigger("alix")
 	#scene_background[scene_type].show_tree("---------START")
->>>>>>> changements_laurent
+
 	
 func load_scene_events(file:String):
 	var json_as_text = FileAccess.get_file_as_string(file)
@@ -48,9 +37,6 @@ func _input(event: InputEvent) -> void:
 			in_event = true
 			load_trigger(element)
 	if Input.is_key_pressed(KEY_R):
-<<<<<<< HEAD
-		change_scene("full_scene_platform_with_templates",["Pub","Distributeur_arriere","Garcon","Banc"])
-=======
 		print("----------------------------------------------------------------------R")
 		change_scene("environnement_exterieur_sansmetro",["Pub","Distributeur_arriere","Garcon","Banc"])
 	if Input.is_key_pressed(KEY_T):
@@ -59,7 +45,6 @@ func _input(event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_Y):
 		print("----------------------------------------------------------------------Y")
 		switch_door()
->>>>>>> changements_laurent
 
 func load_trigger(trigger:String):
 	if not dialog_data["triggers"].has(trigger):
@@ -105,7 +90,7 @@ func process_action(action:Dictionary):
 		$EventDelay.start()
 		await $EventDelay.timeout
 	elif action["type"] == "sceneload":
-		var toload = scene_data[action["scene"]]
+		var toload = scenes[action["scene"]]
 		change_scene(toload["background"],toload["elements"])
 		load_scene_events(toload["events"])
 	elif action["type"] == "flashback":
