@@ -4,10 +4,10 @@ ScrollContainer
 HSeparator
 RichTextLabel
 PanelContainer
-VBoxContainer
+Control
+Panel
 TextureRect
 HBoxContainer
-MarginContainer
 Timer
 CanvasLayer
 Camera2D

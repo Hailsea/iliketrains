@@ -8,20 +8,19 @@ var loaded_event:String = ""
 var dialog_data:Dictionary
 
 var player_data:Array = []
+var scene_type="platform"
 var scene_background
-var scene_data:Dictionary
+var scenes:Dictionary[String,Node2D]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var file = $Platform_background.events_file
+	scenes={"platform":get_child(0),"metro":get_child(1)}
 	load_scene_events(file)
-	
-	var json_as_text = FileAccess.get_file_as_string(file)
-	scene_data = JSON.parse_string(json_as_text)
-	
-	
+	print(get_child(0).position)
 	scene_background=preload("res://Scenes/full_scene_platform_with_templates.tscn")
-	load_trigger("alix")
+	#load_trigger("alix")
+	#scene_background[scene_type].show_tree("---------START")
 	
 func load_scene_events(file:String):
 	var json_as_text = FileAccess.get_file_as_string(file)
@@ -35,17 +34,24 @@ func _input(event: InputEvent) -> void:
 			in_event = true
 			load_trigger(element)
 	if Input.is_key_pressed(KEY_R):
-		change_scene("full_scene_platform_with_templates",["Pub","Distributeur_arriere","Garcon","Banc"])
+		print("----------------------------------------------------------------------R")
+		change_scene("environnement_exterieur_sansmetro",["Pub","Distributeur_arriere","Garcon","Banc"])
+	if Input.is_key_pressed(KEY_T):
+		print("----------------------------------------------------------------------T")
+		change_scene("environnement_exterieur_sansmetro",["Pub","Distributeur_avant","Banc","Metro_ouvert","Porte_ouverte"])
+	if Input.is_key_pressed(KEY_Y):
+		print("----------------------------------------------------------------------Y")
+		switch_door()
 
 func load_trigger(trigger:String):
+	print(dialog_data)
 	if not dialog_data["triggers"].has(trigger):
 		print("No trigger");
 	
 	var events_list = dialog_data["triggers"][trigger]
 	for event in events_list:
 		if verify_condition(event["condition"]):
-			process_event(event["event"])
-			break
+			await process_event(event["event"])
 		
 func verify_condition(condition):
 	for episode in condition:
@@ -59,15 +65,12 @@ func process_event(event:String):
 	
 	in_event = true
 	var actions_list = dialog_data["events"][event]
-	var next = null
 	for action in actions_list:
-		next = await process_action(action) 
+		await process_action(action) 
 	
 	in_event = false
+	print("Fin de l'event " + event)
 	$UI_Elements/Thoughts.show()
-	
-	if next != null:
-		load_trigger(next)
 
 func process_action(action:Dictionary):
 	if action["type"] == "line":
@@ -76,22 +79,18 @@ func process_action(action:Dictionary):
 		print(action["parameter"])
 	elif action["type"] == "choice":
 		await load_choices(action["choices"])
+	elif action["type"] == "trigger":
+		load_trigger(action["trigger"])
 	elif action["type"] == "silence":
 		$EventDelay.wait_time = action["time"]
 		$EventDelay.start()
 		await $EventDelay.timeout
 	elif action["type"] == "sceneload":
-		var toload = scene_data[action["scene"]]
-		change_scene(toload["background"],toload["elements"])
-		load_scene_events(toload["events"])
+		pass
 	elif action["type"] == "flashback":
 		pass 
 	elif action["type"] == "add_save":
 		player_data.push_back(action["episode"])
-	elif action["type"] == "trigger":
-		return action["trigger"]
-	
-	return null
 		
 
 func load_dialog(lines):
@@ -115,12 +114,24 @@ func load_choices(choices):
 	process_event(choices[final_choice]["event"])
 
 func change_scene(Background:String, Elements:Array[String]):
-	for i in get_children():
-		if i.name=="Platform_background":
-			i.queue_free()
-	var background_node=scene_background.instantiate()
-	move_child(background_node,0)
+	print(Background)
+	var background_node
+	if Background.contains("exterieur"): 
+		scene_type="platform"
+		scenes["platform"].show()
+		scenes["metro"].hide()
+	else: 
+		assert(Background.contains("metro_interne"),"ASSERT : if else de change_scene incorrect")
+		scene_type="metro"
+		scenes["platform"].hide()
+		scenes["metro"].show()
+	background_node=scenes[scene_type]
 	background_node.change_elements(Background,Elements)
+	background_node.show_tree("-------------------------------Children")
+
+func switch_door():
+	print(scene_type)
+	scenes[scene_type].switch_doors()
 
 func _on_platform_background_update_element_hovered() -> void:
 	var tween = create_tween()
