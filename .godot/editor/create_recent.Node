@@ -1,3 +1,4 @@
+PointLight2D
 AudioStreamPlayer
 ScrollContainer
 HSeparator
@@ -12,4 +13,3 @@ CanvasLayer
 Camera2D
 ColorRect
 Control
-StaticBody2D

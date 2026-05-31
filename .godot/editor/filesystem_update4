@@ -1,10 +1,6 @@
 res://Scenes/MainTest.tscn
 res://Shaders/Scene.gdshader
-res://Scripts/main_test.gd
-res://Dialogs/test.json
 res://Scenes/full_scene_platform.tscn
-res://Scenes/dialog_UI.tscn
 res://Scripts/dialogue_ui.gd
-res://Dialogs/jardindesplantes_quai.json
-res://Scenes/phone.tscn
-res://Scripts/camera_2d.gd
+res://Scripts/main_test.gd
+res://Scenes/dialog_UI.tscn
