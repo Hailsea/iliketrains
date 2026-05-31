@@ -165,3 +165,13 @@ func _on_platform_background_update_element_hovered() -> void:
 	tween.tween_property($UI_Elements/Thoughts,"scale:y",0,0)
 	$UI_Elements/Thoughts/Texte.text = $Platform_background.element_hovered()
 	tween.tween_property($UI_Elements/Thoughts,"scale:y",1,0.15)
+
+func parser_json_scene_change(file:String):
+	var json_as_text = FileAccess.get_file_as_string(file)
+	var data = JSON.parse_string(json_as_text)
+	var background_from_json=data["background"]
+	var triggers=data["events"]["triggers"]
+	var elements_from_json=[]
+	for i in triggers.keys():
+		elements_from_json.append(i)
+	change_scene(background_from_json,elements_from_json)
