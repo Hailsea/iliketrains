@@ -5,7 +5,7 @@ extends Node2D
 var interactive_element:Dictionary={"last":"Background"}
 var current_element:String=interactive_element["last"]
 var scene_instances:Dictionary[String,PackedScene]={}
-var backgrounds:Dictionary[String,PackedScene]={}
+var backgrounds:Dictionary[String,Resource]={}
 var open:bool=false
 
 func _instantiate() -> void:
@@ -13,11 +13,8 @@ func _instantiate() -> void:
 
 func _ready() -> void:
 	for i in ["environnement_metro_interne_fermé","environnement_metro_interne_ouvert"]:
-		var sprite_node = Sprite2D.new()
-		sprite_node.texture = load("res://Assets/Assets_interieur/"+i+".png")
-		var scene = PackedScene.new()
-		scene.pack(sprite_node)
-		backgrounds[i]=scene
+		backgrounds[i]=load("res://Assets/Backgrounds/"+i+".png")
+	print(backgrounds)
 	#Les portes doivent être le 1er node
 	for i in ["Portes_metro_interieur","Metro_carte","Homme_debout","Homme_assis"]:
 		scene_instances[i]=load("res://Scenes/Interactive_elements/"+i+".tscn")
@@ -57,26 +54,36 @@ func element_hovered() -> String:
 	return interactive_element["last"]
 
 func change_elements(background: String, elements: Array[String]) -> void:
-	if background=="environnement_metro_interne_fermé": open=true
-	if background=="environnement_metro_interne_ouvert" : open=false
-	get_child(0).texture=load("res://Assets/SI28_metro_assets/"+background+".png")
+	if background=="environnement_metro_interne_fermé": open=false
+	if background=="environnement_metro_interne_ouvert" : open=true
+	get_child(0).texture=backgrounds[background]
 	for child in get_children():
 		if child==get_child(0):
 			continue
-		child.queue_free()
+		child.free()
 	for i in scene_instances:
 		if i in elements:
-			add_child(scene_instances[i].instantiate())
+			create_node_from_instances(i,-1)
 
 func switch_doors():
 	print(open)
 	print("switching")
 	if open==true:
-		get_child(0).texture="environnement_metro_interne_fermé"
-		get_child(1).queue_free()
+		get_child(0).texture=backgrounds["environnement_metro_interne_fermé"]
+		get_child(1).free()
 	else:
 		assert(open==false,"ASSERT : open variable invalid")
-		get_child(0).texture="environnement_metro_interne_ouvert"
-		add_child(scene_instances["Portes_metro_interieur"].instantiate())
-		move_child(get_child(-1),1)
+		get_child(0).texture=backgrounds["environnement_metro_interne_ouvert"]
+		create_node_from_instances("Portes_metro_interieur",1)
 	open=!open
+
+func show_tree(balise):
+	print(balise)
+	for i in get_children():
+		print(i.name)
+	print(balise)
+	
+func create_node_from_instances(name:String,place:int):
+	add_child(scene_instances[name].instantiate())
+	get_child(-1).name=name
+	if place!=-1: move_child(get_child(-1),place)

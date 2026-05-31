@@ -84,12 +84,12 @@ func switch_doors():
 		return
 	assert(get_child(1).name.contains("Metro"),"Pas de metro")
 	if open==true:
-		get_child(2).queue_free()
-		get_child(1).queue_free()
+		get_child(2).free()
+		get_child(1).free()
 		create_node_from_instances("Metro_ferme",1)
 	else:
 		assert(open==false,"ASSERT : open variable invalid")
-		get_child(1).queue_free()
+		get_child(1).free()
 		create_node_from_instances("Metro_ouvert",1)
 		create_node_from_instances("Porte_ouverte",2)
 	open=!open

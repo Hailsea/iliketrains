@@ -45,6 +45,10 @@ func _input(event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_Y):
 		print("----------------------------------------------------------------------Y")
 		switch_door()
+	if Input.is_key_pressed(KEY_U):
+		print("----------------------------------------------------------------------T")
+		change_scene("environnement_metro_interne_ouvert",["Portes_metro_interieur","Metro_carte","Homme_debout"])
+	
 
 func load_trigger(trigger:String):
 	if not dialog_data["triggers"].has(trigger):
