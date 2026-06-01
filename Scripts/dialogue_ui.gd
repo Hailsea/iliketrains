@@ -2,11 +2,12 @@ extends Control
 
 # Récupération des nodes
 @onready var portrait:TextureRect = $Portrait
+@onready var portrait_shadow:TextureRect = $Portrait/Shadow
 @onready var player_portrait:TextureRect = $PlayerPortrait
-@onready var character_name:RichTextLabel = $TextBoxContainer/NameBoxMargin/CharacterPanel/NameMargin/Name
-@onready var character_name_panel:PanelContainer = $TextBoxContainer/NameBoxMargin/CharacterPanel
-@onready var text:RichTextLabel = $TextBoxContainer/TextBoxMargin/TextPanel/TextMargin/Text
-@onready var textbox_panel = $TextBoxContainer
+@onready var player_portrait_shadow:TextureRect = $PlayerPortrait/Shadow
+@onready var text:RichTextLabel = $TextBoxMargin/TextPanel/TextContainer/Text
+@onready var character_name:RichTextLabel = $TextBoxMargin/TextPanel/TextContainer/NameMargin/Name
+@onready var textbox_panel = $TextBoxMargin
 
 
 const portrait_path:String = "res://Assets/Sprites/Portraits/"
@@ -31,11 +32,16 @@ var lines = []
 @export var characters_info:Dictionary = {
 	"protag":{"speed":40,"name":"Protagoniste","pitch":1},
 	"alix":{"speed":25,"name":"Alix","pitch":1},
-	"eulalie":{"speed":45,"name":"Alix","pitch":1},
-	"lucien":{"speed":35,"name":"Alix","pitch":1},
-	"paul":{"speed":40,"name":"Alix","pitch":1},
+	"eulalie":{"speed":45,"name":"Eulalie","pitch":1},
+	"lucien":{"speed":35,"name":"Lucien","pitch":1},
+	"paul":{"speed":40,"name":"Paul","pitch":1},
 	"theodore":{"speed":40,"name":"Alix","pitch":1},
 }
+
+@export var characters_font:Dictionary[String,FontFile] = {
+
+}
+@export var default_font:Font = null
 
 var tween : Tween # Tween pour les animations
 
@@ -107,6 +113,7 @@ func display_line(line: Dictionary):
 			anim_speed = characters_info[line["character"]]["speed"]
 		else:
 			anim_speed = DEFAULT_SPEED
+			
 		
 	start_typewriter()
 	
@@ -120,18 +127,18 @@ func display_line(line: Dictionary):
 
 func switch_to_left(texture:Texture2D):
 	portrait.show()
-	portrait.texture = texture # Changement portrait
+	portrait.texture = texture
+	portrait_shadow.texture = texture # Changement portrait
 	# player_portrait.texture=null
 	player_portrait.hide()
-	character_name_panel.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	character_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 
 func switch_to_right(texture:Texture2D):
 	player_portrait.show()
-	player_portrait.texture = texture # Changement portrait
+	player_portrait.texture = texture
+	player_portrait_shadow.texture = texture # Changement portrait
 	# portrait.texture=null
 	portrait.hide()
-	character_name_panel.size_flags_horizontal = Control.SIZE_SHRINK_END
 	character_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	
 	
@@ -143,6 +150,10 @@ func textbox_animation() -> void:
 	tween = create_tween()
 	tween.tween_property(textbox_panel, "scale:y", 0, 0)
 	tween.tween_property(textbox_panel, "scale:y", 1, 0.2)
+	
+	var portrait_tween = create_tween()
+	portrait_tween.tween_property(portrait, "position:x", -30, 0)
+	portrait_tween.tween_property(portrait, "position:x", 0, 0.2)
 
 		
 signal end_dialog()

@@ -1,0 +1,18 @@
+<<<<<<< HEAD
+MarginContainer
+RichTextLabel
+VBoxContainer
+=======
+Sprite2D
+>>>>>>> 0c4863795d0b6970132bf9a065d209bd6c974398
+AudioStreamPlayer
+ScrollContainer
+HSeparator
+PanelContainer
+TextureRect
+HBoxContainer
+Timer
+CanvasLayer
+Camera2D
+ColorRect
+Control

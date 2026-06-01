@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://se12xrrmy3jc" path="res://Scenes/think_UI.tscn" id="3_ycov7"]
 [ext_resource type="Texture2D" uid="uid://csdfcxeqvcnxk" path="res://Assets/Sprites/table_de_jeux.png" id="5_4rwog"]
 [ext_resource type="Shader" uid="uid://bwkwny4mapsa" path="res://Shaders/Scene.gdshader" id="5_ycov7"]
+[ext_resource type="FontFile" uid="uid://d0wt3m3e602b8" path="res://Assets/Fonts/Teen/teen.ttf" id="8_ehs70"]
+[ext_resource type="FontFile" uid="uid://e5m27ip8pu7q" path="res://Assets/Fonts/crimson/Crimson-Roman.otf" id="9_o1cfb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3a646"]
 shader = ExtResource("5_ycov7")
@@ -76,6 +78,10 @@ anchor_bottom = 1.0
 offset_right = 0.0
 offset_bottom = 0.0
 grow_vertical = 0
+characters_font = Dictionary[String, FontFile]({
+"alix": ExtResource("9_o1cfb"),
+"protag": ExtResource("8_ehs70")
+})
 
 [node name="ThinkUI" parent="UI_Elements" unique_id=1741717176 instance=ExtResource("3_ycov7")]
 visible = false
