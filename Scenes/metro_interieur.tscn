@@ -16,9 +16,13 @@ texture = ExtResource("2_2bcgp")
 centered = false
 
 [node name="Portes_metro_interieur" parent="." unique_id=1137082386 instance=ExtResource("3_5pnae")]
+input_pickable = true
 
 [node name="Metro_carte" parent="." unique_id=1811555854 instance=ExtResource("5_geocu")]
+input_pickable = true
 
 [node name="Homme_debout" parent="." unique_id=1263324402 instance=ExtResource("3_t3cai")]
+input_pickable = true
 
 [node name="Homme_assis" parent="." unique_id=3933043 instance=ExtResource("4_5pnae")]
+input_pickable = true

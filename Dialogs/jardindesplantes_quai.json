@@ -1,4 +1,5 @@
 {
+	"background":"environnement_exterieur_sansmetro",
 	"setting":"quai",
 	"events":{
 		"triggers":{

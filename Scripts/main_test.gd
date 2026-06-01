@@ -12,7 +12,6 @@ var setting:String
 var thoughts:Dictionary
 
 var player_data:Array = []
-var scene_background
 var current_scene_elements:Array=[]
 var current_scene_background
 
@@ -46,7 +45,7 @@ func load_scene_events():
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if not in_event:
-			var element = $Platform_background.element_hovered()
+			var element = scenes[scene_type].element_hovered()
 			in_event = true
 			$Camera2D.lock = true
 			load_trigger(element)
@@ -60,9 +59,11 @@ func _input(event: InputEvent) -> void:
 		print("----------------------------------------------------------------------Y")
 		switch_door()
 	if Input.is_key_pressed(KEY_U):
-		print("----------------------------------------------------------------------T")
+		print("----------------------------------------------------------------------U")
 		change_scene("environnement_metro_interne_ouvert",["Portes_metro_interieur","Metro_carte","Homme_debout"])
-	
+	if Input.is_key_pressed(KEY_I):
+		print("----------------------------------------------------------------------I")
+		scenes[scene_type].show_tree("")
 
 func load_trigger(trigger:String):
 	if not dialog_data["triggers"].has(trigger):
@@ -123,7 +124,14 @@ func process_action(action:Dictionary):
 		return action["trigger"]
 	
 	return null
-		
+
+@onready var platform_background: Node2D = $Platform_background
+@onready var texte: RichTextLabel = $UI_Elements/Thoughts/Texte
+func _process(delta: float) -> void:
+	#print($Platform_background.current_element)
+	#print($Metro_background.current_element)
+	texte.text=scenes[scene_type].current_element
+	pass
 
 func load_dialog(lines):
 	dialog.load_lines(lines)
@@ -186,3 +194,16 @@ func phone_down():
 
 func hover_ui(nom) -> void:
 	$UI_Elements/Thoughts.update_text("neutral",nom)
+	tween.tween_property($UI_Elements/Thoughts,"scale:y",0,0)
+	$UI_Elements/Thoughts/Texte.text = $Platform_background.element_hovered()
+	tween.tween_property($UI_Elements/Thoughts,"scale:y",1,0.15)
+
+func parser_json_scene_change(file:String):
+	var json_as_text = FileAccess.get_file_as_string(file)
+	var data = JSON.parse_string(json_as_text)
+	var background_from_json=data["background"]
+	var triggers=data["events"]["triggers"]
+	var elements_from_json=[]
+	for i in triggers.keys():
+		elements_from_json.append(i)
+	change_scene(background_from_json,elements_from_json)
