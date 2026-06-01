@@ -3,6 +3,7 @@ extends Node
 @export var events_file:String
 @onready var dialog:Control = $UI_Elements/DialogUI;
 @onready var choices_ui:Control = $UI_Elements/ThinkUI;
+@onready var platform_background: Node2D = $Platform_background
 
 var in_event:bool = false
 var loaded_event:String = ""
@@ -38,14 +39,13 @@ func load_scene_events():
 	setting = data["setting"]
 	default_trigger = data["default_trigger"]
 	var elements = dialog_data["triggers"].keys()
-	print(elements)
 	change_scene(setting,elements)
 	
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if not in_event:
-			var element = scenes[scene_type].element_hovered()
+			var element = scenes[setting].element_hovered()
 			in_event = true
 			$Camera2D.lock = true
 			load_trigger(element)
@@ -63,7 +63,7 @@ func _input(event: InputEvent) -> void:
 		change_scene("environnement_metro_interne_ouvert",["Portes_metro_interieur","Metro_carte","Homme_debout"])
 	if Input.is_key_pressed(KEY_I):
 		print("----------------------------------------------------------------------I")
-		scenes[scene_type].show_tree("")
+		scenes[setting].show_tree("")
 
 func load_trigger(trigger:String):
 	if not dialog_data["triggers"].has(trigger):
@@ -125,13 +125,8 @@ func process_action(action:Dictionary):
 	
 	return null
 
-@onready var platform_background: Node2D = $Platform_background
-@onready var texte: RichTextLabel = $UI_Elements/Thoughts/Texte
-func _process(delta: float) -> void:
-	#print($Platform_background.current_element)
-	#print($Metro_background.current_element)
-	texte.text=scenes[scene_type].current_element
-	pass
+
+
 
 func load_dialog(lines):
 	dialog.load_lines(lines)
@@ -156,7 +151,6 @@ func load_choices(choices):
 func change_scene(Background:String, Elements:Array):
 	current_scene_elements=Elements
 	current_scene_background=Background
-	print(Background)
 	var background_node
 	if Background == "quai": 
 		scenes["quai"].show()
@@ -166,6 +160,7 @@ func change_scene(Background:String, Elements:Array):
 		scenes["quai"].hide()
 		scenes["metro"].show()
 	background_node=scenes[setting]
+	print(Elements)
 	background_node.change_elements(Background,Elements)
 	background_node.show_tree("-------------------------------Children")
 
@@ -194,9 +189,6 @@ func phone_down():
 
 func hover_ui(nom) -> void:
 	$UI_Elements/Thoughts.update_text("neutral",nom)
-	tween.tween_property($UI_Elements/Thoughts,"scale:y",0,0)
-	$UI_Elements/Thoughts/Texte.text = $Platform_background.element_hovered()
-	tween.tween_property($UI_Elements/Thoughts,"scale:y",1,0.15)
 
 func parser_json_scene_change(file:String):
 	var json_as_text = FileAccess.get_file_as_string(file)

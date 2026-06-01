@@ -47,8 +47,7 @@ func _process(delta: float) -> void:
 func update_hover(nom: String,action: bool) -> void:
 	interactive_element["last"]=nom
 	interactive_element[nom]=action
-	if action:
-		update_hover_ui.emit(nom)
+	update_hover_ui.emit(element_hovered())
 	
 signal update_hover_ui(nom)
 
@@ -62,7 +61,7 @@ func element_hovered() -> String:
 	if on_Background(): return "Background"
 	return interactive_element["last"]
 
-func change_elements(background: String, elements: Array[String]) -> void:
+func change_elements(background: String, elements: Array) -> void:
 	open="Porte_ouverte" in elements
 	for i in scene_nodes.keys():
 		if i in elements:
