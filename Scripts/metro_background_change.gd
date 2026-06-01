@@ -40,9 +40,10 @@ func _process(delta: float) -> void:
 func update_hover(nom: String,action: bool) -> void:
 	interactive_element["last"]=nom
 	interactive_element[nom]=action
-	update_hover_ui.emit()
+	if action:
+		update_hover_ui.emit(nom)
 	
-signal update_hover_ui()
+signal update_hover_ui(nom)
 
 
 func on_Background() -> bool:

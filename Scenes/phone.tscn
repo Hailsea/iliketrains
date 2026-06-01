@@ -23,11 +23,9 @@ corner_detail = 20
 
 [node name="Phone" type="Control" unique_id=820931979]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 430.0
+offset_bottom = 650.0
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1245196087]
 layout_mode = 0
@@ -81,158 +79,37 @@ size_flags_vertical = 3
 
 [node name="Messages" type="VBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=524064129]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Corpus" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=903653108]
-custom_minimum_size = Vector2(200, 70)
+[node name="Separator" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1217932288]
 layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 12
-theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
-bbcode_enabled = true
-text = "[color=green]Lucien[/color]
-J'aime les CHIPS"
+theme_override_colors/default_color = Color(0.57, 0.57, 0.57, 1)
+text = "-- 12/06/26 --"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Corpus2" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=940437000]
-custom_minimum_size = Vector2(200, 70)
+[node name="Message" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=903653108]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 12
+theme_override_font_sizes/bold_font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
 bbcode_enabled = true
-text = "[color=green]Lucien[/color]
+text = "[b][color=green]Lucien[/color][/b]
 J'aime les CHIPS"
+fit_content = true
 
-[node name="Corpus3" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=322806460]
-custom_minimum_size = Vector2(200, 70)
+[node name="Message2" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=2118991807]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 8
 theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 12
+theme_override_font_sizes/bold_font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
 bbcode_enabled = true
-text = "[color=green]Lucien[/color]
-J'aime les CHIPS"
-
-[node name="Corpus4" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1244421765]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 12
-theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
-bbcode_enabled = true
-text = "[color=green]Lucien[/color]
-J'aime les CHIPS"
-
-[node name="Corpus5" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=948664090]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 12
-theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
-bbcode_enabled = true
-text = "[color=green]Lucien[/color]
-J'aime les CHIPS"
-
-[node name="Corpus6" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=849499414]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 12
-theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
-bbcode_enabled = true
-text = "[color=green]Lucien[/color]
-J'aime les CHIPS"
-
-[node name="Corpus7" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1230891282]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 12
-theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
-bbcode_enabled = true
-text = "[color=green]Lucien[/color]
-J'aime les CHIPS"
-
-[node name="Corpus8" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1535923884]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 12
-theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
-bbcode_enabled = true
-text = "[color=green]Lucien[/color]
-J'aime les CHIPS"
-
-[node name="Corpus9" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=111809913]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 12
-theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
-bbcode_enabled = true
-text = "[color=green]Lucien[/color]
-J'aime les CHIPS"
-
-[node name="Corpus10" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=801903028]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 12
-theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
-bbcode_enabled = true
-text = "[color=green]Lucien[/color]
-J'aime les CHIPS"
-
-[node name="Corpus11" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=93189423]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 12
-theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
-bbcode_enabled = true
-text = "[color=green]Lucien[/color]
-J'aime les CHIPS"
-
-[node name="Corpus12" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=332604245]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 12
-theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
-bbcode_enabled = true
-text = "[color=green]Lucien[/color]
-J'aime les CHIPS"
-
-[node name="Corpus13" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1739614260]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 12
-theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
-bbcode_enabled = true
-text = "[color=green]Lucien[/color]
-J'aime les CHIPS"
-
-[node name="Corpus14" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1693914520]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 12
-theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
-bbcode_enabled = true
-text = "[color=green]Lucien[/color]
-J'aime les CHIPS"
+text = "[b][color=magenta]Vous[/color][/b]
+Moi aussi"
+fit_content = true

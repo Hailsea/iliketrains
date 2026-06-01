@@ -24,6 +24,7 @@ func _ready() -> void:
 	
 	scenes={"quai":$Platform_background,"metro":$Metro_background}
 	load_scene_events()
+	$UI_Elements/Thoughts.update_text("neutral","salut")
 	if default_trigger != "none":
 		load_trigger(default_trigger)
 	#load_trigger("alix")
@@ -47,6 +48,7 @@ func _input(event: InputEvent) -> void:
 		if not in_event:
 			var element = $Platform_background.element_hovered()
 			in_event = true
+			$Camera2D.lock = true
 			load_trigger(element)
 	if Input.is_key_pressed(KEY_R):
 		print("----------------------------------------------------------------------R")
@@ -80,6 +82,7 @@ func verify_condition(condition):
 	
 func process_event(event:String):
 	$UI_Elements/Thoughts.hide()
+	$UI_Elements/Phone.hide()
 	if not dialog_data["events"].has(event):
 		print("No event")
 	
@@ -90,7 +93,9 @@ func process_event(event:String):
 		next = await process_action(action) 
 	
 	in_event = false
+	$Camera2D.lock = false
 	$UI_Elements/Thoughts.show()
+	$UI_Elements/Phone.show()
 	
 	if next != null:
 		load_trigger(next)
@@ -168,9 +173,16 @@ func single_change_scene(element:String,mode:bool):
 func switch_door():
 	print(setting)
 	scenes[setting].switch_doors()
-
-func hover_ui() -> void:
+	
+func phone_up():
+	print("up")
 	var tween = create_tween()
-	tween.tween_property($UI_Elements/Thoughts,"scale:y",0,0)
-	$UI_Elements/Thoughts/Texte.text = $Platform_background.element_hovered()
-	tween.tween_property($UI_Elements/Thoughts,"scale:y",1,0.15)
+	tween.tween_property($UI_Elements/Phone,"position:x",-56,0.5)
+
+func phone_down():
+	print("down")
+	var tween = create_tween()
+	tween.tween_property($UI_Elements/Phone,"position:x",-356,0.5)
+
+func hover_ui(nom) -> void:
+	$UI_Elements/Thoughts.update_text("neutral",nom)
