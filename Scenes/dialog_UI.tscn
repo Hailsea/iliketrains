@@ -25,6 +25,20 @@ texture = ExtResource("2_xrlft")
 expand_mode = 1
 stretch_mode = 6
 
+[node name="Portrait" type="TextureRect" parent="Portrait" unique_id=470479494]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 420.0
+offset_bottom = 420.0
+size_flags_vertical = 8
+texture = ExtResource("2_xrlft")
+expand_mode = 1
+stretch_mode = 6
+
 [node name="TextBoxContainer" type="VBoxContainer" parent="." unique_id=1674787029]
 layout_mode = 2
 size_flags_horizontal = 3

@@ -10,7 +10,7 @@ extends Control
 
 
 const portrait_path:String = "res://Assets/Sprites/Portraits/"
-const player_character:String = "mishima"
+const player_character:String = "protag"
 
 # Variables pour l'effect Machine à [color=redÉcrire
 const DEFAULT_SPEED = 40
@@ -28,9 +28,13 @@ var index:int = 0 # Index de la ligne en cours
 var lines = [] 
 # ====
 
-var characters_info = {
+@export var characters_info:Dictionary = {
 	"protag":{"speed":40,"name":"Protagoniste","pitch":1},
-	"alix":{"speed":30,"name":"Alix","pitch":1},
+	"alix":{"speed":25,"name":"Alix","pitch":1},
+	"eulalie":{"speed":45,"name":"Alix","pitch":1},
+	"lucien":{"speed":35,"name":"Alix","pitch":1},
+	"paul":{"speed":40,"name":"Alix","pitch":1},
+	"theodore":{"speed":40,"name":"Alix","pitch":1},
 }
 
 var tween : Tween # Tween pour les animations
@@ -99,8 +103,10 @@ func display_line(line: Dictionary):
 	if line.has("speed"): # Vitesse animation
 		anim_speed = line["speed"]
 	else:
-		anim_speed = characters_info[line["character"]]["speed"]
-		#anim_speed = DEFAULT_SPEED
+		if characters_info.has(line["character"]):
+			anim_speed = characters_info[line["character"]]["speed"]
+		else:
+			anim_speed = DEFAULT_SPEED
 		
 	start_typewriter()
 	
@@ -113,7 +119,6 @@ func display_line(line: Dictionary):
 		textbox_animation()
 
 func switch_to_left(texture:Texture2D):
-	print("switch left")
 	portrait.show()
 	portrait.texture = texture # Changement portrait
 	# player_portrait.texture=null
@@ -122,7 +127,6 @@ func switch_to_left(texture:Texture2D):
 	character_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 
 func switch_to_right(texture:Texture2D):
-	print("switch right")
 	player_portrait.show()
 	player_portrait.texture = texture # Changement portrait
 	# portrait.texture=null

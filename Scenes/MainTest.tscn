@@ -4,13 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://df6s3t1wxotbo" path="res://Scenes/dialog_UI.tscn" id="2_oqdhm"]
 [ext_resource type="PackedScene" uid="uid://d188vvdtys7pi" path="res://Scenes/full_scene_platform_with_templates.tscn" id="2_ycov7"]
 [ext_resource type="Script" uid="uid://bvkknqocf7xth" path="res://Scripts/camera_2d.gd" id="3_3a646"]
+[ext_resource type="PackedScene" uid="uid://co74ofwm4yf3r" path="res://Scenes/metro_interieur.tscn" id="3_nivcm"]
 [ext_resource type="PackedScene" uid="uid://se12xrrmy3jc" path="res://Scenes/think_UI.tscn" id="3_ycov7"]
 [ext_resource type="Texture2D" uid="uid://csdfcxeqvcnxk" path="res://Assets/Sprites/table_de_jeux.png" id="5_4rwog"]
 [ext_resource type="Shader" uid="uid://bwkwny4mapsa" path="res://Shaders/Scene.gdshader" id="5_ycov7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3a646"]
 shader = ExtResource("5_ycov7")
-shader_parameter/blur_radius = 0.13600000646
+shader_parameter/blur_radius = 0.2
 shader_parameter/blur_amount = 1.0
 shader_parameter/blur_inner = 0.6
 shader_parameter/blur_outer = 0.66
@@ -26,7 +27,11 @@ shader_parameter/blur_outer = 0.66
 script = ExtResource("1_bhhyf")
 
 [node name="Platform_background" parent="." unique_id=991292017 instance=ExtResource("2_ycov7")]
+modulate = Color(0.82, 0.82, 0.82, 1)
 events_file = "res://Dialogs/jardindesplantes_quai.json"
+
+[node name="Metro_background" parent="." unique_id=2044040248 instance=ExtResource("3_nivcm")]
+visible = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1128689314]
 zoom = Vector2(1.2, 1.2)
@@ -41,6 +46,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_filter = 2
 
 [node name="Flashback" type="CanvasLayer" parent="." unique_id=448420789]
@@ -81,7 +87,6 @@ offset_right = 0.0
 offset_bottom = 0.0
 
 [node name="Thoughts" type="PanelContainer" parent="UI_Elements" unique_id=608800302]
-visible = false
 anchors_preset = -1
 anchor_right = 0.29000002
 anchor_bottom = 0.347

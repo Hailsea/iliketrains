@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dge1r32e3m5jb"]
+
+[node name="Portes_metro_interieur" type="StaticBody2D" unique_id=1137082386]
+
+[node name="porte1_interieur" type="CollisionPolygon2D" parent="." unique_id=1705606894]
+polygon = PackedVector2Array(622, 1, 643, 34, 658, 67, 666, 112, 657, 504, 665, 1079, 802, 1079, 1078, 981, 1057, 975, 1053, 943, 1064, 211, 1079, 178, 1097, 160, 1124, 157)
+
+[node name="porte2_interieur" type="CollisionPolygon2D" parent="." unique_id=324023852]
+polygon = PackedVector2Array(1579, 293, 1577, 419, 1575, 459, 1560, 720, 1573, 728, 1658, 729, 1674, 498, 1677, 465, 1673, 419, 1671, 334, 1664, 318)
+
+[node name="porte3_interieur" type="CollisionPolygon2D" parent="." unique_id=244248969]
+polygon = PackedVector2Array(1863, 370, 1864, 392, 1865, 408, 1862, 434, 1857, 499, 1853, 558, 1851, 586, 1850, 653, 1898, 662, 1904, 549, 1902, 536, 1909, 420, 1908, 384)

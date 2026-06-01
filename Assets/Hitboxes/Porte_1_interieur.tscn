@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://ceyjid6x2jnlw"]
+
+[node name="porte1_interieur" type="CollisionPolygon2D" unique_id=1391917322]
+polygon = PackedVector2Array(622, 1, 643, 34, 658, 67, 666, 112, 657, 504, 665, 1079, 802, 1079, 1078, 981, 1057, 975, 1053, 943, 1064, 211, 1079, 178, 1097, 160, 1124, 157)
