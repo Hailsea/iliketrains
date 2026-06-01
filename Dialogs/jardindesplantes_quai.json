@@ -1,4 +1,5 @@
 {
+	"background":"environnement_exterieur_sansmetro",
 	"events":{
 		"triggers":{
 			"Distributeur_avant":[{"condition":[],"event":"rencontre_alix"}]

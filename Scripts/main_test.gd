@@ -112,7 +112,7 @@ func process_action(action:Dictionary):
 func _process(delta: float) -> void:
 	#print($Platform_background.current_element)
 	#print($Metro_background.current_element)
-	#texte.text=scenes[scene_type].current_element
+	texte.text=scenes[scene_type].current_element
 	pass
 
 func load_dialog(lines):

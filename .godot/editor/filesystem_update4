@@ -1,3 +1,8 @@
 res://Scenes/MainTest.tscn
 res://Shaders/Scene.gdshader
-res://Dialogs/jardindesplantes_quai.json
+res://Scripts/main_test.gd
+res://Scripts/metro_background_change.gd
+res://Scripts/platform_background_change.gd
+res://Scenes/full_scene_platform_with_templates.tscn
+res://Scenes/full_scene_platform.tscn
+res://Scenes/metro_interieur.tscn
