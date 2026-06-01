@@ -1,3 +1,6 @@
 res://Scenes/MainTest.tscn
 res://Shaders/Scene.gdshader
+res://Scripts/main_test.gd
+res://Scenes/dialog_UI.tscn
+res://Scripts/dialogue_ui.gd
 res://Dialogs/jardindesplantes_quai.json

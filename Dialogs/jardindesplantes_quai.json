@@ -1,7 +1,7 @@
 {
 	"events":{
 		"triggers":{
-			"Distributeur_avant":[{"condition":[],"event":"rencontre_alix"}]
+			"alix":[{"condition":[],"event":"rencontre_alix"}]
 		},
 		"events":{
 			"rencontre_alix":[

@@ -21,7 +21,7 @@ func _ready() -> void:
 	load_scene_events(file)
 	print(get_child(0).position)
 	scene_background=preload("res://Scenes/full_scene_platform_with_templates.tscn")
-	#load_trigger("alix")
+	load_trigger("alix")
 	#scene_background[scene_type].show_tree("---------START")
 
 	
@@ -49,6 +49,7 @@ func _input(event: InputEvent) -> void:
 func load_trigger(trigger:String):
 	if not dialog_data["triggers"].has(trigger):
 		print("No trigger");
+		return null
 	
 	var events_list = dialog_data["triggers"][trigger]
 	for event in events_list:
