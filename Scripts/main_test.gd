@@ -1,14 +1,17 @@
 extends Node
 
+@export var events_file:String
 @onready var dialog:Control = $UI_Elements/DialogUI;
 @onready var choices_ui:Control = $UI_Elements/ThinkUI;
 
 var in_event:bool = false
 var loaded_event:String = ""
 var dialog_data:Dictionary
+var default_trigger:String
+var setting:String
+var thoughts:Dictionary
 
 var player_data:Array = []
-var scene_type="platform"
 var scene_background
 var current_scene_elements:Array=[]
 var current_scene_background
@@ -18,19 +21,26 @@ var scenes:Dictionary[String,Node2D]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var file = $Platform_background.events_file
-	scenes={"platform":get_child(0),"metro":get_child(1)}
-	load_scene_events(file)
-	print(get_child(0).position)
-	scene_background=preload("res://Scenes/full_scene_platform_with_templates.tscn")
+	
+	scenes={"quai":$Platform_background,"metro":$Metro_background}
+	load_scene_events()
+	if default_trigger != "none":
+		load_trigger(default_trigger)
 	#load_trigger("alix")
 	#scene_background[scene_type].show_tree("---------START")
 
 	
-func load_scene_events(file:String):
+func load_scene_events():
+	var file = events_file
 	var json_as_text = FileAccess.get_file_as_string(file)
 	var data = JSON.parse_string(json_as_text)
 	dialog_data = data["events"]
+	setting = data["setting"]
+	default_trigger = data["default_trigger"]
+	var elements = dialog_data["triggers"].keys()
+	print(elements)
+	change_scene(setting,elements)
+	
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -55,6 +65,7 @@ func _input(event: InputEvent) -> void:
 func load_trigger(trigger:String):
 	if not dialog_data["triggers"].has(trigger):
 		print("No trigger");
+		return null
 	
 	var events_list = dialog_data["triggers"][trigger]
 	for event in events_list:
@@ -98,7 +109,7 @@ func process_action(action:Dictionary):
 	elif action["type"] == "sceneload":
 		var toload = scenes[action["scene"]]
 		change_scene(toload["background"],toload["elements"])
-		load_scene_events(toload["events"])
+		load_scene_events()
 	elif action["type"] == "flashback":
 		pass 
 	elif action["type"] == "add_save":
@@ -129,21 +140,19 @@ func load_choices(choices):
 	
 	process_event(choices[final_choice]["event"])
 
-func change_scene(Background:String, Elements:Array[String]):
+func change_scene(Background:String, Elements:Array):
 	current_scene_elements=Elements
 	current_scene_background=Background
 	print(Background)
 	var background_node
-	if Background.contains("exterieur"): 
-		scene_type="platform"
-		scenes["platform"].show()
+	if Background == "quai": 
+		scenes["quai"].show()
 		scenes["metro"].hide()
 	else: 
-		assert(Background.contains("metro_interne"),"ASSERT : if else de change_scene incorrect")
-		scene_type="metro"
-		scenes["platform"].hide()
+		assert(Background == "metro","ASSERT : if else de change_scene incorrect")
+		scenes["quai"].hide()
 		scenes["metro"].show()
-	background_node=scenes[scene_type]
+	background_node=scenes[setting]
 	background_node.change_elements(Background,Elements)
 	background_node.show_tree("-------------------------------Children")
 
@@ -157,10 +166,10 @@ func single_change_scene(element:String,mode:bool):
 	change_scene(current_scene_background,current_scene_elements)
 
 func switch_door():
-	print(scene_type)
-	scenes[scene_type].switch_doors()
+	print(setting)
+	scenes[setting].switch_doors()
 
-func _on_platform_background_update_element_hovered() -> void:
+func hover_ui() -> void:
 	var tween = create_tween()
 	tween.tween_property($UI_Elements/Thoughts,"scale:y",0,0)
 	$UI_Elements/Thoughts/Texte.text = $Platform_background.element_hovered()

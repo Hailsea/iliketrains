@@ -25,10 +25,10 @@ shader_parameter/blur_outer = 0.66
 
 [node name="MainGame" type="Node" unique_id=1940308254]
 script = ExtResource("1_bhhyf")
+events_file = "res://Dialogs/jardindesplantes_quai.json"
 
 [node name="Platform_background" parent="." unique_id=991292017 instance=ExtResource("2_ycov7")]
 modulate = Color(0.82, 0.82, 0.82, 1)
-events_file = "res://Dialogs/jardindesplantes_quai.json"
 
 [node name="Metro_background" parent="." unique_id=2044040248 instance=ExtResource("3_nivcm")]
 visible = false
@@ -105,4 +105,6 @@ vertical_alignment = 1
 
 [node name="EventDelay" type="Timer" parent="." unique_id=1926915563]
 
+[connection signal="update_hover_ui" from="Platform_background" to="." method="hover_ui"]
+[connection signal="update_hover_ui" from="Metro_background" to="." method="hover_ui"]
 [connection signal="end_dialog" from="UI_Elements/DialogUI" to="." method="_on_dialog_end"]

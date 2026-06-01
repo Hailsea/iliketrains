@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var events_file:String
+
 
 var interactive_element:Dictionary={"last":"Background"}
 var current_element:String=interactive_element["last"]
@@ -47,6 +47,9 @@ func _process(delta: float) -> void:
 func update_hover(nom: String,action: bool) -> void:
 	interactive_element["last"]=nom
 	interactive_element[nom]=action
+	update_hover_ui.emit()
+	
+signal update_hover_ui()
 
 func on_Background() -> bool:
 	for i in interactive_element:
@@ -58,8 +61,8 @@ func element_hovered() -> String:
 	if on_Background(): return "Background"
 	return interactive_element["last"]
 
-func change_elements(background: String, elements: Array[String]) -> void:
-	get_child(0).texture=load("res://Assets/SI28_metro_assets/"+background+".png")
+func change_elements(background: String, elements: Array) -> void:
+	#get_child(0).texture=load("res://Assets/SI28_metro_assets/"+background+".png")
 	open=false
 	print("-------------------------------------------------debut_instanciation")
 	var children:Dictionary[String,Node2D]={}

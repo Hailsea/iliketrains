@@ -10,7 +10,7 @@ extends Control
 
 
 const portrait_path:String = "res://Assets/Sprites/Portraits/"
-const player_character:String = "protag"
+const player_character:String = "none"
 
 # Variables pour l'effect Machine à [color=redÉcrire
 const DEFAULT_SPEED = 40

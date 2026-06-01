@@ -1,7 +1,9 @@
 {
+	"setting":"quai",
 	"events":{
 		"triggers":{
-			"Distributeur_avant":[{"condition":[],"event":"rencontre_alix"}]
+			"Distributeur_avant":[{"condition":[],"event":"rencontre_alix"}],
+			"Pub":[{"condition":[],"event":""}],
 		},
 		"events":{
 			"rencontre_alix":[
@@ -18,5 +20,8 @@
 			]
 		}
 	},
-	"thoughts":[]
+	"thoughts":{
+		
+	},
+	"default_trigger":"Distributeur_avant"
 }

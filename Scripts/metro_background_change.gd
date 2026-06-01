@@ -1,7 +1,5 @@
 extends Node2D
 
-@export var events_file:String
-
 var interactive_element:Dictionary={"last":"Background"}
 var current_element:String=interactive_element["last"]
 var scene_instances:Dictionary[String,PackedScene]={}
@@ -42,6 +40,10 @@ func _process(delta: float) -> void:
 func update_hover(nom: String,action: bool) -> void:
 	interactive_element["last"]=nom
 	interactive_element[nom]=action
+	update_hover_ui.emit()
+	
+signal update_hover_ui()
+
 
 func on_Background() -> bool:
 	for i in interactive_element:
@@ -53,7 +55,7 @@ func element_hovered() -> String:
 	if on_Background(): return "Background"
 	return interactive_element["last"]
 
-func change_elements(background: String, elements: Array[String]) -> void:
+func change_elements(background: String, elements: Array) -> void:
 	if background=="environnement_metro_interne_fermé": open=false
 	if background=="environnement_metro_interne_ouvert" : open=true
 	get_child(0).texture=backgrounds[background]
