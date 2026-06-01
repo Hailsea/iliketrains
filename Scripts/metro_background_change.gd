@@ -23,6 +23,7 @@ func _ready() -> void:
 		if i==get_child(0): continue
 		scene_nodes[i.name]=i
 		i.input_pickable=true
+	connect_signals()
 
 func connect_signals() -> void:
 	for child in get_children():
@@ -42,6 +43,7 @@ func connect_signals() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	current_element=element_hovered()
+	#print(current_element)
 	pass
 
 func update_hover(nom: String,action: bool) -> void:

@@ -22,6 +22,7 @@ func _ready() -> void:
 		i.input_pickable=true
 	print(scene_nodes)
 	scene_nodes["Metro_ferme"].hide()
+	connect_signals()
 
 func connect_signals() -> void:
 	for child in get_children():
