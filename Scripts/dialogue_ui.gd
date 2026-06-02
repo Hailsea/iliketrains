@@ -57,7 +57,8 @@ func _process(delta):
 			text.visible_ratio += (1.0/text.text.length()) * (anim_speed * delta)
 			if old_character_visible != text.visible_characters:
 				old_character_visible = text.visible_characters
-				$CharacterSoundEffect.play()
+				if text.visible_characters%2 == 0:
+					$CharacterSoundEffect.play()
 		else:
 			animate_text = false
 			

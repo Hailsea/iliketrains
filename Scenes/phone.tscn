@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://yp87mludlns4" path="res://Assets/Sprites/phone.png" id="1_oju8d"]
 [ext_resource type="Texture2D" uid="uid://0hpkjk8cqt8i" path="res://Assets/Sprites/Portraits/lucien/neutral.png" id="2_knwvw"]
+[ext_resource type="Script" uid="uid://c0ydinlem8o1f" path="res://Shaders/scroll_container.gd" id="3_m5ye2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_knwvw"]
 content_margin_left = 35.0
@@ -77,6 +78,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 scroll_horizontal_custom_step = 1.0
+script = ExtResource("3_m5ye2")
 
 [node name="Messages" type="VBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=524064129]
 layout_mode = 2
@@ -311,7 +313,7 @@ theme_override_font_sizes/bold_font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
 bbcode_enabled = true
 text = "[b][color=green]Lucien[/color][/b]
-Je suis arrivé à Phare Lointain. Je t'attends là-bas !"
+Je serai à la sortie de Phare Lointain vers 18h. Je t'attendrai là-bas !"
 fit_content = true
 
 [node name="Message2" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=2118991807]

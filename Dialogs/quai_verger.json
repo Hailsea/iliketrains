@@ -1,0 +1,14 @@
+{
+	"background":"quai",
+	"events":{
+		"triggers":{
+			
+		},
+		"events":{
+		}
+	},
+	"thoughts":{
+		"Background":["neutral","Scene changée"],
+	},
+	"default_trigger":"none"
+}

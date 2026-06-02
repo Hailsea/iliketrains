@@ -17,6 +17,12 @@ z_index = -1
 position = Vector2(958, 544)
 texture = ExtResource("3_li70b")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Fond_img" unique_id=1697907494]
+offset_right = 40.0
+offset_bottom = 40.0
+text = "STATION"
+fit_content = true
+
 [node name="Mere_fille" type="StaticBody2D" parent="." unique_id=426213223]
 input_pickable = true
 

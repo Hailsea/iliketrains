@@ -117,8 +117,8 @@ func process_action(action):
 		$SilenceDelay.wait_time = action[1]
 		$SilenceDelay.start()
 		await $SilenceDelay.timeout
-	elif action[0] == "sceneload":
-		var events_file = "res://Dialogs/"+action[1]+".json"
+	elif action[0] == "scene":
+		events_file = "res://Dialogs/"+action[1]+".json"
 		load_scene_events()
 	elif action[0] == "flashback":
 		var tween = create_tween()
@@ -131,12 +131,10 @@ func process_action(action):
 		tween = create_tween()
 		tween.tween_property($White/White,"modulate:a",0,0.5)
 		await tween.finished
-			
-		
 	elif action[0] == "trigger":
 		return action[1]
 	elif action[0] == "thought":
-		thoughts[action[1]] == action[2]
+		thoughts[action[1]] = action[2]
 	elif action[0] == "doors":
 		switch_door()
 	return null

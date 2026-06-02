@@ -1,6 +1,5 @@
 {
 	"background":"metro_ferme",
-	"setting":"metro",
 	"events":{
 		"triggers":{
 			"Intro":[{"condition":[],"event":"game_intro"}],
@@ -27,7 +26,7 @@
 				]],
 				["flashback",true],
 				["line",[
-					{"character":"lucien","emotion":"neutral","text":"C'était fun comme première session ! Merci à tous !","properties":[]},
+					{"character":"lucien","emotion":"neutral","text":"C'était fun comme première session de Rails et Royaumes ! Merci à tous !","properties":[]},
 					{"character":"eulalie","emotion":"neutral","text":"Théodore a causé une catastrophe, est-ce que tu pourrais arrêter d'attaquer à vue tous les ennemis que tu vois ?","properties":[]},
 					{"character":"theodore","emotion":"sad","text":"J'y peux rien, c'est plus fort que moi...","properties":[]},
 					{"character":"paul","emotion":"neutral","text":"Ça crée de l'action ! Au moins on ne s'ennuie pas !","properties":[]},
@@ -45,8 +44,10 @@
 				["doors"],
 				["silence",2],
 				["line",[
-					{"character":"protag","emotion":"sad","text":"Porte","properties":[]},
+					{"character":"protag","emotion":"neutral","text":"L'arrêt du quartier du Verger... C'était proche de chez Alix, il me semble.","properties":[]},
 				]],
+				["thought","Background",["neutral","J'espère que je ne vais pas arriver en retard."]],
+				["scene","quai_verger"]
 				
 			],
 			"check_station2":[
@@ -59,7 +60,7 @@
 	"thoughts":{
 		"Background":["neutral","Je devrais regarder à quelle station je vais..."],
 		"Metro_carte":["neutral","C'est le tableau d'affichage des stations."],
-		"Portes_metro_interieur":["neutral","Il n'est pas encore temps de sortir..."],
+		"Portes_metro_interieur":["surprise","Si je sors maintenant, je vais rejoindre la ligne A. Je ferai mieux de rester, Phare lointain est dans trois arrêts."],
 	},
 	"default_trigger":"Intro"
 }

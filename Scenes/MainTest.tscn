@@ -130,6 +130,15 @@ offset_right = 2146.0
 offset_bottom = 1280.0
 mouse_filter = 2
 
+[node name="Black" type="ColorRect" parent="White" unique_id=1534181389]
+modulate = Color(1, 1, 1, 0)
+offset_left = -159.0
+offset_top = -117.0
+offset_right = 2146.0
+offset_bottom = 1280.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
 [node name="UI_Elements" type="CanvasLayer" parent="." unique_id=132934596]
 
 [node name="DialogUI" parent="UI_Elements" unique_id=865221122 instance=ExtResource("2_oqdhm")]
