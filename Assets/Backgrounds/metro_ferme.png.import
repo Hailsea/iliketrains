@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmmelqp7lm8sk"
-path="res://.godot/imported/environnement_exterieur_sansmetro.png-da582eeeb14fa516c8f838eb4401bd62.ctex"
+uid="uid://slq1qj4ywm40"
+path="res://.godot/imported/metro_ferme.png-d27785ff283fbcf532846e319b2c12a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/environnement_exterieur_sansmetro.png"
-dest_files=["res://.godot/imported/environnement_exterieur_sansmetro.png-da582eeeb14fa516c8f838eb4401bd62.ctex"]
+source_file="res://Assets/Backgrounds/metro_ferme.png"
+dest_files=["res://.godot/imported/metro_ferme.png-d27785ff283fbcf532846e319b2c12a0.ctex"]
 
 [params]
 

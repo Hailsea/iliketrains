@@ -10,9 +10,9 @@ func _instantiate() -> void:
 	pass
 
 func _ready() -> void:
-	for i in ["environnement_metro_interne_fermé","environnement_metro_interne_ouvert"]:
+	for i in ["metro_ferme","metro_ouvert"]:
 		backgrounds[i]=load("res://Assets/Backgrounds/"+i+".png")
-	print(backgrounds)
+	#print(backgrounds)
 	#remove_elements()
 	#Les portes doivent être le 1er node
 	for i in ["Portes_metro_interieur","Metro_carte","Homme_debout","Homme_assis"]:
@@ -47,8 +47,7 @@ func _process(delta: float) -> void:
 func update_hover(nom: String,action: bool) -> void:
 	interactive_element["last"]=nom
 	interactive_element[nom]=action
-	if action:
-		update_hover_ui.emit(nom)
+	update_hover_ui.emit(element_hovered())
 	
 signal update_hover_ui(nom)
 
@@ -64,8 +63,8 @@ func element_hovered() -> String:
 	return interactive_element["last"]
 
 func change_elements(background: String, elements: Array) -> void:
-	if background=="environnement_metro_interne_fermé": open=false
-	if background=="environnement_metro_interne_ouvert" : open=true
+	if background=="metro_ferme": open=false
+	if background=="metro_ouvert" : open=true
 	get_child(0).texture=backgrounds[background]
 	for i in scene_nodes.keys():
 		if i in elements:
@@ -74,22 +73,22 @@ func change_elements(background: String, elements: Array) -> void:
 			scene_nodes[i].hide()
 
 func switch_doors():
-	print(open)
-	print("switching")
+	#print(open)
+	#print("switching")
 	if open==true:
-		get_child(0).texture=backgrounds["environnement_metro_interne_fermé"]
+		get_child(0).texture=backgrounds["metro_ferme"]
 		scene_nodes["Portes_metro_interieur"].hide()
 	else:
 		assert(open==false,"ASSERT : open variable invalid")
-		get_child(0).texture=backgrounds["environnement_metro_interne_ouvert"]
+		get_child(0).texture=backgrounds["metro_ouvert"]
 		scene_nodes["Portes_metro_interieur"].show()
 	open=!open
 
 func show_tree(balise):
-	print(balise)
+	#print(balise)
 	for i in get_children():
 		print(i.name)
-	print(balise)
+	#print(balise)
 
 func create_node_from_instance(instance:PackedScene,name:String,place:int):
 	add_child(instance.instantiate())
@@ -97,10 +96,10 @@ func create_node_from_instance(instance:PackedScene,name:String,place:int):
 	if place!=-1: move_child(get_child(-1),place)
 
 func remove_elements():
-	print("===========REMOVE===============")
+	#print("===========REMOVE===============")
 	for i in get_children():
-		print("analyse:"+i.name)
+		#print("analyse:"+i.name)
 		if i!=get_child(0):
 			i.free()
 		show_tree("___")
-	print("===========REMOVE===============")
+	#print("===========REMOVE===============")

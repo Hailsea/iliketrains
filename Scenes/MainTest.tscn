@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://se12xrrmy3jc" path="res://Scenes/think_UI.tscn" id="3_ycov7"]
 [ext_resource type="Texture2D" uid="uid://csdfcxeqvcnxk" path="res://Assets/Sprites/table_de_jeux.png" id="5_4rwog"]
 [ext_resource type="Shader" uid="uid://bwkwny4mapsa" path="res://Shaders/Scene.gdshader" id="5_ycov7"]
+[ext_resource type="Shader" uid="uid://bg3ap34gjbukw" path="res://Shaders/retro.gdshader" id="7_o8g5o"]
 [ext_resource type="FontFile" uid="uid://d0wt3m3e602b8" path="res://Assets/Fonts/Teen/teen.ttf" id="8_ehs70"]
 [ext_resource type="FontFile" uid="uid://e5m27ip8pu7q" path="res://Assets/Fonts/crimson/Crimson-Roman.otf" id="9_o1cfb"]
 [ext_resource type="PackedScene" uid="uid://jgtsa32nwv6e" path="res://Scenes/thoughts_UI.tscn" id="11_o1cfb"]
@@ -20,22 +21,36 @@ shader_parameter/blur_amount = 1.0
 shader_parameter/blur_inner = 0.6
 shader_parameter/blur_outer = 0.66
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yomxb"]
+shader = ExtResource("7_o8g5o")
+shader_parameter/wiggle = 0.03
+shader_parameter/wiggle_speed = 25.0
+shader_parameter/smear = 1.0
+shader_parameter/blur_samples = 15
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o8g5o"]
+shader = ExtResource("7_o8g5o")
+shader_parameter/wiggle = 0.03
+shader_parameter/wiggle_speed = 25.0
+shader_parameter/smear = 0.30000001425
+shader_parameter/blur_samples = 15
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nivcm"]
 shader = ExtResource("5_ycov7")
-shader_parameter/blur_radius = 0.4450000211375
+shader_parameter/blur_radius = 0.4810000228475
 shader_parameter/blur_amount = 1.7450000828875
 shader_parameter/blur_inner = 0.6
 shader_parameter/blur_outer = 0.66
 
 [node name="MainGame" type="Node" unique_id=1940308254]
 script = ExtResource("1_bhhyf")
-events_file = "res://Dialogs/jardindesplantes_quai.json"
+events_file = "res://Dialogs/metro_depart.json"
 
 [node name="Platform_background" parent="." unique_id=991292017 instance=ExtResource("2_ycov7")]
+visible = false
 modulate = Color(0.82, 0.82, 0.82, 1)
 
 [node name="Metro_background" parent="." unique_id=2044040248 instance=ExtResource("3_nivcm")]
-visible = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1128689314]
 zoom = Vector2(1.2, 1.2)
@@ -57,16 +72,62 @@ mouse_filter = 2
 visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Flashback" unique_id=1457579723]
+position = Vector2(-128, -21)
+scale = Vector2(1.175, 1.2)
 texture = ExtResource("5_4rwog")
 centered = false
 
-[node name="Blur" type="ColorRect" parent="Flashback" unique_id=1286823155]
-material = SubResource("ShaderMaterial_nivcm")
+[node name="TextureRect" type="TextureRect" parent="Flashback" unique_id=1011490338]
+visible = false
+material = SubResource("ShaderMaterial_yomxb")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Blur" type="ColorRect" parent="Flashback" unique_id=1286823155]
+material = SubResource("ShaderMaterial_o8g5o")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -100.0
+offset_right = 231.0
+offset_bottom = 207.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Blur2" type="ColorRect" parent="Flashback" unique_id=2042996943]
+material = SubResource("ShaderMaterial_nivcm")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -155.0
+offset_top = -93.0
+offset_right = 231.0
+offset_bottom = 207.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="White" type="ColorRect" parent="Flashback" unique_id=494479904]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = -159.0
+offset_top = -117.0
+offset_right = 2146.0
+offset_bottom = 1280.0
+
+[node name="White" type="CanvasLayer" parent="." unique_id=1438054883]
+
+[node name="White" type="ColorRect" parent="White" unique_id=1461358152]
+modulate = Color(1, 1, 1, 0)
+offset_left = -159.0
+offset_top = -117.0
+offset_right = 2146.0
+offset_bottom = 1280.0
 mouse_filter = 2
 
 [node name="UI_Elements" type="CanvasLayer" parent="." unique_id=132934596]
@@ -102,19 +163,19 @@ anchor_right = 0.969
 anchor_bottom = 0.933
 
 [node name="Phone" parent="UI_Elements" unique_id=820931979 instance=ExtResource("12_gdjfl")]
-visible = false
 anchors_preset = -1
 anchor_right = 0.222
 anchor_bottom = 0.611
-offset_left = -351.0
-offset_top = 384.0
-offset_right = -351.0
-offset_bottom = 384.0
+offset_left = -347.0
+offset_top = 397.0
+offset_right = -347.0
+offset_bottom = 397.0
 
 [node name="EventDelay" type="Timer" parent="." unique_id=1926915563]
+
+[node name="SilenceDelay" type="Timer" parent="." unique_id=1592238620]
 
 [connection signal="update_hover_ui" from="Platform_background" to="." method="hover_ui"]
 [connection signal="update_hover_ui" from="Metro_background" to="." method="hover_ui"]
 [connection signal="end_dialog" from="UI_Elements/DialogUI" to="." method="_on_dialog_end"]
 [connection signal="mouse_entered" from="UI_Elements/Phone" to="." method="phone_up"]
-[connection signal="mouse_exited" from="UI_Elements/Phone" to="." method="phone_down"]

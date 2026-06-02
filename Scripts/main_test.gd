@@ -16,13 +16,17 @@ var player_data:Array = []
 var current_scene_elements:Array=[]
 var current_scene_background
 
+var phone:bool = false
+
 var scenes:Dictionary[String,Node2D]
+
+
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	scenes={"quai":$Platform_background,"metro":$Metro_background}
+	scenes={"quai":$Platform_background,"metro_ouvert":$Metro_background,"metro_ferme":$Metro_background}
 	load_scene_events()
 	$UI_Elements/Thoughts.update_text("neutral","salut")
 	if default_trigger != "none":
@@ -36,40 +40,36 @@ func load_scene_events():
 	var json_as_text = FileAccess.get_file_as_string(file)
 	var data = JSON.parse_string(json_as_text)
 	dialog_data = data["events"]
-	setting = data["setting"]
+	setting = data["background"]
 	default_trigger = data["default_trigger"]
+	thoughts = data["thoughts"]
 	var elements = dialog_data["triggers"].keys()
-	change_scene(setting,elements)
+	change_scene(data["background"],elements)
 	
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if not in_event:
 			var element = scenes[setting].element_hovered()
-			in_event = true
-			$Camera2D.lock = true
 			load_trigger(element)
 	if Input.is_key_pressed(KEY_R):
-		print("----------------------------------------------------------------------R")
 		change_scene("environnement_exterieur_sansmetro",["Pub","Distributeur_arriere","Garcon","Banc"])
 	if Input.is_key_pressed(KEY_T):
-		print("----------------------------------------------------------------------T")
 		change_scene("environnement_exterieur_sansmetro",["Pub","Distributeur_avant","Banc","Metro_ouvert","Porte_ouverte"])
 	if Input.is_key_pressed(KEY_Y):
-		print("----------------------------------------------------------------------Y")
 		switch_door()
 	if Input.is_key_pressed(KEY_U):
-		print("----------------------------------------------------------------------U")
 		change_scene("environnement_metro_interne_ouvert",["Portes_metro_interieur","Metro_carte","Homme_debout"])
 	if Input.is_key_pressed(KEY_I):
-		print("----------------------------------------------------------------------I")
 		scenes[setting].show_tree("")
 
 func load_trigger(trigger:String):
+	
 	if not dialog_data["triggers"].has(trigger):
 		print("No trigger");
 		return null
 	
+				
 	var events_list = dialog_data["triggers"][trigger]
 	for event in events_list:
 		if verify_condition(event["condition"]):
@@ -86,12 +86,17 @@ func process_event(event:String):
 	$UI_Elements/Phone.hide()
 	if not dialog_data["events"].has(event):
 		print("No event")
+		return null
 	
 	in_event = true
+	$Camera2D.lock = true
+	
 	var actions_list = dialog_data["events"][event]
 	var next = null
 	for action in actions_list:
 		next = await process_action(action) 
+	
+	player_data.push_back(event)
 	
 	in_event = false
 	$Camera2D.lock = false
@@ -101,28 +106,39 @@ func process_event(event:String):
 	if next != null:
 		load_trigger(next)
 
-func process_action(action:Dictionary):
-	if action["type"] == "line":
-		await load_dialog(action["text"])
-	elif action["type"] == "print":
-		print(action["parameter"])
-	elif action["type"] == "choice":
-		await load_choices(action["choices"])
-	elif action["type"] == "silence":
-		$EventDelay.wait_time = action["time"]
-		$EventDelay.start()
-		await $EventDelay.timeout
-	elif action["type"] == "sceneload":
-		var toload = scenes[action["scene"]]
-		change_scene(toload["background"],toload["elements"])
+func process_action(action):
+	if action[0] == "line":
+		await load_dialog(action[1])
+	elif action[0] == "print":
+		print(action[1])
+	elif action[0] == "choice":
+		await load_choices(1)
+	elif action[0] == "silence":
+		$SilenceDelay.wait_time = action[1]
+		$SilenceDelay.start()
+		await $SilenceDelay.timeout
+	elif action[0] == "sceneload":
+		var events_file = "res://Dialogs/"+action[1]+".json"
 		load_scene_events()
-	elif action["type"] == "flashback":
-		pass 
-	elif action["type"] == "add_save":
-		player_data.push_back(action["episode"])
-	elif action["type"] == "trigger":
-		return action["trigger"]
-	
+	elif action[0] == "flashback":
+		var tween = create_tween()
+		tween.tween_property($White/White,"modulate:a",1,0.5)
+		await tween.finished
+		if action[1]:
+			$Flashback.show()
+		else:
+			$Flashback.hide()
+		tween = create_tween()
+		tween.tween_property($White/White,"modulate:a",0,0.5)
+		await tween.finished
+			
+		
+	elif action[0] == "trigger":
+		return action[1]
+	elif action[0] == "thought":
+		thoughts[action[1]] == action[2]
+	elif action[0] == "doors":
+		switch_door()
 	return null
 
 
@@ -154,13 +170,12 @@ func change_scene(Background:String, Elements:Array):
 	var background_node
 	if Background == "quai": 
 		scenes["quai"].show()
-		scenes["metro"].hide()
+		scenes["metro_ouvert"].hide()
 	else: 
-		assert(Background == "metro","ASSERT : if else de change_scene incorrect")
+		#assert(Background == "metro","ASSERT : if else de change_scene incorrect")
 		scenes["quai"].hide()
-		scenes["metro"].show()
-	background_node=scenes[setting]
-	print(Elements)
+		scenes["metro_ouvert"].show()
+	background_node=scenes[Background]
 	background_node.change_elements(Background,Elements)
 	background_node.show_tree("-------------------------------Children")
 
@@ -174,21 +189,27 @@ func single_change_scene(element:String,mode:bool):
 	change_scene(current_scene_background,current_scene_elements)
 
 func switch_door():
-	print(setting)
 	scenes[setting].switch_doors()
 	
 func phone_up():
-	print("up")
 	var tween = create_tween()
-	tween.tween_property($UI_Elements/Phone,"position:x",-56,0.5)
+	if phone:
+		phone = false
+		tween.tween_property($UI_Elements/Phone,"position:x",-356,0.2)
+	else:
+		phone = true
+		if not "phone_checked" in player_data:
+			player_data.push_back("phone_checked")
+		tween.tween_property($UI_Elements/Phone,"position:x",-56,0.2)
+	
 
 func phone_down():
-	print("down")
 	var tween = create_tween()
-	tween.tween_property($UI_Elements/Phone,"position:x",-356,0.5)
+	
 
 func hover_ui(nom) -> void:
-	$UI_Elements/Thoughts.update_text("neutral",nom)
+	print(nom)
+	$UI_Elements/Thoughts.update_text(thoughts[nom][0],thoughts[nom][1])
 
 func parser_json_scene_change(file:String):
 	var json_as_text = FileAccess.get_file_as_string(file)

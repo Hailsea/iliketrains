@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d18p2or1kck3d"
-path="res://.godot/imported/environnement_metro_interne_ouvert.png-aa849c2af527e438c4b2b26e114416c9.ctex"
+uid="uid://0hpkjk8cqt8i"
+path="res://.godot/imported/neutral.png-82bf767445c72d48450cca0ea201eb02.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/environnement_metro_interne_ouvert.png"
-dest_files=["res://.godot/imported/environnement_metro_interne_ouvert.png-aa849c2af527e438c4b2b26e114416c9.ctex"]
+source_file="res://Assets/Sprites/Portraits/lucien/neutral.png"
+dest_files=["res://.godot/imported/neutral.png-82bf767445c72d48450cca0ea201eb02.ctex"]
 
 [params]
 

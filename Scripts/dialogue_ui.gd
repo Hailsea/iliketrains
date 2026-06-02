@@ -30,12 +30,12 @@ var lines = []
 # ====
 
 @export var characters_info:Dictionary = {
-	"protag":{"speed":40,"name":"Protagoniste","pitch":1},
-	"alix":{"speed":25,"name":"Alix","pitch":1},
-	"eulalie":{"speed":45,"name":"Eulalie","pitch":1},
+	"protag":{"speed":40,"name":"Andrea","pitch":0.97},
+	"alix":{"speed":25,"name":"Alix","pitch":1.03},
+	"eulalie":{"speed":45,"name":"Eulalie","pitch":1.05},
 	"lucien":{"speed":35,"name":"Lucien","pitch":1},
-	"paul":{"speed":40,"name":"Paul","pitch":1},
-	"theodore":{"speed":40,"name":"Alix","pitch":1},
+	"paul":{"speed":40,"name":"Paul","pitch":0.95},
+	"theodore":{"speed":40,"name":"Théodore","pitch":0.96},
 }
 
 @export var characters_font:Dictionary[String,FontFile] = {
@@ -90,8 +90,9 @@ func load_lines(dialog_lines):
 
 func display_line(line: Dictionary):
 	var path = get_portrait_path(line["character"],line["emotion"])
-	var img = Image.load_from_file(path)
-	var texture = ImageTexture.create_from_image(img) # Chargement de la texture du portrait pour le TextureRect
+	var texture:Texture2D = load(path) # Chargement de la texture du portrait pour le TextureRect
+	portrait.texture = texture
+	portrait_shadow.texture = texture
 	
 	$CharacterSoundEffect.pitch_scale = characters_info[line["character"]]["pitch"]
 	
@@ -119,10 +120,6 @@ func display_line(line: Dictionary):
 	
 	if line["character"] != previous_character:
 		previous_character = line["character"]
-		if previous_character == player_character:
-			switch_to_right(texture)
-		else:
-			switch_to_left(texture)
 		textbox_animation()
 
 func switch_to_left(texture:Texture2D):

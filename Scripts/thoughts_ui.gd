@@ -18,10 +18,9 @@ func update_text(emotion:String,thought_text:String):
 	var tween = create_tween()
 	textbox.pivot_offset_ratio = Vector2(0,0.5)
 	tween.tween_property(textbox,"scale:y",0,0)
-	var img = Image.load_from_file("res://Assets/Sprites/Portraits/protag/"+emotion+".png")
-	var texture = ImageTexture.create_from_image(img)
+	var texture = load("res://Assets/Sprites/Portraits/protag/"+emotion+".png")
 	portrait.texture=texture
-	text.text = thought_text
+	text.text = "[i]"+thought_text+"[/i]"
 	
 	tween.tween_property(textbox,"scale:y",1,0.15)
 	

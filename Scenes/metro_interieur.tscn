@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://co74ofwm4yf3r"]
 
 [ext_resource type="Script" uid="uid://2sfkdn8ytcge" path="res://Scripts/metro_background_change.gd" id="1_t3cai"]
-[ext_resource type="Texture2D" uid="uid://d18p2or1kck3d" path="res://Assets/Backgrounds/environnement_metro_interne_ouvert.png" id="2_2bcgp"]
+[ext_resource type="Texture2D" uid="uid://d18p2or1kck3d" path="res://Assets/Backgrounds/metro_ouvert.png" id="2_2bcgp"]
 [ext_resource type="PackedScene" uid="uid://dge1r32e3m5jb" path="res://Scenes/Interactive_elements/Portes_metro_interieur.tscn" id="3_5pnae"]
 [ext_resource type="PackedScene" uid="uid://bipbbp87islpu" path="res://Scenes/Interactive_elements/Homme_debout.tscn" id="3_t3cai"]
 [ext_resource type="PackedScene" uid="uid://bik7vfcwhc1w0" path="res://Scenes/Interactive_elements/Homme_assis.tscn" id="4_5pnae"]

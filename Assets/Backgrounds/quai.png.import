@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://slq1qj4ywm40"
-path="res://.godot/imported/environnement_metro_interne_fermé.png-9ecedc61ba6bd81e0e4965f5c1224f1a.ctex"
+uid="uid://bmmelqp7lm8sk"
+path="res://.godot/imported/quai.png-be172b82f33dc8238ec2a92a869a306a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/environnement_metro_interne_fermé.png"
-dest_files=["res://.godot/imported/environnement_metro_interne_fermé.png-9ecedc61ba6bd81e0e4965f5c1224f1a.ctex"]
+source_file="res://Assets/Backgrounds/quai.png"
+dest_files=["res://.godot/imported/quai.png-be172b82f33dc8238ec2a92a869a306a.ctex"]
 
 [params]
 

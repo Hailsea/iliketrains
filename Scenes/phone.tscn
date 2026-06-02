@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dc0kiumdanwtu"]
 
 [ext_resource type="Texture2D" uid="uid://yp87mludlns4" path="res://Assets/Sprites/phone.png" id="1_oju8d"]
-[ext_resource type="Texture2D" uid="uid://0hpkjk8cqt8i" path="res://Assets/Sprites/Portraits/lucien/happy.png" id="2_knwvw"]
+[ext_resource type="Texture2D" uid="uid://0hpkjk8cqt8i" path="res://Assets/Sprites/Portraits/lucien/neutral.png" id="2_knwvw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_knwvw"]
 content_margin_left = 35.0
@@ -76,11 +76,223 @@ layout_mode = 2
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2069378867]
 layout_mode = 2
 size_flags_vertical = 3
+scroll_horizontal_custom_step = 1.0
 
 [node name="Messages" type="VBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=524064129]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Separator2" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1723423324]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.57, 0.57, 0.57, 1)
+text = "Historique des anciens messages indisponble"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Separator5" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1299090213]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.57, 0.57, 0.57, 1)
+text = "-- 31/04/23 --"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message12" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1728638422]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=green]Lucien[/color][/b]
+D'ailleurs j'ai relu le livret de règles et tu peux en effet débloquer un nouveau pouvoir offensif. C'est \"Frappe mythique\", ça donne +10 de péné magique."
+fit_content = true
+
+[node name="Message13" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1739046991]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=magenta]Vous[/color][/b]
+C'est pas un peu trop fort sur un paladin ?"
+fit_content = true
+
+[node name="Message14" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=382382802]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=green]Lucien[/color][/b]
+Ça m'a l'air complètement craqué oui mais depuis la nouvelle édition de 2022 c'est le cas \\(0-0)/"
+fit_content = true
+
+[node name="Message15" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=541863237]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=magenta]Vous[/color][/b]
+Bon bah je prends alors xD Avec la furie chevalresque d'Eulalie ça va taper fort !"
+fit_content = true
+
+[node name="Message16" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1667837017]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=green]Lucien[/color][/b]
+En même temps, on est bientôt à la fin, vous êtes niveau 16, ça commence à devenir sérieux !"
+fit_content = true
+
+[node name="Separator4" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1093096920]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.57, 0.57, 0.57, 1)
+text = "-- 06/05/23 --"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message9" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=799034381]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=green]Lucien[/color][/b]
+C'est bon, Eulalie est là ce soir, on a bien Rails et Royaume."
+fit_content = true
+
+[node name="Message10" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1600886763]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=magenta]Vous[/color][/b]
+Cool ! Tant mieux. Va-t-on enfin pouvoir passer la porte du Royaume Banni ?"
+fit_content = true
+
+[node name="Message11" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=380739959]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=green]Lucien[/color][/b]
+Haha, je ne spoil pas, je suis un maître du jeu incorruptible."
+fit_content = true
+
+[node name="Separator3" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=948074453]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.57, 0.57, 0.57, 1)
+text = "-- 18/05/23 --"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message7" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1130758027]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=magenta]Vous[/color][/b]
+Salut, est-ce qu'on a une date pour la prochaine session de JDR ?"
+fit_content = true
+
+[node name="Message8" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=352054794]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=green]Lucien[/color][/b]
+Salut, non désolé, j'ai pas trop la pêche en ce moment... Et puis Alix pouvait pas venir, et Eulalie non plus. Paul et Théodore sont dispos mais je suis pas sûrs qu'ils aient envie."
+fit_content = true
+
+[node name="Separator6" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1607333334]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.57, 0.57, 0.57, 1)
+text = "-- 09/06/26 --"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message3" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1561364977]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=green]Lucien[/color][/b]
+Salut ! Comment ça va depuis le temps ? Tu te souviens de moi ? ^^
+
+Je sais que ça fait trois ans qu'on s'est pas vus, mais est-ce que tu serais disponible vendredi soir ? On pourrait se retrouver à Phare Lointain ?
+Il me semble que c'est pas si loin de chez toi."
+fit_content = true
+
+[node name="Message4" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=536935325]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=magenta]Vous[/color][/b]
+Hey ! Ça va pas trop mal, et toi ?Oui en effet ça date. J'ai déménagé depuis donc c'est un peu loin mais bien sûr. "
+fit_content = true
+
+[node name="Message6" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1871316898]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=green]Lucien[/color][/b]
+Super ! On se retrouve là-bas alors. Il s'en est passé du temps depuis nos premiers TP de chimie, et nos séances de JDR."
+fit_content = true
+
+[node name="Message5" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=969864284]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=magenta]Vous[/color][/b]
+Le temps passe vite..."
+fit_content = true
 
 [node name="Separator" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1217932288]
 layout_mode = 2
@@ -99,7 +311,7 @@ theme_override_font_sizes/bold_font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
 bbcode_enabled = true
 text = "[b][color=green]Lucien[/color][/b]
-J'aime les CHIPS"
+Je suis arrivé à Phare Lointain. Je t'attends là-bas !"
 fit_content = true
 
 [node name="Message2" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=2118991807]
@@ -111,5 +323,5 @@ theme_override_font_sizes/bold_font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
 bbcode_enabled = true
 text = "[b][color=magenta]Vous[/color][/b]
-Moi aussi"
+Ça marche, je suis monté dans le métro, je te rejoins."
 fit_content = true

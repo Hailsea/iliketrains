@@ -11,7 +11,7 @@ func _instantiate() -> void:
 	pass
 
 func _ready() -> void:
-	get_child(0).texture = load("res://Assets/Backgrounds/environnement_exterieur_sansmetro.png")
+	get_child(0).texture = load("res://Assets/Backgrounds/quai.png")
 	#Metro et porte DOIVENT etre les 1er et 2eme éléments (nodes d'indice 1 et 2)
 	remove_elements()
 	for i in ["Metro_ferme","Metro_ouvert","Porte_ouverte","Distributeur_arriere", "Pub","Carte","Banc","Distributeur_avant","Mere_fille","Garcon"]:
@@ -20,7 +20,7 @@ func _ready() -> void:
 		if i==get_child(0): continue
 		scene_nodes[i.name]=i
 		i.input_pickable=true
-	print(scene_nodes)
+	#print(scene_nodes)
 	scene_nodes["Metro_ferme"].hide()
 	connect_signals()
 
@@ -71,8 +71,8 @@ func change_elements(background: String, elements: Array) -> void:
 
 func switch_doors():
 	if (!get_child(1).visible && !get_child(2).visible): 
-		print("Pas de métro")
-		show_tree("-----------------NO TRAIIIIIIIIIN")
+		#print("Pas de métro")
+		#show_tree("-----------------NO TRAIIIIIIIIIN")
 		return
 	assert(get_child(1).name.contains("Metro"),"Pas de metro")
 	if open==true:
@@ -85,7 +85,7 @@ func switch_doors():
 		scene_nodes["Metro_ouvert"].show()
 		scene_nodes["Metro_ferme"].hide()
 	open=!open
-	print(open)
+	#print(open)
 	return
 
 func create_node_from_instance(instance:PackedScene, name:String,place:int):
@@ -94,19 +94,19 @@ func create_node_from_instance(instance:PackedScene, name:String,place:int):
 	if place!=-1: move_child(get_child(-1),place)
 
 func show_tree(balise):
-	print(balise)
+	#print(balise)
 	for i in get_children():
-		print(i.name)
+		#print(i.name)
 		if i!=get_child(0): 
 			print(i.visible)
 			print(i.input_pickable)
-	print(balise)
+	#print(balise)
 	
 func remove_elements():
-	print("===========REMOVE===============")
+	#print("===========REMOVE===============")
 	for i in get_children():
-		print("analyse:"+i.name)
+		#print("analyse:"+i.name)
 		if i!=get_child(0):
 			i.free()
-		show_tree("___")
-	print("===========REMOVE===============")
+		#show_tree("___")
+	#print("===========REMOVE===============")

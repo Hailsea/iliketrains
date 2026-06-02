@@ -9,6 +9,7 @@ var lock:bool = false
 
 func _ready() -> void:
 	camera_offset = get_viewport().size*0.5
+	position = camera_offset
 
 
 func _physics_process(delta):

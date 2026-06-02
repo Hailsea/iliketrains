@@ -1,5 +1,5 @@
 {
-	"background":"environnement_exterieur_sansmetro",
+	"background":"quai",
 	"setting":"quai",
 	"events":{
 		"triggers":{
@@ -22,7 +22,9 @@
 		}
 	},
 	"thoughts":{
-		
+		"Background":["neutral","Je dois rejoindre Lucien"],
+		"Distributeur_avant":["neutral","Ceci est un test"],
+		"Pub":["sad","Ceci est une pub"],
 	},
 	"default_trigger":"none"
 }
