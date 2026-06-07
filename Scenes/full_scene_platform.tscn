@@ -18,6 +18,7 @@ position = Vector2(958, 544)
 texture = ExtResource("3_li70b")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Fond_img" unique_id=1697907494]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 text = "STATION"
