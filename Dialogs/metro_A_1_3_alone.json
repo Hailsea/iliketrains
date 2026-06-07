@@ -1,0 +1,41 @@
+{
+	"background":"metro_ferme",
+	"events":{
+		"triggers":{
+			"alone":[{"condition":[],"event":"dialog_alix_alone"}],
+		},
+		"events":{
+			"dialog_alix_alone":[
+				["line",[
+					{"character":"protag","emotion":"sad","text":"Alix avait l'air vraiment perturbée..."},
+				]],
+				["flashback",true],
+				["line",[
+					{"character":"lucien","character_name":"Garçon énergique","emotion":"neutral","text":"Alix ? Tout va bien ? Tu as l'air absente."},
+					{"character":"eulalie","character_name":"Fille éreintée","emotion":"neutral","text":"Si c'est pour faire la gueule, tu peux aussi ne pas venir. Tu ferais mieux de te reposer."},
+					{"character":"lucien","character_name":"Garçon énergique","emotion":"neutral","text":"Eulalie, s'il te plaît..."},
+					{"character":"eulalie","character_name":"Fille éreintée","emotion":"sad","text":"Désolée... J'ai eu une journée affreuse."},
+					{"character":"alix","emotion":"neutral","text":"Ça va aller, juste un peu fatiguée. J'ai pas mal de taf en ce moment !"},
+					{"character":"theodore","character_name":"Garçon attentionné","emotion":"sad","text":"Si ça va pas, tu peux nous en parler, OK ?"},
+					{"character":"alix","emotion":"neutral","text":"Merci... Ça va aller ne vous en faites pas."},
+					{"character":"alix","emotion":"neutral","text":"Allez, je file, je ne veux pas être en retard !"},
+					{"character":"theodore","character_name":"Garçon attentionné","emotion":"sad","text":"Elle est encore partie comme une flèche."},
+					{"character":"eulalie","character_name":"Fille éreintée","emotion":"sad","text":"Elle aurait pu filer un coup de main pour ranger. La table est en bazar. Y'a des papiers de chips partout..."},
+					{"character":"paul","character_name":"Garçon dubitatif","emotion":"neutral","text":"..."},
+				]],
+				["flashback",false],
+				["line",[
+					{"character":"protag","emotion":"sad","text":"J'espère que tout ira bien pour elle."},
+					{"character":"protag","emotion":"sad","text":"Je suis arrivé à l'hôpital. Plus qu'un arrêt et c'est Phare Lointain."},
+				]],
+			],
+			
+		}
+	},
+	"thoughts":{
+		"Background":["neutral","Ça me fait plaisir de revoir Alix."],
+		"Alix":["sad","Alix semble un peu anxieuse."],
+		"Portes_metro_interieur":["sad","Je ne peux pas sortir maintenant, je ne pourrais pas rejoindre Lucien."],
+	},
+	"default_trigger":"alone"
+}

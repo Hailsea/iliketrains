@@ -43,6 +43,8 @@ var lines = []
 }
 @export var default_font:Font = null
 
+var met:Array = []
+
 var tween : Tween # Tween pour les animations
 
 var old_character_visible = -1
@@ -94,6 +96,10 @@ func display_line(line: Dictionary):
 	var texture:Texture2D = load(path) # Chargement de la texture du portrait pour le TextureRect
 	portrait.texture = texture
 	portrait_shadow.texture = texture
+	if line["character"] == "protag" || line["character"] in met:
+		portrait.modulate = Color(1,1,1,1)
+	else:
+		portrait.modulate = Color(0.11, 0.11, 0.11, 1.0)
 	
 	$CharacterSoundEffect.pitch_scale = characters_info[line["character"]]["pitch"]
 	
@@ -103,10 +109,11 @@ func display_line(line: Dictionary):
 		character_name.text = characters_info[line["character"]]["name"]
 	text.text = line["text"] # Changement contenu du texte
 	
-	if "unskip" in line["properties"]:
-		unskip = true
-	else:
-		unskip = false
+	if line.has("properties"):
+		if "unskip" in line["properties"]:
+			unskip = true
+		else:
+			unskip = false
 	
 	if line.has("speed"): # Vitesse animation
 		anim_speed = line["speed"]

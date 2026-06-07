@@ -13,9 +13,9 @@ func _instantiate() -> void:
 func _ready() -> void:
 	get_child(0).texture = load("res://Assets/Backgrounds/quai.png")
 	#Metro et porte DOIVENT etre les 1er et 2eme éléments (nodes d'indice 1 et 2)
-	remove_elements()
-	for i in ["Metro_ferme","Metro_ouvert","Porte_ouverte","Distributeur_arriere", "Pub","Carte","Banc","Distributeur_avant","Mere_fille","Garcon"]:
-		create_node_from_instance(load("res://Scenes/Interactive_elements/"+i+".tscn"),i,-1)
+	#remove_elements()
+	#for i in ["Metro_ferme","Metro_ouvert","Porte_ouverte","Distributeur_arriere", "Pub","Carte","Banc","Distributeur_avant","Mere_fille","Garcon","Alix","Eulalie","Paul","Theodore"]:
+	#	create_node_from_instance(load("res://Scenes/Interactive_elements/"+i+".tscn"),i,-1)
 	for i in get_children():
 		if i==get_child(0): continue
 		scene_nodes[i.name]=i
@@ -97,9 +97,10 @@ func show_tree(balise):
 	#print(balise)
 	for i in get_children():
 		#print(i.name)
-		if i!=get_child(0): 
-			print(i.visible)
-			print(i.input_pickable)
+		if i!=get_child(0):
+			pass
+			#print(i.visible)
+			#print(i.input_pickable)
 	#print(balise)
 	
 func remove_elements():

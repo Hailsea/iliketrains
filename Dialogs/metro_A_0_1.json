@@ -1,0 +1,143 @@
+{
+	"background":"metro_ferme",
+	"events":{
+		"triggers":{
+			"Alix":[{"condition":[],"event":"dialog_alix_metro11"}],
+			"choice1_good":[{"condition":[],"event":"alix_choice1_good"}],
+			"choice1_bad":[{"condition":[],"event":"alix_choice1_bad"}],
+			"choice2_good":[{"condition":[],"event":"alix_choice2_good"}],
+			"choice2_bad":[{"condition":[],"event":"alix_choice2_bad"}],
+			"post_choice1":[{"condition":[],"event":"dialog_alix_metro12"}],
+			"post_choice2":[{"condition":[],"event":"dialog_alix_metro13"}],
+			"lie":[{"condition":[],"event":"alix_lie"}],
+			"truth":[{"condition":["alix_choice1_bad","alix_choice2_bad"],"event":"alix_truth_notrust"},{"condition":[],"event":"alix_truth_trust"},],
+		},
+		"events":{
+			"dialog_alix_metro11":[
+				["line",[
+					{"character":"protag","emotion":"neutral","text":"C'est fou de te croiser ici après autant de temps. On habite pas si loin au final."},
+					{"character":"alix","emotion":"sad","text":"Je suppose qu'on est tous devenus un peu occupés dernièrement. Je crois que personne n'a quitté la ville, pourtant ça fait depuis presque trois ans que Rails et Royaumes s'est arrêté."},
+					{"character":"protag","emotion":"neutral","text":"Les voies de la vie nous ont éloignés, on dirait bien."},
+					{"character":"alix","emotion":"sad","text":"..."},
+					{"character":"alix","emotion":"neutral","text":"Tu fais... encore du jeu de rôle ?"},
+					{"character":"protag","emotion":"sad","text":"Plus trop, je suis occupé par mon travail. Et je n'ai plus grand monde avec qui jouer."},
+					{"character":"protag","emotion":"surprise","text":"Et toi ?"},
+					{"character":"alix","emotion":"sad","text":"Je n'ai plus grand monde avec qui jouer non plus. J'ai raccroché mon alambic magique et rangé mon personnage au placard..."},
+					
+				]],
+				["flashback",true],
+				["line",[
+					{"character":"lucien","character_name":"MJ énergique","emotion":"angry","text":"Le chevalier sombre repousse Hektor d'un grand coup d'épée ! Tu trébuches et t'approche du bord du wagon. Il devient de plus en plus difficile de tenir sur le toit du train magique... La situation est critique !"},
+					{"character":"paul","character_name":"Garçon investi","emotion":"sad","text":"J'ai sous-estimé la force de cet ennemi..."},
+					{"character":"lucien","character_name":"MJ énergique","emotion":"angry","text":"Orimaria, c'est à toi. Que fais-tu ?"},
+					{"character":"alix","emotion":"angry","text":"J'utilise ma dernière chronofiole pour ralentir le train et aider Hektor !"},
+					{"character":"lucien","character_name":"MJ énergique","emotion":"neutral","text":"La chronofiole se brise et ralentit la vitesse du train. Tu arrives à aider Hektor [i]in extremis[/i] !"},
+					{"character":"paul","character_name":"Garçon investi","emotion":"neutral","text":"Ouf ! Merci Alix ! Euh... Orimaria !"},
+				]],
+				["flashback",false],
+				["line",[
+					{"character":"protag","emotion":"neutral","text":"On a passé des bons moments avec tout le monde quand même !"},
+				]],
+				["choice",[
+					{"condition":[], "text":"Ton alchimiste était carrément classe !", "trigger":"choice1_good"},
+					{"condition":[], "text":"Ta guerrière avait un vrai quelque chose.", "trigger":"choice1_bad"},
+					{"condition":[], "text":"On pouvait compter sur ton prêtre.", "trigger":"choice1_bad"},
+				]]],
+			"alix_choice1_good":[
+				["line",[
+					{"character":"alix","emotion":"surprise","text":"Merci ! Ton perso était cool aussi."},
+					{"character":"alix","emotion":"neutral","text":"C'était des bons moments, ça c'est vrai..."},
+					
+				]],
+				["trigger","post_choice1"]
+			],
+			"alix_choice1_bad":[
+				["line",[
+					{"character":"alix","emotion":"sad","text":"Je jouais un alchimiste...","speed":20},
+					{"character":"alix","emotion":"neutral","text":"Mais bon, c'est vrai que l'ambiance était sympa."},
+				]],
+				["trigger","post_choice1"]
+			],
+			"dialog_alix_metro12":[
+				["line",[
+					{"character":"alix","emotion":"sad","text":"On a moins le temps, maintenant. Ou moins les gens avec qui jouer. C'était plus simple quand on était à l'université."},
+					{"character":"alix","emotion":"neutral","text":"Vous rigoliez tout le temps avec Lucien... Ça bossait pas dur en chimie !"},
+					{"character":"protag","emotion":"sad","text":"Hé ! Toi aussi tu passais ton temps hors des cours !"},
+				]],
+				["choice",[
+					{"condition":[], "text":"Ça bossait pas fort en bio.", "trigger":"choice2_bad"},
+					{"condition":[], "text":"Les informaticiens, vous faisiez tout sauf aller en amphi.", "trigger":"choice2_good"},
+					{"condition":[], "text":"La méca ça avait l'air d'être fun !", "trigger":"choice2_bad"},
+				]]
+			],
+			"alix_choice2_good":[
+				["line",[
+					{"character":"alix","emotion":"surprise","text":"Je peux pas vraiment démentir !"},				
+				]],
+				["trigger","post_choice2"]
+			],
+			"alix_choice2_bad":[
+				["line",[
+					{"character":"alix","emotion":"sad","text":"J'étais en informatique, Andréa...","speed":20},
+				]],
+				["trigger","post_choice2"]
+			],
+			"dialog_alix_metro13":[
+				["line",[
+					{"character":"alix","emotion":"sad","text":"C'était une bonne époque. Dommage que ça se soit fini de cette manière."},
+					{"character":"protag","emotion":"neutral","text":"Tu n'aurais pas envie de reprendre une nouvelle campagne ? Ou terminer la nôtre ?"},
+					{"character":"alix","emotion":"neutral","text":"Je ne suis pas sûre de vouloir me replonger dans tout ça. Les derniers mois ont été difficiles pour moi. Je crois que je préfère que les choses restent telles qu'elles sont."},
+					{"character":"alix","emotion":"surprise","text":"D'ailleurs... Que fais-tu ici un soir ? Je croyais que tu habitais de l'autre côté de la ville."},
+				]],
+				["choice",[
+					{"condition":[], "text":"Mentir", "trigger":"lie"},
+					{"condition":[], "text":"Dire la vérité", "trigger":"truth"},
+					null
+				]]
+			],
+			"alix_lie":[
+				["line",[
+					{"character":"protag","emotion":"surprise","text":"Ah ! Euh... Je prends l'air."},
+					{"character":"protag","emotion":"surprise","text":"Un peu d'oxygène."},
+					{"character":"protag","emotion":"surprise","text":"...","speed":5},
+					{"character":"alix","emotion":"neutral","text":"...","speed":5},
+					{"character":"alix","emotion":"sad","text":"Hey, c'est OK. On ne peut pas faire confiance à tout le monde."},
+					{"character":"alix","emotion":"sad","text":"Je pense que je vais rentrer."},
+					{"character":"alix","emotion":"sad","text":"Tu salueras Lucien de ma part."},
+					{"character":"protag","emotion":"surprise","text":"Alix ! Attends !"},
+				]],
+				["scene","metro_A_1_3_alone"]
+			],
+			"alix_truth_notrust":[
+				["doors"],
+				["line",[
+					{"character":"protag","emotion":"neutral","text":"Lucien m'a demandé de le rejoindre. Il voulait me dire quelque chose."},
+					{"character":"alix","emotion":"surprise","text":"Alors toi aussi !"},
+					{"character":"alix","emotion":"sad","text":"...","speed":15},
+					{"character":"alix","emotion":"sad","text":"Je suis désolée. Je crois que je vais rentrer. Tu salueras Lucien de ma part.","speed":15},
+					{"character":"protag","emotion":"surprise","text":"Alix ! Attends !"},
+				]],
+			],
+			"alix_truth_trust":[
+				["line",[
+					{"character":"protag","emotion":"neutral","text":"Lucien m'a demandé de le rejoindre. Il voulait me dire quelque chose."},
+					{"character":"alix","emotion":"surprise","text":"Alors toi aussi !"},
+					{"character":"alix","emotion":"sad","text":"...","speed":15},
+					{"character":"alix","emotion":"neutral","text":"Il y aura peut-être les autres alors."},
+					{"character":"alix","emotion":"sad","text":"Je ne m'attendais pas à ça. Mais bon, peut-être est-ce pour le mieux ?"},
+				]],
+				["doors"],
+				["line",[
+					{"character":"alix","emotion":"neutral","text":"Continuons, Phare lointain n'est plus très loin."},
+				]],
+				["scene","metro_A_1_2_alix"]
+			],
+		}
+	},
+	"thoughts":{
+		"Background":["neutral","Ça me fait plaisir de revoir Alix."],
+		"Alix":["sad","Alix semble un peu anxieuse."],
+		"Portes_metro_interieur":["sad","Je ne peux pas sortir maintenant, je ne pourrais pas rejoindre Lucien."],
+	},
+	"default_trigger":"none"
+}

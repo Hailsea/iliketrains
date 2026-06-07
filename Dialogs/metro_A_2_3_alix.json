@@ -1,0 +1,65 @@
+{
+	"background":"metro_ferme",
+	"events":{
+		"triggers":{
+			"Alix":[{"condition":[],"event":"dialog_alix_metro31"}],
+			"normal":[{"condition":[],"event":"normal"}],
+			"detour":[{"condition":[],"event":"detour"}],
+		},
+		"events":{
+			"dialog_alix_metro31":[
+				["line",[
+					{"character":"alix","emotion":"neutral","text":"Ma mère est tombé malade lors de notre dernière année d'université."},
+					{"character":"alix","emotion":"sad","text":"J'allais la voir à l'hôpital tous les jours. Quand on avait ReR, j'allais le soir. j'en ai fait des aller-retour sur cette ligne."},
+					{"character":"alix","emotion":"sad","text":"J'ai pris soin de ma petite soeur pendant ce temps-là. Mon père a eu un épisode dépressif. Je me suis occupé de la maison pendant toute cette période."},
+					{"character":"alix","emotion":"neutral","text":"Le jeu de rôle me permettait d'oublier... Mais c'était aussi fatiguant. Désolé d'avoir été un peu absente sur la fin."},
+				]],
+				["flashback",true],
+				["line",[
+					{"character":"lucien","character_name":"Garçon énergique","emotion":"neutral","text":"Alix ? Tout va bien ? Tu as l'air absente."},
+					{"character":"eulalie","character_name":"Fille éreintée","emotion":"neutral","text":"Si c'est pour faire la gueule, tu peux aussi ne pas venir. Tu ferais mieux de te reposer."},
+					{"character":"lucien","character_name":"Garçon énergique","emotion":"neutral","text":"Eulalie, s'il te plaît..."},
+					{"character":"eulalie","character_name":"Fille éreintée","emotion":"sad","text":"Désolée... J'ai eu une journée affreuse."},
+					{"character":"alix","emotion":"neutral","text":"Ça va aller, juste un peu fatiguée. J'ai pas mal de taf en ce moment !"},
+				]],
+				["flashback",false],
+				["line",[
+					{"character":"protag","emotion":"surprise","text":"Je ne savais pas tout ça..."},
+					{"character":"protag","emotion":"sad","text":"Je.. Excuse-moi de ne pas avoir été là à l'époque."},
+					{"character":"alix","emotion":"neutral","text":"C'est pas grave. Ça va mieux maintenant."},
+					{"character":"alix","emotion":"neutral","text":"Ma mère est décédée peu de temps après l'arrêt de notre campagne."},
+					{"character":"alix","emotion":"neutral","text":"Sur la fin, j'avais vraiment pas la motivation. Eulalie m'en voulait pour ça, d'ailleurs. Désolée d'avoir mis une sale ambiance dans le groupe."},
+					{"character":"protag","emotion":"sad","text":"Tu n'es pas responsable. Tu n'as rien à te reprocher."},
+					{"character":"alix","emotion":"neutral","text":"Je savais des choses dans cette histoire. J'aurais pu aider Eulalie, Paul et Théodore pour ne pas qu'ils se disputent. J'aurais du..."},
+				]],
+				["doors"],
+				["line",[
+					{"character":"alix","emotion":"neutral","text":"L'arrêt de l'hopital. Ça me rappelle des mauvais souvenirs."},
+				]],
+				["choice",[
+					{"condition":[], "text":"Ça va aller ?", "trigger":"normal"},
+					{"condition":[], "text":"Faisons un petit détour.", "trigger":"detour"},
+					null
+				]]
+			],
+			"normal":[
+				["line",[
+					{"character":"alix","emotion":"neutral","text":"Oui, tout va bien. Plus qu'un arrêt et nous y sommes"},
+				]],
+				["scene","metro_A_3_4_alix"]
+			],
+			"detour":[
+				["line",[
+					{"character":"alix","emotion":"neutral","text":"Un détour ? Après tout, pourquoi pas."},
+				]],
+				["scene","quai_A3B2D2_alix"]
+			]
+		}
+	},
+	"thoughts":{
+		"Background":["neutral","Ça me fait plaisir de revoir Alix."],
+		"Alix":["sad","Alix semble un peu anxieuse."],
+		"Portes_metro_interieur":["sad","Je ne peux pas sortir maintenant, je ne pourrais pas rejoindre Lucien."],
+	},
+	"default_trigger":"Alix"
+}

@@ -1,0 +1,29 @@
+{
+	"background":"metro_ferme",
+	"events":{
+		"triggers":{
+			"Alix":[{"condition":[],"event":"dialog_alix_metro41"}],
+		},
+		"events":{
+			"dialog_alix_metro41":[
+				["line",[
+					{"character":"alix","emotion":"neutral","text":"On est bientôt arrivés. D'ailleurs... Tu as des nouvelles des autres ?"},
+					{"character":"protag","emotion":"sad","text":"Non pas du tout. Je n'ai aucune info, et toi ?"},
+					{"character":"alix","emotion":"neutral","text":"Paul et Théodore font toujours de la musique. Eulalie a coupé les ponts, je l'ai aperçue une fois mais je ne lui ai pas parlé. Quant à Lucien, on ne s'est pas reparlé avant hier."},
+					{"character":"alix","emotion":"neutral","text":"Lucien a vraiment fait de son mieux pour ne délaisser personne. Je regrette que Paul, Théodore et Eulalie se soient froissés."},
+					{"character":"alix","emotion":"sad","text":"Lucien m'a parlé de tout ça pour que je l'aide... Mais je n'ai pas sur faire quelque chose."},
+					{"character":"protag","emotion":"neutral","text":"Ça n'est pas ta faute. Tu avais d'autres soucis. Le groupe ne s'est pas séparé par ta faute."},
+					{"character":"alix","emotion":"surprise","text":"Merci, Andrea. C'est cool de pouvoir parler de ça avec toi."},
+					{"character":"alix","emotion":"neutral","text":"On dirait qu'on arrive."},
+				]],
+				["scene","fin_alix"]
+			]
+		}
+	},
+	"thoughts":{
+		"Background":["neutral","Ça me fait plaisir de revoir Alix."],
+		"Alix":["sad","Alix semble un peu anxieuse."],
+		"Portes_metro_interieur":["sad","Je ne peux pas sortir maintenant, je ne pourrais pas rejoindre Lucien."],
+	},
+	"default_trigger":"Alix"
+}

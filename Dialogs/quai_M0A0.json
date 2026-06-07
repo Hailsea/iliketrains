@@ -1,0 +1,49 @@
+{
+	"background":"quai",
+	"events":{
+		"triggers":{
+			"Alix":[{"condition":["dialog_alix_quai1"],"event":"dialog_alix_quai2"},{"condition":[],"event":"dialog_alix_quai1"}],
+			"Train_ouvert":[{"condition":[],"event":"train"}],
+			"Banc":[],
+		},
+		"events":{
+			"dialog_alix_quai1":[
+				["meet","alix"],
+				["line",[{"character": "protag", "emotion": "neutral", "text": "Ce visage me dit quelque chose... ", "properties": []}, 
+				{"character": "protag", "emotion": "surprise", "text": "Alix ?", "properties": []}, 
+				{"character": "alix", "character_name":"Fille réservée","emotion": "surprise", "text": "Bonj- Euh... Andrea ?", "properties": []}, 
+				{"character": "alix", "emotion": "neutral", "text": "\u00c7a fait un moment dis-donc...", "properties": []}, 
+				{"character": "protag", "emotion": "surprise", "text": "Oui en effet, je me faisais justement la remarque que je passais proche de chez toi, haha...", "properties": []}, 
+				{"character": "protag", "emotion": "sad", "text": "...", "properties": []}, 
+				{"character": "alix", "emotion": "sad", "text": "...", "properties": []}, 
+				{"character": "alix", "emotion": "neutral", "text": "Et sinon... Comment vas-tu ? Du temps a passé depuis notre dernière session de Rails et Royaumes.", "properties": []}, 
+				{"character": "protag", "emotion": "neutral", "text": "Ça va, je travaille de l'autre côté de la ville désormais. J'ai trouvé un job pas très longtemps après notre diplôme.", "properties": []}, 
+				{"character": "protag", "emotion": "surprise", "text": "Et toi, ça va bien ?", "properties": []}, 
+				{"character": "alix", "emotion": "neutral", "text": "On fait aller... J'enchaîne les petits boulots de dépannage informatique ces temps-ci. Il n'y a plus grand monde à la maison. Ma soeur est partie faire ses études loin d'ici.", "properties": []}, 
+				{"character": "alix", "emotion": "sad", "text": "Je suis un peu toute seule, mais je m'en sors...", "properties": []}, 
+				{"character": "alix", "emotion": "neutral", "text": "A peu près.", "properties": []}]],
+				["train"],
+				["line",[
+					{"character": "alix", "emotion": "neutral", "text": "Tu prends ce train ?", "properties": []},
+					{"character": "protag", "emotion": "surprise", "text": "Oui, toi aussi ?", "properties": []},
+					{"character": "alix", "emotion": "surprise", "text": "Et bien, on peut faire le bout de trajet ensemble...", "properties": []},
+				]],
+				
+			],
+			"train":[["scene","metro_A_0_1"]],
+			"dialog_alix_quai2":[
+				["line",[
+					{"character":"alix","emotion":"surprise","text":"Allons-y, le train va partir !"}
+				]],
+				["scene","metro_A_0_1"]
+			],
+			
+		}
+	},
+	"thoughts":{
+		"Background":["neutral","Si je prends la ligne A, je peux quand même retrouver mon chemin"],
+		"Alix":["neutral","Cette personne me semble familière..."],
+		"Banc":["neutral","C'est un banc"]
+	},
+	"default_trigger":"none"
+}

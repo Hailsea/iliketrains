@@ -1,0 +1,71 @@
+{
+	"background":"metro_ferme",
+	"events":{
+		"triggers":{
+			"Alix":[{"condition":[],"event":"dialog_alix_metro21"}],
+			"follow":[{"condition":[],"event":"follow"}],
+			"choice_bad":[{"condition":[],"event":"choice_bad"}],
+			"choice_good":[{"condition":[],"event":"choice_good"}],
+		},
+		"events":{
+			"dialog_alix_metro21":[
+				["line",[
+					{"character":"protag","emotion":"neutral","text":"S'il y a quelque chose, tu peux m'en parler si tu veux. On s'est connu pendant deux ans, ona jamais été très proches mais je reste là, si t'as besoin. On était quand même amis."},
+					{"character":"alix","emotion":"sad","text":"Merci, c'est sympa. C'est juste... Que ça ne me rappelle pas que des bons souvenirs. Sur la fin, c'était une période très tendue, entre les cours et les visites à l'hôpital tous les jours, je ne m'en sortais plus."},
+					{"character":"alix","emotion":"sad","text":"Enfin, c'était très cool de jouer avec tout le monde, on rigolait bien tous ensembles. Lucien animait toujurs le jeu avec beaucoup d'entrain. Et la plupart du temps c'est la bonne humeur qui régnait, n'est-ce pas ?"},
+					{"character":"alix","emotion":"neutral","text":"Je me souviens du moment où on a vaincu le monstre qui bloquait le chemin dans les montagnes. Le train avait eu du mal à avancer pendant plusieurs sessions car les moteurs avaient été endommagés par ses attaques."},
+					{"character":"alix","emotion":"surprise","text":"Le combat a été rude mais on a gagné, et ça a renforcé notre petite équipe."},
+					{"character":"protag","emotion":"neutral","text":"Je m'en souviens. Tes compétences en potions nous avaient sauvé la mise."},
+					{"character":"alix","emotion":"neutral","text":"Oui... Je dois encore avoir ma fiche de personnage quelque part, dans mes cartons."},
+					{"character":"protag","emotion":"surprise","text":"Tu n'as jamais eu envie de la ressortir ?"},
+					{"character":"alix","emotion":"neutral","text":"Non, pas vraiment."},
+					{"character":"alix","emotion":"neutral","text":"Dis-moi, à la fin de notre dernière session, quand nous sommes arrivés juste devant la porte du terminus du dernier royaume, qu'as-tu ressenti ?"},
+				]],
+				["choice",[
+					{"condition":[], "text":"De la joie.", "trigger":"follow"},
+					{"condition":[], "text":"De la détermination.", "trigger":"follow"},
+					{"condition":[], "text":"De l'excitation.", "trigger":"follow"},
+				]]
+			],
+			"follow":[
+				["line",[
+					{"character":"alix","emotion":"neutral","text":"Je vois."},
+					{"character":"protag","emotion":"neutral","text":"Et toi ?"},
+					{"character":"alix","emotion":"neutral","text":"De la peur","speed":15},
+					{"character":"alix","emotion":"neutral","text":"Peur de quitter le dernier havre de paix qui m'a soutenu pendant deux ans."},
+					{"character":"alix","emotion":"sad","text":"Je m'en sortais pour les cours, mais pour le reste c'était vraiment l'enfer. Je n'ai jamais eu autant mal à la tête de ma vie."},
+					{"character":"alix","emotion":"sad","text":"J'en avais vraiment besoin. De ces moments."},
+				]],
+				["choice",[
+					{"condition":[], "text":"Était-ce à cause de tes notes ?", "trigger":"choice_bad"},
+					{"condition":[], "text":"Était-ce à cause d'une rupture ?", "trigger":"choice_bad"},
+					{"condition":[], "text":"Était-ce à cause de ta famille ?", "trigger":"choice_good"},
+				]]
+			],
+			"choice_bad":[
+				["doors"],
+				["line",[
+					{"character":"alix","emotion":"neutral","text":"Non, tu n'y es pas."},
+					{"character":"alix","emotion":"sad","text":"Désolé, je crois que je vais y aller. J'ai besoin de calme."},
+					{"character":"alix","emotion":"neutral","text":"A plus... Peut-être."},
+				]],
+				["scene","metro_A_2_3_alone"]
+			],
+			"choice_good":[
+				["doors"],
+				["line",[
+					{"character":"alix","emotion":"neutral","text":"Alors tu es au courant ?"},
+					{"character":"alix","emotion":"neutral","text":"Je suppose que je peux rester un peu plus..."},
+				]],
+				["scene","metro_A_2_3_alix"]
+			]
+			
+		}
+	},
+	"thoughts":{
+		"Background":["neutral","Ça me fait plaisir de revoir Alix."],
+		"Alix":["sad","Alix semble un peu anxieuse."],
+		"Portes_metro_interieur":["sad","Je ne peux pas sortir maintenant, je ne pourrais pas rejoindre Lucien."],
+	},
+	"default_trigger":"Alix"
+}

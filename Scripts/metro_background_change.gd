@@ -15,8 +15,8 @@ func _ready() -> void:
 	#print(backgrounds)
 	#remove_elements()
 	#Les portes doivent être le 1er node
-	for i in ["Portes_metro_interieur","Metro_carte","Homme_debout","Homme_assis"]:
-		create_node_from_instance(load("res://Scenes/Interactive_elements/"+i+".tscn"),i,-1)
+	#for i in ["Portes_metro_interieur","Metro_carte","Homme_debout","Homme_assis"]:
+	#	create_node_from_instance(load("res://Scenes/Interactive_elements/"+i+".tscn"),i,-1)
 	for i in get_children():
 		if i==get_child(0): continue
 		scene_nodes[i.name]=i

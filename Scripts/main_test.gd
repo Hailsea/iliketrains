@@ -28,7 +28,7 @@ func _ready() -> void:
 	
 	scenes={"quai":$Platform_background,"metro_ouvert":$Metro_background,"metro_ferme":$Metro_background}
 	load_scene_events()
-	$UI_Elements/Thoughts.update_text("neutral","salut")
+	hover_ui("Background")
 	if default_trigger != "none":
 		load_trigger(default_trigger)
 	#load_trigger("alix")
@@ -50,7 +50,9 @@ func load_scene_events():
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if not in_event:
+			
 			var element = scenes[setting].element_hovered()
+			print("Element : ",element)
 			load_trigger(element)
 	if Input.is_key_pressed(KEY_R):
 		change_scene("environnement_exterieur_sansmetro",["Pub","Distributeur_arriere","Garcon","Banc"])
@@ -72,13 +74,16 @@ func load_trigger(trigger:String):
 				
 	var events_list = dialog_data["triggers"][trigger]
 	for event in events_list:
+		print("Evenement : ",event["event"])
 		if verify_condition(event["condition"]):
 			process_event(event["event"])
 			break
 		
 func verify_condition(condition):
 	for episode in condition:
+		print("episode ",episode)
 		if episode not in player_data: return false
+	print("episodeOK")
 	return true
 	
 func process_event(event:String):
@@ -112,14 +117,23 @@ func process_action(action):
 	elif action[0] == "print":
 		print(action[1])
 	elif action[0] == "choice":
-		await load_choices(1)
+		return await load_choices(action[1])
 	elif action[0] == "silence":
 		$SilenceDelay.wait_time = action[1]
 		$SilenceDelay.start()
 		await $SilenceDelay.timeout
 	elif action[0] == "scene":
+		var tween = create_tween()
+		tween.tween_property($White/Black,"modulate:a",1,0.5);
+		await tween.finished
 		events_file = "res://Dialogs/"+action[1]+".json"
 		load_scene_events()
+		hover_ui("Background")
+		tween = create_tween()
+		tween.tween_property($White/Black,"modulate:a",0,0.5);
+		await tween.finished
+		if default_trigger != "none":
+			return default_trigger
 	elif action[0] == "flashback":
 		var tween = create_tween()
 		tween.tween_property($White/White,"modulate:a",1,0.5)
@@ -137,6 +151,8 @@ func process_action(action):
 		thoughts[action[1]] = action[2]
 	elif action[0] == "doors":
 		switch_door()
+	elif action[0] == "meet":
+		dialog.met.push_back(action[1])
 	return null
 
 
@@ -160,7 +176,7 @@ func load_choices(choices):
 	var final_choice = await choices_ui.choice_done
 	choices_ui.hide()
 	
-	process_event(choices[final_choice]["event"])
+	return choices[final_choice]["trigger"]
 
 func change_scene(Background:String, Elements:Array):
 	current_scene_elements=Elements

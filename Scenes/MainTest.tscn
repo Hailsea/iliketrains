@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cgkk25uwth81n"]
 
 [ext_resource type="Script" uid="uid://dyeyfchd3juk4" path="res://Scripts/main_test.gd" id="1_bhhyf"]
+[ext_resource type="PackedScene" uid="uid://beftx2d4cbv4h" path="res://Scenes/full_scene_platform.tscn" id="2_o8g5o"]
 [ext_resource type="PackedScene" uid="uid://df6s3t1wxotbo" path="res://Scenes/dialog_UI.tscn" id="2_oqdhm"]
-[ext_resource type="PackedScene" uid="uid://d188vvdtys7pi" path="res://Scenes/full_scene_platform_with_templates.tscn" id="2_ycov7"]
 [ext_resource type="Script" uid="uid://bvkknqocf7xth" path="res://Scripts/camera_2d.gd" id="3_3a646"]
 [ext_resource type="PackedScene" uid="uid://co74ofwm4yf3r" path="res://Scenes/metro_interieur.tscn" id="3_nivcm"]
 [ext_resource type="PackedScene" uid="uid://se12xrrmy3jc" path="res://Scenes/think_UI.tscn" id="3_ycov7"]
@@ -44,11 +44,9 @@ shader_parameter/blur_outer = 0.66
 
 [node name="MainGame" type="Node" unique_id=1940308254]
 script = ExtResource("1_bhhyf")
-events_file = "res://Dialogs/metro_depart.json"
+events_file = "res://Dialogs/metro_M_-1_0.json"
 
-[node name="Platform_background" parent="." unique_id=991292017 instance=ExtResource("2_ycov7")]
-visible = false
-modulate = Color(0.82, 0.82, 0.82, 1)
+[node name="Platform_background" parent="." unique_id=991292017 instance=ExtResource("2_o8g5o")]
 
 [node name="Metro_background" parent="." unique_id=2044040248 instance=ExtResource("3_nivcm")]
 

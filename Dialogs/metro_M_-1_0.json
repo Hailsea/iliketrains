@@ -4,6 +4,7 @@
 		"triggers":{
 			"Intro":[{"condition":[],"event":"game_intro"}],
 			"Metro_carte":[{"condition":["check_station1"],"event":"check_station2"},{"condition":["phone_checked"],"event":"check_station1"},{"condition":[],"event":"check_station0"}],
+			"Portes_metro_interieur":[{"condition":["check_station1"],"event":"exit_to_lineA"}]
 		},
 		"events":{
 			"game_intro":[
@@ -26,15 +27,19 @@
 				]],
 				["flashback",true],
 				["line",[
-					{"character":"lucien","emotion":"neutral","text":"C'était fun comme première session de Rails et Royaumes ! Merci à tous !","properties":[]},
-					{"character":"eulalie","emotion":"neutral","text":"Théodore a causé une catastrophe, est-ce que tu pourrais arrêter d'attaquer à vue tous les ennemis que tu vois ?","properties":[]},
-					{"character":"theodore","emotion":"sad","text":"J'y peux rien, c'est plus fort que moi...","properties":[]},
-					{"character":"paul","emotion":"neutral","text":"Ça crée de l'action ! Au moins on ne s'ennuie pas !","properties":[]},
-					{"character":"alix","emotion":"surprise","text":"Ça c'est sûr...","properties":[]},
-					{"character":"alix","emotion":"neutral","text":"Ça va Andrea ? Tu t'intègres bien ?","properties":[]},
-					{"character":"protag","emotion":"neutral","text":"Oui ça va, ça faisait longtemps que je n'avais pas joué. Merci de m'accueillir dans votre groupe.","properties":[]},
-					{"character":"lucien","emotion":"neutral","text":"On se connait depuis un moment avec les autres, j'espère que tu n'es pas trop à l'écart.","properties":[]},
-					{"character":"protag","emotion":"neutral","text":"Ça va aller, j'ai hâte d'apprende à vous connaître aussi. Vous avez l'air d'être une bande bien sympathique.","properties":[]},
+					{"character":"lucien","character_name":"Garçon enthousiaste","emotion":"neutral","text":"Voilà notre cinquième joueur, c'est un camarade de mon cours de chimie.","properties":[]},
+					{"character":"eulalie","character_name":"Fille énergique","emotion":"neutral","text":"Et... Tu t'appelles ?","properties":[]},
+					{"character":"protag","emotion":"neutral","text":"Andrea, enchanté.e."},
+					{"character":"eulalie","character_name":"Fille énergique","emotion":"neutral","text":"Enchantée. Moi c'est Eulalie."},
+					{"character":"paul","character_name":"Garçon moqueur","emotion":"neutral","text":"Tu vas voir, elle est tout le temps un peu ronchonne, mais au fond elle est super sympa."},
+					{"character":"theodore","character_name":"Garçon malicieux","emotion":"neutral","text":"La plupart du temps."},
+					{"character":"eulalie","character_name":"Fille énergique","emotion":"angry","text":"Eh vous deux, je vais vous faire manger vos instruments."},
+					{"character":"theodore","character_name":"Garçon malicieux","emotion":"neutral","text":"La plupart du temps, je te disais."},
+					{"character":"lucien","character_name":"Garçon enthousiaste","emotion":"neutral","text":"Au lieu de vous bagarrer, venez créer vos personnages. On a du travail !","properties":[]},
+					{"character":"alix","character_name":"Fille discrète","emotion":"neutral","text":"Écoutez le MJ plutôt que de faire les trublions..."},
+					{"character":"paul","character_name":"Garçon moqueur","emotion":"neutral","text":"On aura d'autres occasions."},
+					{"character":"lucien","character_name":"Garçon enthousiaste","emotion":"neutral","text":"Alors voila le pitch : nous sommes dans un monde fantasy où la magie a permis de créer de gigantesques trains entre les grands royaumes du continent. Vous allez jouer des chevaliers chargés de protéger les voyageurs contre les multiples dangers qui rôdent.."},
+					
 				]],
 				["flashback",false],
 				["line",[
@@ -47,13 +52,18 @@
 					{"character":"protag","emotion":"neutral","text":"L'arrêt du quartier du Verger... C'était proche de chez Alix, il me semble.","properties":[]},
 				]],
 				["thought","Background",["neutral","J'espère que je ne vais pas arriver en retard."]],
-				["scene","quai_verger"]
 				
 			],
 			"check_station2":[
 				["line",[
 					{"character":"protag","emotion":"neutral","text":"J'ai encore un peu de temps avant d'arriver.","properties":[]},
 				]]
+			],
+			"exit_to_lineA":[
+				["line",[
+					{"character":"protag","emotion":"neutral","text":"Bon, peut-être que j'ai le temps pour un petit détour...","properties":[]},
+				]],
+				["scene","quai_M0A0"]
 			]
 		}
 	},
