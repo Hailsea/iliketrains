@@ -92,16 +92,21 @@ func load_lines(dialog_lines):
 	display_line(lines[index])
 
 func display_line(line: Dictionary):
-	var path = get_portrait_path(line["character"],line["emotion"])
-	var texture:Texture2D = load(path) # Chargement de la texture du portrait pour le TextureRect
-	portrait.texture = texture
-	portrait_shadow.texture = texture
-	if line["character"] == "protag" || line["character"] in met:
-		portrait.modulate = Color(1,1,1,1)
+	if characters_info.has(line["character"]):
+		var path = get_portrait_path(line["character"],line["emotion"])
+		var texture:Texture2D = load(path) # Chargement de la texture du portrait pour le TextureRect
+		portrait.texture = texture
+		portrait_shadow.texture = texture
+		if line["character"] == "protag" || line["character"] in met:
+			portrait.modulate = Color(1,1,1,1)
+		else:
+			portrait.modulate = Color(0.11, 0.11, 0.11, 1.0)
+		portrait.show()
+		
+		$CharacterSoundEffect.pitch_scale = characters_info[line["character"]]["pitch"]
 	else:
-		portrait.modulate = Color(0.11, 0.11, 0.11, 1.0)
-	
-	$CharacterSoundEffect.pitch_scale = characters_info[line["character"]]["pitch"]
+		$CharacterSoundEffect.pitch_scale = 1
+		portrait.hide()
 	
 	if line.has("character_name"):
 		character_name.text = line["character_name"] # Changement nom du perso

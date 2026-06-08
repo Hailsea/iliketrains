@@ -1,0 +1,52 @@
+{
+	"background":"metro_ferme",
+	"events":{
+		"triggers":{
+			"Homme_assis":[{"condition":[],"event":"sat_man"}],
+			"Metro_carte":[{"condition":[],"event":"check_station"}],
+			"Portes_metro_interieur":[{"condition":[],"event":"exit_to_nowhere"}]
+		},
+		"events":{
+			"sat_man":[
+				["line",[
+					{"character":"protag","emotion":"surprise","text":"Monsieur ? Vous avez fait tomber quelque chose.","properties":[]},
+					{"character":"man","character_name":"Homme âgé","text":"Oh ! Ma photo. Je vous remercie, vous êtes bien aimable.","properties":[]},
+					{"character":"man","character_name":"Homme âgé","text":"J'espère qu'elle n'est pas trop abîmée...","properties":[]},
+					{"character":"protag","emotion":"surprise","text":"C'est vous sur l'image au centre ?"},
+					{"character":"man","character_name":"Homme âgé","text":"Vous êtes bien curieux ! Oui c'est moi ici au centre, et autour mes amis de l'université. Nous jouions au volley-ball tous les mercredi.","properties":[]},
+					{"character":"protag","emotion":"neutral","text":"Vous aviez tous un sourire radieux."},
+					{"character":"man","character_name":"Homme âgé","text":"...","properties":[]},
+					{"character":"protag","emotion":"neutral","text":"Les voyez-vous encore ?"},
+					{"character":"man","character_name":"Homme âgé","text":"Nous nous sommes perdus de vue il y a des années de cela. Certains sont partis vivre à l'étranger, d'autres se sont disputés... Je n'ai plus aucun contact avec eux.","properties":[]},
+					{"character":"man","character_name":"Homme âgé","text":"Pour autant, je ne peux pas me résoudre à abandonner leur souvenir. Ils ont fait partie de ma vie pendant deux ans, je ne veux pas les oublier, d'autant que je n'ai plus toute ma tête.","properties":[]},
+					{"character":"man","character_name":"Homme âgé","text":"Et vous, vous avez des amis à qui vous tenez ?","properties":[]},
+					{"character":"protag","emotion":"sad","text":"Je ne les ai pas vu depuis au moins trois ans désormais. Peut-être nous n'avons pas pris assez soin de ce lien qui nous unissait tous les six."},
+					{"character":"man","character_name":"Homme âgé","text":"Au détour d'un aiguillage, en attendant le train, peut-être un jour vous recroiserez vous. L'espace d'un court instant, un croisement de regards suffit pour faire renaître un passé chaleureux dans vos cœurs. Pour que jamais l'oubli ne vous gagne.","properties":[]}]],
+				["doors"],
+				["silence",2],
+				["line",[
+					{"character":"man","character_name":"Homme âgé","text":"Je descends ici. Prenez soin de vous, et de vos proches. C'est lorsqu'il sont loin que le vide dans nos âmes se révèle.","properties":[]},
+					{"character":"protag","emotion":"neutral","text":"Je n'y manquerai pas, Monsieur."},
+				]]
+			],
+			"check_station":[
+				["line", [
+					{"character":"protag","emotion":"neutral","text":"Il reste un arrêt avant Phare Lointain."},
+				]]
+			],
+			"exit_to_nowhere":[
+				["line", [
+					{"character":"protag","emotion":"neutral","text":"Cette station ne mène nulle part."},
+				]]
+			]
+			
+		}
+	},
+	"thoughts":{
+		"Background":["neutral","J'arrive bientôt. J'ai l'impression d'être passé à côté de quelque chose."],
+		"Homme_assis":["surprise","On dirait qu'il y a un papier sous le siège de ce monsieur."],
+		"Metro_carte":["neutral","C'est le tableau d'affichage des stations."],
+		"Portes_metro_interieur":["surprise","Cette station ne mène nulle part."],
+	},
+	"default_trigger":"Intro"
+}

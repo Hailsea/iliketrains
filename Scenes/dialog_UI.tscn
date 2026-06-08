@@ -10,7 +10,7 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l6ko8"]
 content_margin_left = 120.0
 content_margin_top = 0.0
-content_margin_right = 100.0
+content_margin_right = 269.0
 content_margin_bottom = 50.0
 texture = ExtResource("3_rcfa2")
 
@@ -79,7 +79,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "Salut, je n'ai rien de vraiment intéressant à dire. Ceci est un [color=red]dialogue[/color]."
+text = "Salut, je n'ai rien de vraiment intéressant à dire. Ceci est un [color=red]dialogue[/color]. Salut, je n'ai rien de vraiment intéressant à dire. Ceci est un [color=red]dialogue[/color].
+Salut, je n'ai rien de vraiment intéressant à dire. Ceci est un [color=red]dialogue[/color].
+Salut, je n'ai rien de vraiment intéressant à dire. Ceci est un [color=red]dialogue[/color]."
 
 [node name="PlayerPortrait" type="TextureRect" parent="." unique_id=1591000768]
 visible = false

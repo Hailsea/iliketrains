@@ -48,19 +48,7 @@
 					{"character":"protag","emotion":"neutral","text":"L'arrêt du quartier du Verger... C'était proche de chez Alix, il me semble.","properties":[]},
 				]],
 				["thought","Background",["neutral","J'espère que je ne vais pas arriver en retard."]],
-				
 			],
-			"check_station2":[
-				["line",[
-					{"character":"protag","emotion":"neutral","text":"J'ai encore un peu de temps avant d'arriver.","properties":[]},
-				]]
-			],
-			"exit_to_lineA":[
-				["line",[
-					{"character":"protag","emotion":"neutral","text":"Bon, peut-être que j'ai le temps pour un petit détour...","properties":[]},
-				]],
-				["scene","quai_M0A0"]
-			]
 		}
 	},
 	"thoughts":{
