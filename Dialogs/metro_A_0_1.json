@@ -116,7 +116,7 @@
 					{"character":"alix","emotion":"sad","text":"...","speed":15},
 					{"character":"alix","emotion":"sad","text":"Je suis désolée. Je crois que je vais rentrer. Tu salueras Lucien de ma part.","speed":15},
 					{"character":"protag","emotion":"surprise","text":"Alix ! Attends !"},
-				]],
+				]]
 			],
 			"alix_truth_trust":[
 				["line",[
@@ -132,6 +132,10 @@
 				]],
 				["scene","metro_A_1_2_alix"]
 			],
+			"close_doors":[
+				["doors"],
+				["scene","metro_M_0_1"]
+			]
 		}
 	},
 	"thoughts":{

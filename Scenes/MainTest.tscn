@@ -179,6 +179,8 @@ offset_right = -347.0
 offset_bottom = 397.0
 
 [node name="EventDelay" type="Timer" parent="." unique_id=1926915563]
+wait_time = 10.0
+one_shot = true
 
 [node name="SilenceDelay" type="Timer" parent="." unique_id=1592238620]
 
@@ -186,3 +188,4 @@ offset_bottom = 397.0
 [connection signal="update_hover_ui" from="Metro_background" to="." method="hover_ui"]
 [connection signal="end_dialog" from="UI_Elements/DialogUI" to="." method="_on_dialog_end"]
 [connection signal="mouse_entered" from="UI_Elements/Phone" to="." method="phone_up"]
+[connection signal="timeout" from="EventDelay" to="." method="_on_event_delay_timeout"]

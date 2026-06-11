@@ -4,7 +4,8 @@
 		"triggers":{
 			"Intro":[{"condition":[],"event":"game_intro"}],
 			"Metro_carte":[{"condition":["check_station1"],"event":"check_station2"},{"condition":["phone_checked"],"event":"check_station1"},{"condition":[],"event":"check_station0"}],
-			"Portes_metro_interieur":[{"condition":["check_station1"],"event":"exit_to_lineA"}]
+			"Portes_metro_interieur":[{"condition":["check_station1"],"event":"exit_to_lineA"}],
+			"close_doors":[{"condition":[],"event":"close_doors"}]
 		},
 		"events":{
 			"game_intro":[
@@ -52,6 +53,7 @@
 					{"character":"protag","emotion":"neutral","text":"L'arrêt du quartier du Verger... C'était proche de chez Alix, il me semble.","properties":[]},
 				]],
 				["thought","Background",["neutral","J'espère que je ne vais pas arriver en retard."]],
+				["doorstimer"]
 				
 			],
 			"check_station2":[
@@ -64,6 +66,10 @@
 					{"character":"protag","emotion":"neutral","text":"Bon, peut-être que j'ai le temps pour un petit détour...","properties":[]},
 				]],
 				["scene","quai_M0A0"]
+			],
+			"close_doors":[
+				["doors"],
+				["scene","metro_M_0_1"]
 			]
 		}
 	},

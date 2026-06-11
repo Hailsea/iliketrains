@@ -2,51 +2,49 @@
 	"background":"metro_ferme",
 	"events":{
 		"triggers":{
-			"Homme_assis":[{"condition":[],"event":"sat_man"}],
+			"monolog":[{"condition":[],"event":"monolog"}],
 			"Metro_carte":[{"condition":[],"event":"check_station"}],
-			"Portes_metro_interieur":[{"condition":[],"event":"exit_to_nowhere"}]
+			"Portes_metro_interieur":[{"condition":["monolog"],"event":"exit_to_lineD"}],
+			"close_doors":[{"condition":[],"event":"close_doors"}]
 		},
 		"events":{
-			"sat_man":[
+			"monolog":[
+				["flashback",true],
 				["line",[
-					{"character":"protag","emotion":"surprise","text":"Monsieur ? Vous avez fait tomber quelque chose.","properties":[]},
-					{"character":"man","character_name":"Homme âgé","text":"Oh ! Ma photo. Je vous remercie, vous êtes bien aimable.","properties":[]},
-					{"character":"man","character_name":"Homme âgé","text":"J'espère qu'elle n'est pas trop abîmée...","properties":[]},
-					{"character":"protag","emotion":"surprise","text":"C'est vous sur l'image au centre ?"},
-					{"character":"man","character_name":"Homme âgé","text":"Vous êtes bien curieux ! Oui c'est moi ici au centre, et autour mes amis de l'université. Nous jouions au volley-ball tous les mercredi.","properties":[]},
-					{"character":"protag","emotion":"neutral","text":"Vous aviez tous un sourire radieux."},
-					{"character":"man","character_name":"Homme âgé","text":"...","properties":[]},
-					{"character":"protag","emotion":"neutral","text":"Les voyez-vous encore ?"},
-					{"character":"man","character_name":"Homme âgé","text":"Nous nous sommes perdus de vue il y a des années de cela. Certains sont partis vivre à l'étranger, d'autres se sont disputés... Je n'ai plus aucun contact avec eux.","properties":[]},
-					{"character":"man","character_name":"Homme âgé","text":"Pour autant, je ne peux pas me résoudre à abandonner leur souvenir. Ils ont fait partie de ma vie pendant deux ans, je ne veux pas les oublier, d'autant que je n'ai plus toute ma tête.","properties":[]},
-					{"character":"man","character_name":"Homme âgé","text":"Et vous, vous avez des amis à qui vous tenez ?","properties":[]},
-					{"character":"protag","emotion":"sad","text":"Je ne les ai pas vu depuis au moins trois ans désormais. Peut-être nous n'avons pas pris assez soin de ce lien qui nous unissait tous les six."},
-					{"character":"man","character_name":"Homme âgé","text":"Au détour d'un aiguillage, en attendant le train, peut-être un jour vous recroiserez vous. L'espace d'un court instant, un croisement de regards suffit pour faire renaître un passé chaleureux dans vos cœurs. Pour que jamais l'oubli ne vous gagne.","properties":[]}]],
+					{"character":"lucien","character_name":"Garçon enthousiaste","emotion":"neutral","text":"C'était fun comme première session de Rails et Royaumes ! Merci à tous !","properties":[]},
+					{"character":"eulalie","character_name":"Fille énergique","emotion":"neutral","text":"Théodore a causé une catastrophe, est-ce que tu pourrais arrêter d'attaquer à vue tous les ennemis que tu vois ?","properties":[]},
+					{"character":"theodore","character_name":"Garçon malicieux","emotion":"sad","text":"J'y peux rien, c'est plus fort que moi...","properties":[]},
+					{"character":"paul","character_name":"Garçon amusé","emotion":"neutral","text":"Ça crée de l'action ! Au moins on ne s'ennuie pas !","properties":[]},
+					{"character":"alix","character_name":"Fille réservée","emotion":"surprise","text":"Ça c'est sûr...","properties":[]},
+					{"character":"alix","character_name":"Fille réservée","emotion":"neutral","text":"Ça va Andrea ? Tu t'intègres bien ?","properties":[]},
+					{"character":"protag","emotion":"neutral","text":"Oui ça va, ça faisait longtemps que je n'avais pas joué. Merci de m'accueillir dans votre groupe.","properties":[]},
+					{"character":"lucien","character_name":"Garçon enthousiaste","emotion":"neutral","text":"On se connait depuis un moment avec les autres, j'espère que tu n'es pas trop à l'écart.","properties":[]},
+					{"character":"protag","emotion":"neutral","text":"Ça va aller, j'ai hâte d'apprende à vous connaître aussi. Vous avez l'air d'être une bande bien sympathique.","properties":[]},
+				]],
+				["flashback",false],
 				["doors"],
 				["silence",2],
 				["line",[
-					{"character":"man","character_name":"Homme âgé","text":"Je descends ici. Prenez soin de vous, et de vos proches. C'est lorsqu'il sont loin que le vide dans nos âmes se révèle.","properties":[]},
-					{"character":"protag","emotion":"neutral","text":"Je n'y manquerai pas, Monsieur."},
-				]]
+					{"character":"protag","emotion":"neutral","text":"Salut","properties":[]},
+				]],
+				["thought","Background",["neutral","J'espère que je ne vais pas arriver en retard."]],
+				["doorstimer"]
 			],
 			"check_station":[
 				["line", [
-					{"character":"protag","emotion":"neutral","text":"Il reste un arrêt avant Phare Lointain."},
+					{"character":"protag","emotion":"neutral","text":"Il reste deux arrêts avant Phare Lointain."},
 				]]
 			],
-			"exit_to_nowhere":[
-				["line", [
-					{"character":"protag","emotion":"neutral","text":"Cette station ne mène nulle part."},
-				]]
+			"close_doors":[
+				["doors"],
+				["scene","metro_M_1_2"]
 			]
-			
 		}
 	},
 	"thoughts":{
-		"Background":["neutral","J'arrive bientôt. J'ai l'impression d'être passé à côté de quelque chose."],
-		"Homme_assis":["surprise","On dirait qu'il y a un papier sous le siège de ce monsieur."],
+		"Background":["neutral","Il reste deux arrêts avant Phare Lointain."],
 		"Metro_carte":["neutral","C'est le tableau d'affichage des stations."],
-		"Portes_metro_interieur":["surprise","Cette station ne mène nulle part."],
+		"Portes_metro_interieur":["surprise","Si je sors maintenant, je vais rejoindre la ligne A. Je ferai mieux de rester, Phare lointain est dans trois arrêts."],
 	},
-	"default_trigger":"Intro"
+	"default_trigger":"monolog"
 }

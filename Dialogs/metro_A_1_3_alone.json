@@ -3,6 +3,7 @@
 	"events":{
 		"triggers":{
 			"alone":[{"condition":[],"event":"dialog_alix_alone"}],
+			"close_doors":[{"condition":[],"event":"close_doors"}]
 		},
 		"events":{
 			"dialog_alix_alone":[
@@ -29,6 +30,10 @@
 					{"character":"protag","emotion":"sad","text":"Je suis arrivé à l'hôpital. Plus qu'un arrêt et c'est Phare Lointain."},
 				]],
 			],
+			"close_doors":[
+				["doors"],
+				["scene","metro_M_0_1"]
+			]
 			
 		}
 	},

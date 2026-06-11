@@ -101,12 +101,12 @@ func display_line(line: Dictionary):
 			portrait.modulate = Color(1,1,1,1)
 		else:
 			portrait.modulate = Color(0.11, 0.11, 0.11, 1.0)
-		portrait.show()
 		
 		$CharacterSoundEffect.pitch_scale = characters_info[line["character"]]["pitch"]
 	else:
 		$CharacterSoundEffect.pitch_scale = 1
-		portrait.hide()
+		portrait.texture = null
+		portrait_shadow.texture = null
 	
 	if line.has("character_name"):
 		character_name.text = line["character_name"] # Changement nom du perso

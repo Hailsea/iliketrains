@@ -20,6 +20,8 @@ var phone:bool = false
 
 var scenes:Dictionary[String,Node2D]
 
+var delayed_event = null
+
 
 
 
@@ -52,7 +54,6 @@ func _input(event: InputEvent) -> void:
 		if not in_event:
 			
 			var element = scenes[setting].element_hovered()
-			print("Element : ",element)
 			load_trigger(element)
 	if Input.is_key_pressed(KEY_R):
 		change_scene("environnement_exterieur_sansmetro",["Pub","Distributeur_arriere","Garcon","Banc"])
@@ -74,16 +75,13 @@ func load_trigger(trigger:String):
 				
 	var events_list = dialog_data["triggers"][trigger]
 	for event in events_list:
-		print("Evenement : ",event["event"])
 		if verify_condition(event["condition"]):
 			process_event(event["event"])
 			break
 		
 func verify_condition(condition):
 	for episode in condition:
-		print("episode ",episode)
 		if episode not in player_data: return false
-	print("episodeOK")
 	return true
 	
 func process_event(event:String):
@@ -108,8 +106,12 @@ func process_event(event:String):
 	$UI_Elements/Thoughts.show()
 	$UI_Elements/Phone.show()
 	
+	
 	if next != null:
 		load_trigger(next)
+	elif delayed_event != null:
+		delayed_event = null
+		load_trigger(delayed_event)
 
 func process_action(action):
 	if action[0] == "line":
@@ -123,6 +125,8 @@ func process_action(action):
 		$SilenceDelay.start()
 		await $SilenceDelay.timeout
 	elif action[0] == "scene":
+		$EventDelay.stop()
+		delayed_event = null
 		var tween = create_tween()
 		tween.tween_property($White/Black,"modulate:a",1,0.5);
 		await tween.finished
@@ -151,8 +155,12 @@ func process_action(action):
 		thoughts[action[1]] = action[2]
 	elif action[0] == "doors":
 		switch_door()
+	elif action[0] == "metro":
+		$Platform_background.spawn_metro()
 	elif action[0] == "meet":
 		dialog.met.push_back(action[1])
+	elif action[0] == "doorstimer":
+		$EventDelay.start()
 	return null
 
 
@@ -222,7 +230,6 @@ func phone_down():
 	
 
 func hover_ui(nom) -> void:
-	print(nom)
 	$UI_Elements/Thoughts.update_text(thoughts[nom][0],thoughts[nom][1])
 
 func parser_json_scene_change(file:String):
@@ -234,3 +241,13 @@ func parser_json_scene_change(file:String):
 	for i in triggers.keys():
 		elements_from_json.append(i)
 	change_scene(background_from_json,elements_from_json)
+
+
+func _on_event_delay_timeout() -> void:
+	print("timeout")
+	if in_event:
+		delayed_event = "close_doors"
+	else:
+		load_trigger("close_doors")
+		
+	

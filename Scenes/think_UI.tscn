@@ -1,10 +1,22 @@
 [gd_scene format=3 uid="uid://se12xrrmy3jc"]
 
 [ext_resource type="Script" uid="uid://qxbjfl0nlcwd" path="res://Scripts/choices.gd" id="1_7fx7q"]
-[ext_resource type="Texture2D" uid="uid://b1psp36vk1y3h" path="res://Assets/Sprites/Portraits/mishima/neutral.png" id="2_qnf2k"]
+[ext_resource type="Texture2D" uid="uid://cegimophwi132" path="res://Assets/UI/Editable/choicebox.png" id="2_qnf2k"]
+[ext_resource type="Texture2D" uid="uid://b8m8myo8lfxuh" path="res://Assets/Sprites/Portraits/protag/neutral.png" id="3_k6ery"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvtue"]
 bg_color = Color(0.6313726, 0.5019608, 0.9607843, 0.2509804)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ehouc"]
+texture = ExtResource("2_qnf2k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nkcp4"]
+texture = ExtResource("2_qnf2k")
+modulate_color = Color(0.79, 0.79, 0.79, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o8nwu"]
+texture = ExtResource("2_qnf2k")
+modulate_color = Color(0.79, 0.79, 0.79, 1)
 
 [node name="ThinkUI" type="HBoxContainer" unique_id=865221122]
 offset_right = 1920.0
@@ -58,24 +70,66 @@ alignment = 1
 [node name="Choix1" type="Button" parent="HBoxContainer/ButtonsMargin/ContainerButton" unique_id=1101969254]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.09, 0.09, 0.09, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_ehouc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nkcp4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_o8nwu")
 text = "Choix 1"
 
-[node name="Choix2" type="Button" parent="HBoxContainer/ButtonsMargin/ContainerButton" unique_id=1982521848]
-custom_minimum_size = Vector2(0, 80)
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/ButtonsMargin/ContainerButton" unique_id=1177457345]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-text = "Choix 2"
 
-[node name="Choix3" type="Button" parent="HBoxContainer/ButtonsMargin/ContainerButton" unique_id=751428777]
+[node name="Choix2" type="Button" parent="HBoxContainer/ButtonsMargin/ContainerButton" unique_id=717658716]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.09, 0.09, 0.09, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_ehouc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_o8nwu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_o8nwu")
+text = "Choix 2
+"
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/ButtonsMargin/ContainerButton" unique_id=458781230]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Choix3" type="Button" parent="HBoxContainer/ButtonsMargin/ContainerButton" unique_id=2128060009]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.09, 0.09, 0.09, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_ehouc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_o8nwu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_o8nwu")
 text = "Choix 3"
 
-[node name="PlayerPortrait" type="TextureRect" parent="." unique_id=914911652]
-custom_minimum_size = Vector2(350, 350)
+[node name="PlayerPortrait" type="TextureRect" parent="." unique_id=651321462]
+custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
 size_flags_vertical = 8
-texture = ExtResource("2_qnf2k")
+texture = ExtResource("3_k6ery")
 expand_mode = 1
+stretch_mode = 6
+flip_h = true
+
+[node name="Shadow" type="TextureRect" parent="PlayerPortrait" unique_id=528555932]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 420.0
+offset_bottom = 420.0
+size_flags_vertical = 8
+texture = ExtResource("3_k6ery")
+expand_mode = 1
+stretch_mode = 6
 flip_h = true
 
 [connection signal="pressed" from="HBoxContainer/ButtonsMargin/ContainerButton/Choix1" to="." method="_on_choix_1_pressed"]

@@ -22,6 +22,7 @@ func _ready() -> void:
 		i.input_pickable=true
 	#print(scene_nodes)
 	scene_nodes["Metro_ferme"].hide()
+	scene_nodes["Metro_ouvert"].hide()
 	connect_signals()
 
 func connect_signals() -> void:
@@ -68,6 +69,12 @@ func change_elements(background: String, elements: Array) -> void:
 			scene_nodes[i].show()
 		else:
 			scene_nodes[i].hide()
+	scene_nodes["Metro_ferme"].hide()
+	scene_nodes["Metro_ouvert"].hide()
+
+func spawn_metro():
+	scene_nodes["Metro_ferme"].hide()
+	scene_nodes["Metro_ouvert"].show()
 
 func switch_doors():
 	if (!get_child(1).visible && !get_child(2).visible): 

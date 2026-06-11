@@ -6,6 +6,7 @@
 			"follow":[{"condition":[],"event":"follow"}],
 			"choice_bad":[{"condition":[],"event":"choice_bad"}],
 			"choice_good":[{"condition":[],"event":"choice_good"}],
+			"close_doors":[{"condition":[],"event":"close_doors"}]
 		},
 		"events":{
 			"dialog_alix_metro21":[
@@ -58,6 +59,10 @@
 					{"character":"alix","emotion":"neutral","text":"Je suppose que je peux rester un peu plus..."},
 				]],
 				["scene","metro_A_2_3_alix"]
+			],
+			"close_doors":[
+				["doors"],
+				["scene","metro_M_0_1"]
 			]
 			
 		}
