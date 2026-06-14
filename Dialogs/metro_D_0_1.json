@@ -1,0 +1,30 @@
+{
+	"background":"metro_ferme",
+	"events":{
+		"triggers":{
+			"Eulalie":[{"condition":[],"event":"eulalie_1"}],
+		},
+		"events":{
+			"eulalie_1":[
+				["meet","eulalie"],
+				["line",[
+					{"character":"eulalie","emotion":"surprise","text":"Tiens donc, qui voilà."},
+					{"character":"protag","emotion":"surprise","text":"Ah !"},
+					{"character":"eulalie","emotion":"neutral","text":"Je suis désolée, je t’ai pas fait trop peur ?"},
+					{"character":"protag","emotion":"surprise","text":"Euh... Si. Mais t'inquiète pas ça va."},
+					{"character":"eulalie","emotion":"neutral","text":"C'était pas le but. Peu importe, comment ça va depuis tout ce temps ?"},
+				]],
+			],
+			"close_doors":[
+				["doors"],
+				["scene","metro_M_0_1"]
+			]
+		}
+	},
+	"thoughts":{
+		"Background":["neutral","Eulalie me fixe d'un regard étrange."],
+		"Eulalie":["sad","Eulalie paraît stressée."],
+		"Portes_metro_interieur":["sad","Je ne peux pas sortir maintenant, je ne pourrais pas rejoindre Lucien."],
+	},
+	"default_trigger":"Eulalie"
+}

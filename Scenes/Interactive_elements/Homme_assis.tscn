@@ -3,8 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://dganisya21m60" path="res://Assets/Assets_interieur/interieur_metro_hommeassi.png" id="1_e7pma"]
 
 [node name="Homme_assis" type="StaticBody2D" unique_id=3933043]
+use_parent_material = true
 
 [node name="Homme_assis_img" type="Sprite2D" parent="." unique_id=1531493203]
+use_parent_material = true
 position = Vector2(962, 544)
 texture = ExtResource("1_e7pma")
 

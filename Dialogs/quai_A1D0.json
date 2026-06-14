@@ -1,0 +1,48 @@
+{
+	"background":"quai",
+	"events":{
+		"triggers":{
+			"SpawnTrain":[{"condition":[],"event":"SpawnTrain"}],
+			"Pub":[{"condition":["pub"],"event":"pub2"},{"condition":[],"event":"pub"}],
+			"Metro_ouvert":[{"condition":[],"event":"train"}],
+		},
+		"events":{
+			"pub":[
+				["line",[
+					{"character": "protag", "emotion": "surprise", "text": "La convention JDR... Ça fait longtemps que je n'y suis pas allé.", "properties": []},
+				]],
+				["flashback",true],
+				["line",[
+					{"character": "lucien","character_name":"Garçon enthousiaste", "emotion": "neutral", "text": "Hey ! Ça vous dirait d'aller à la convention JDR samedi ? Ils organisent une rencontre avec l'auteur principal de Rails et Royaume, c'est une occasion à ne pas manquer !", "properties": []},
+					{"character": "theodore","character_name":"Garçon malicieux", "emotion": "neutral", "text": "Paul, tu pourrais ressortir ton cosplay de barde !", "properties": []}, 
+					{"character": "eulalie","character_name":"Fille dubitative", "emotion": "sad", "text": "Par pitié, non, tu vas encore jouer de la guitare toute l'aprem...", "properties": []}, 
+					{"character": "paul","character_name":"Barde approximatif", "emotion": "neutral", "text": "Promis, cette fois je me retiendrais.", "properties": []}, 
+					{"character": "alix","character_name":"Fille réservée", "emotion": "neutral", "text": "C'est une bonne idée, il faut que je regarde si je peux y aller.", "properties": []}, 
+					{"character": "lucien","character_name":"Garçon enthousiaste", "emotion": "neutral", "text": "Allez Alix, tu ne vas pas manquer ça ! C'est une occasion en or de faire une sortie tous les six.", "properties": []}, 
+					{"character": "alix","character_name":"Fille réservée", "emotion": "neutral", "text": "Je vais faire de mon mieux.", "properties": []}, 
+					{"character": "paul","character_name":"Barde approximatif", "emotion": "neutral", "text": "Je te montrerai ma splendide tenue de ménestrel.", "properties": []}, 
+					{"character": "alix","character_name":"Fille réservée", "emotion": "sad", "text": "...", "properties": []}, 
+					{"character": "paul","character_name":"Barde approximatif", "emotion": "surprise", "text": "Quoi ? Ne me regarde pas comme ça ! Elle est magnifique.", "properties": []}, 
+					
+				]],
+				["flashback",false],
+			],
+			"pub2":[
+				["line", [
+					{"character": "protag", "emotion": "sad", "text": "Peut-être que je pourrais aller y faire un tour, un de ces quatre.", "properties": []},
+				]]	
+			],
+			"train":[["scene","metro_D_0_1"]],
+			"SpawnTrain":[
+				["metro"]
+			],
+			
+		}
+	},
+	"thoughts":{
+		"Background":["neutral","J'ai encore un peu de temps avant que le train ne parte."],
+		"Pub":["neutral","Cette affiche me rappelle des souvenirs."],
+		"Metro_ouvert":["surprise","Ce train permet de rejoindre Phare Lointain par la ligne D."]
+	},
+	"default_trigger":"SpawnTrain"
+}

@@ -12,7 +12,7 @@ func _ready() -> void:
 	position = camera_offset
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if not lock:
 		var mouse_pos = get_viewport().get_mouse_position()
 		position = (mouse_pos-camera_offset)*0.15 + camera_offset

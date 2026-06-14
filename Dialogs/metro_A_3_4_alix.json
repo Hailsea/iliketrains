@@ -16,7 +16,7 @@
 					{"character":"alix","emotion":"surprise","text":"Merci, Andrea. C'est cool de pouvoir parler de ça avec toi."},
 					{"character":"alix","emotion":"neutral","text":"On dirait qu'on arrive."},
 				]],
-				["scene","fin_alix"]
+				["final","final_alix"]
 			]
 		}
 	},

@@ -6,6 +6,9 @@ var scene_nodes:Dictionary[String,Node2D]={}
 var backgrounds:Dictionary[String,Resource]={}
 var open:bool=false
 
+const SHADER_AMPLITUDE = 0.087
+const SHADER_SPEED = 0.07
+
 func _instantiate() -> void:
 	pass
 
@@ -22,6 +25,7 @@ func _ready() -> void:
 		scene_nodes[i.name]=i
 		i.input_pickable=true
 	connect_signals()
+	scene_nodes["Portes_metro_interieur"].hide()
 
 func connect_signals() -> void:
 	for child in get_children():
@@ -39,7 +43,7 @@ func connect_signals() -> void:
 			#print("res://Scenes/Interactive_elements/"+child.name+".tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	current_element=element_hovered()
 	#print(current_element)
 	pass
@@ -63,14 +67,19 @@ func element_hovered() -> String:
 	return interactive_element["last"]
 
 func change_elements(background: String, elements: Array) -> void:
-	if background=="metro_ferme": open=false
+	if background=="metro_ferme":
+		open=false
+		
 	if background=="metro_ouvert" : open=true
+	material.set("shader_parameter/speed",SHADER_SPEED);
 	get_child(0).texture=backgrounds[background]
 	for i in scene_nodes.keys():
 		if i in elements:
 			scene_nodes[i].show()
 		else:
 			scene_nodes[i].hide()
+			
+	scene_nodes["Portes_metro_interieur"].hide()
 
 func switch_doors():
 	#print(open)
@@ -78,19 +87,22 @@ func switch_doors():
 	if open==true:
 		get_child(0).texture=backgrounds["metro_ferme"]
 		scene_nodes["Portes_metro_interieur"].hide()
+		
+		material.set("shader_parameter/speed",SHADER_SPEED);
 	else:
 		assert(open==false,"ASSERT : open variable invalid")
 		get_child(0).texture=backgrounds["metro_ouvert"]
 		scene_nodes["Portes_metro_interieur"].show()
+		material.set("shader_parameter/speed",0);
 	open=!open
 
-func show_tree(balise):
+func show_tree(_balise):
 	#print(balise)
 	for i in get_children():
 		print(i.name)
 	#print(balise)
 
-func create_node_from_instance(instance:PackedScene,name:String,place:int):
+func create_node_from_instance(instance:PackedScene,_name:String,place:int):
 	add_child(instance.instantiate())
 	get_child(-1).name=name
 	if place!=-1: move_child(get_child(-1),place)

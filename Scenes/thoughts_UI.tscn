@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d0ec8jprarto6" path="res://Scripts/thoughts_ui.gd" id="1_2nlcl"]
 [ext_resource type="Texture2D" uid="uid://cbbgth1dlg4us" path="res://Assets/UI/Editable/texbox2_reverse.png" id="2_mt7ey"]
+[ext_resource type="FontFile" uid="uid://c5n75krl4gd5g" path="res://Assets/Fonts/Molengo/Molengo-Regular.ttf" id="3_mt7ey"]
 [ext_resource type="Texture2D" uid="uid://b8m8myo8lfxuh" path="res://Assets/Sprites/Portraits/protag/neutral.png" id="3_n0yvr"]
 
 [sub_resource type="Theme" id="Theme_o056c"]
@@ -38,7 +39,9 @@ layout_mode = 2
 [node name="Text" type="RichTextLabel" parent="TextBoxMargin/TextPanel/TextContainer" unique_id=117779218]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/italics_font_size = 24
+theme_override_fonts/normal_font = ExtResource("3_mt7ey")
+theme_override_fonts/italics_font = ExtResource("3_mt7ey")
+theme_override_font_sizes/italics_font_size = 28
 bbcode_enabled = true
 text = "[i]Hmm... Ceci est un métro.[/i]"
 horizontal_alignment = 1

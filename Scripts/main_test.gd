@@ -6,6 +6,7 @@ extends Node
 @onready var platform_background: Node2D = $Platform_background
 
 var in_event:bool = false
+var in_final:bool = false
 var loaded_event:String = ""
 var dialog_data:Dictionary
 var default_trigger:String
@@ -31,23 +32,36 @@ func _ready() -> void:
 	scenes={"quai":$Platform_background,"metro_ouvert":$Metro_background,"metro_ferme":$Metro_background}
 	load_scene_events()
 	hover_ui("Background")
-	if default_trigger != "none":
-		load_trigger(default_trigger)
+	$Camera2D.lock = true
+	
 	#load_trigger("alix")
 	#scene_background[scene_type].show_tree("---------START")
 
 	
 func load_scene_events():
 	var file = events_file
+	print(file)
 	var json_as_text = FileAccess.get_file_as_string(file)
 	var data = JSON.parse_string(json_as_text)
 	dialog_data = data["events"]
 	setting = data["background"]
+	if setting != "quai":
+		$Audio/MetroAmbience.play()
 	default_trigger = data["default_trigger"]
 	thoughts = data["thoughts"]
 	var elements = dialog_data["triggers"].keys()
 	change_scene(data["background"],elements)
-	
+
+func load_final():
+	var file = events_file
+	var json_as_text = FileAccess.get_file_as_string(file)
+	var data = JSON.parse_string(json_as_text)
+	dialog_data = data["events"]
+	setting = "sortie"
+	default_trigger = data["default_trigger"]
+	$Platform_background.hide()
+	$Metro_background.hide()
+	$FinalScene.show()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -55,16 +69,6 @@ func _input(event: InputEvent) -> void:
 			
 			var element = scenes[setting].element_hovered()
 			load_trigger(element)
-	if Input.is_key_pressed(KEY_R):
-		change_scene("environnement_exterieur_sansmetro",["Pub","Distributeur_arriere","Garcon","Banc"])
-	if Input.is_key_pressed(KEY_T):
-		change_scene("environnement_exterieur_sansmetro",["Pub","Distributeur_avant","Banc","Metro_ouvert","Porte_ouverte"])
-	if Input.is_key_pressed(KEY_Y):
-		switch_door()
-	if Input.is_key_pressed(KEY_U):
-		change_scene("environnement_metro_interne_ouvert",["Portes_metro_interieur","Metro_carte","Homme_debout"])
-	if Input.is_key_pressed(KEY_I):
-		scenes[setting].show_tree("")
 
 func load_trigger(trigger:String):
 	
@@ -131,8 +135,23 @@ func process_action(action):
 		tween.tween_property($White/Black,"modulate:a",1,0.5);
 		await tween.finished
 		events_file = "res://Dialogs/"+action[1]+".json"
+		print(events_file)
 		load_scene_events()
 		hover_ui("Background")
+		tween = create_tween()
+		tween.tween_property($White/Black,"modulate:a",0,0.5);
+		await tween.finished
+		if default_trigger != "none":
+			return default_trigger
+	elif action[0] == "final":
+		in_final = true
+		$EventDelay.stop()
+		delayed_event = null
+		var tween = create_tween()
+		tween.tween_property($White/Black,"modulate:a",1,0.5);
+		await tween.finished
+		events_file = "res://Dialogs/"+action[1]+".json"
+		load_final()
 		tween = create_tween()
 		tween.tween_property($White/Black,"modulate:a",0,0.5);
 		await tween.finished
@@ -161,6 +180,8 @@ func process_action(action):
 		dialog.met.push_back(action[1])
 	elif action[0] == "doorstimer":
 		$EventDelay.start()
+	elif action[0] == "endtext":
+		await $FinalScene.show_end_text()
 	return null
 
 
@@ -201,6 +222,9 @@ func change_scene(Background:String, Elements:Array):
 	background_node.change_elements(Background,Elements)
 	background_node.show_tree("-------------------------------Children")
 
+
+	
+
 #bool=true -> ajouter un élément
 #bool=false -> enlever un élément
 func single_change_scene(element:String,mode:bool):
@@ -212,6 +236,11 @@ func single_change_scene(element:String,mode:bool):
 
 func switch_door():
 	scenes[setting].switch_doors()
+	if $Metro_background.open:
+		$Audio/MetroAmbience.stop()
+		$Audio/PorteOuvre.play()
+	else:
+		$Audio/PorteFerme.play()
 	
 func phone_up():
 	var tween = create_tween()
@@ -225,12 +254,9 @@ func phone_up():
 		tween.tween_property($UI_Elements/Phone,"position:x",-56,0.2)
 	
 
-func phone_down():
-	var tween = create_tween()
-	
-
 func hover_ui(nom) -> void:
-	$UI_Elements/Thoughts.update_text(thoughts[nom][0],thoughts[nom][1])
+	if not in_final:
+		$UI_Elements/Thoughts.update_text(thoughts[nom][0],thoughts[nom][1])
 
 func parser_json_scene_change(file:String):
 	var json_as_text = FileAccess.get_file_as_string(file)
@@ -251,3 +277,11 @@ func _on_event_delay_timeout() -> void:
 		load_trigger("close_doors")
 		
 	
+
+
+func _on_button_pressed() -> void:
+	$UI_Elements.show()
+	$Menu.hide()
+	$Camera2D.lock = false
+	if default_trigger != "none":
+		load_trigger(default_trigger)

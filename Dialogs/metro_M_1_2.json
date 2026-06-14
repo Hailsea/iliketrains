@@ -30,7 +30,7 @@
 					{"character":"protag","emotion":"neutral","text":"Je n'y manquerai pas, Monsieur."},
 				]],
 				["doors"],
-				["scene","fin_M"]
+				["final","final_M"]
 			],
 			"check_station":[
 				["line", [

@@ -1,0 +1,57 @@
+{
+	"background":"sortie",
+	"events":{
+		"triggers":{
+			"final":[{"condition":[],"event":"final"}],
+		},
+		"events":{
+			"final":[
+				["silence",2],
+				["meet","lucien"],
+				["line",[
+					{"character":"lucien","character_name":"Garçon enjoué","emotion":"neutral","text":"Hey."},
+					{"character":"lucien","character_name":"Garçon enjoué","emotion":"neutral","text":"Ça faisait longtemps."},
+					{"character":"protag","emotion":"surprise","text":"Lucien."},
+					{"character":"alix","emotion":"surprise","text":"Tu ne nous a pas posé de lapin..."},
+					{"character":"lucien","emotion":"surprise","text":"Haha ! Non, je ne ferais pas ça."},
+					{"character":"lucien","emotion":"neutral","text":"Vous n’avez presque pas changés. On ne dirait pas que trois ans ont passé."},
+					{"character":"protag","emotion":"neutral","text":"Tu n’as pas changé non plus. Tu es toujours souriant."},
+					{"character":"lucien","emotion":"neutral","text":"C’est ma spécialité. C’est la moindre des choses que je peux offrir au monde."},
+					
+				]],
+				["silence",2],
+				["line",[
+					{"character":"lucien","emotion":"sad","text":"Je crois que les autres ne viendront pas."},
+					{"character":"alix","emotion":"surprise","text":"Tu as vraiment invité tout le monde ?"},
+					{"character":"lucien","emotion":"neutral","text":"J’espérais pouvoir nous réunir à nouveau. On dirait que c’est raté."},
+					{"character":"lucien","emotion":"neutral","text":"Merci à vous deux d’être là. Je suis touché. Honnêtement, je m’étais préparé à ce que personne ne vienne."},
+					{"character":"lucien","emotion":"sad","text":"Peut-être que je ne suis qu’un idiot qui s’accroche à une époque achevée qui ne peut être ressucitée."},
+					{"character":"lucien","emotion":"sad","text":"Peut-être qu’après tout, Rails et Royaumes appartient au passé."},
+					{"character":"alix","emotion":"sad","text":"..."}, 
+					{"character":"protag","emotion":"neutral","text":"Ne dis pas ça... Aujourd’hui, je pense que chacun en garde un merveilleux souvenir."},
+					{"character":"alix","emotion":"surprise","text":"Même s’il y a eu des tensions, et des moments de tristesse, je ne regrette pas d’avoir fait ce bout de chemin."},
+					{"character":"alix","emotion":"surprise","text":"Encore aujourd’hui, je suis contente d’avoir pu cette campagne. Surtout avec un aussi bon maître du jeu."},
+					{"character":"lucien","emotion":"surprise","text":"Alix..."},
+					{"character":"lucien","emotion":"neutral","text":"Merci."},
+					{"character":"lucien","emotion":"neutral","text":"Je suis désolé de ne pas t’avoir suffisament soutenue, à l’époque. J’ai appris trop tard ce que tu traversais."},
+					{"character":"alix","emotion":"surprise","text":"Non, ne t’en fais pas. Je n’ai pas été là pour toi également."},
+					{"character":"lucien","emotion":"neutral","text":"Et Andréa, désolé de t’avoir entraîné dans nos histoires. "},
+					{"character":"lucien","emotion":"neutral","text":"Tu me demandais chaque semaine quand était la prochaine session et semblait si passioné par le jeu que tu me motivais à ne rien lâcher. Pour que cette histoire avance le plus loin possible."},
+					
+				]],
+				["silence",2],
+				["line",[
+					{"character":"lucien","emotion":"sad","text":"Il semble qu’elle restera inachevée. La porte du dernier Royaume demeurera close."},
+					{"character":"lucien","emotion":"sad","text":"Peut-être qu’un jour, nos voies se rejoigneront à nouveau. Et, pour quelques stations peut-être, nous voyagerons côte à côte tous les six."},
+					{"character":"lucien","emotion":"neutral","text":"Je n’ai jamais eu l’opportunité de le dire. Merci pour ce périple à vos côtés."},
+					{"character":"lucien","emotion":"neutral","text":"Et puissent vos vies cheminer vers des horizons rayonnants."},
+					
+				]],
+				["silence",2],
+				["endtext"]
+				
+			]
+		}
+	},
+	"default_trigger":"final"
+}

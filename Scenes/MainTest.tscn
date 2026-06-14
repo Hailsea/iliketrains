@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dyeyfchd3juk4" path="res://Scripts/main_test.gd" id="1_bhhyf"]
 [ext_resource type="PackedScene" uid="uid://beftx2d4cbv4h" path="res://Scenes/full_scene_platform.tscn" id="2_o8g5o"]
 [ext_resource type="PackedScene" uid="uid://df6s3t1wxotbo" path="res://Scenes/dialog_UI.tscn" id="2_oqdhm"]
+[ext_resource type="PackedScene" uid="uid://bv4awkm0uqunf" path="res://Scenes/final_scene.tscn" id="2_yomxb"]
 [ext_resource type="Script" uid="uid://bvkknqocf7xth" path="res://Scripts/camera_2d.gd" id="3_3a646"]
 [ext_resource type="PackedScene" uid="uid://co74ofwm4yf3r" path="res://Scenes/metro_interieur.tscn" id="3_nivcm"]
 [ext_resource type="PackedScene" uid="uid://se12xrrmy3jc" path="res://Scenes/think_UI.tscn" id="3_ycov7"]
@@ -13,6 +14,11 @@
 [ext_resource type="FontFile" uid="uid://e5m27ip8pu7q" path="res://Assets/Fonts/crimson/Crimson-Roman.otf" id="9_o1cfb"]
 [ext_resource type="PackedScene" uid="uid://jgtsa32nwv6e" path="res://Scenes/thoughts_UI.tscn" id="11_o1cfb"]
 [ext_resource type="PackedScene" uid="uid://dc0kiumdanwtu" path="res://Scenes/phone.tscn" id="12_gdjfl"]
+[ext_resource type="Texture2D" uid="uid://bthkuhecuovtm" path="res://Assets/Sprites/Logo.png" id="15_jibu2"]
+[ext_resource type="AudioStream" uid="uid://cpo78e083a4id" path="res://Assets/Audio/Ambience/train_ambience.mp3" id="15_ycywx"]
+[ext_resource type="FontFile" uid="uid://c5n75krl4gd5g" path="res://Assets/Fonts/Molengo/Molengo-Regular.ttf" id="16_ummif"]
+[ext_resource type="AudioStream" uid="uid://bebosq67xoait" path="res://Assets/Audio/SFX/porte_ouvre.mp3" id="18_ummif"]
+[ext_resource type="AudioStream" uid="uid://b0ax2s6ytnsbb" path="res://Assets/Audio/SFX/porte_ferme.mp3" id="19_wn26i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3a646"]
 shader = ExtResource("5_ycov7")
@@ -42,9 +48,45 @@ shader_parameter/blur_amount = 1.7450000828875
 shader_parameter/blur_inner = 0.6
 shader_parameter/blur_outer = 0.66
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ummif"]
+content_margin_left = 30.0
+content_margin_top = 30.0
+content_margin_right = 30.0
+content_margin_bottom = 30.0
+bg_color = Color(0, 0, 0, 0.5019608)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wn26i"]
+content_margin_left = 30.0
+content_margin_top = 30.0
+content_margin_right = 30.0
+content_margin_bottom = 30.0
+bg_color = Color(0, 0, 0, 0.31764707)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jibu2"]
+content_margin_left = 30.0
+content_margin_top = 30.0
+content_margin_right = 30.0
+content_margin_bottom = 30.0
+bg_color = Color(0, 0, 0, 0.5019608)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="MainGame" type="Node" unique_id=1940308254]
 script = ExtResource("1_bhhyf")
 events_file = "res://Dialogs/metro_M_-1_0.json"
+
+[node name="FinalScene" parent="." unique_id=1019448529 instance=ExtResource("2_yomxb")]
+visible = false
 
 [node name="Platform_background" parent="." unique_id=991292017 instance=ExtResource("2_o8g5o")]
 
@@ -138,6 +180,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="UI_Elements" type="CanvasLayer" parent="." unique_id=132934596]
+visible = false
 
 [node name="DialogUI" parent="UI_Elements" unique_id=865221122 instance=ExtResource("2_oqdhm")]
 visible = false
@@ -178,14 +221,94 @@ offset_top = 397.0
 offset_right = -347.0
 offset_bottom = 397.0
 
+[node name="Menu" type="CanvasLayer" parent="." unique_id=1041028326]
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu" unique_id=426127901]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer" unique_id=924944973]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Menu/MarginContainer/VBoxContainer" unique_id=185100121]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+texture = ExtResource("15_jibu2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Menu/MarginContainer/VBoxContainer/TextureRect" unique_id=1149611765]
+modulate = Color(0, 0, 0, 0.54901963)
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 1940.0
+offset_bottom = 520.0
+texture = ExtResource("15_jibu2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CenterContainer" type="CenterContainer" parent="Menu/MarginContainer/VBoxContainer" unique_id=520299783]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Menu/MarginContainer/VBoxContainer/CenterContainer" unique_id=2142010738]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("16_ummif")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_ummif")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wn26i")
+text = "Commencer"
+
+[node name="Crédits" type="RichTextLabel" parent="Menu/MarginContainer/VBoxContainer" unique_id=949576135]
+clip_contents = false
+custom_minimum_size = Vector2(1300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.3254902)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/normal_font = ExtResource("16_ummif")
+theme_override_font_sizes/normal_font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jibu2")
+text = "Un jeu par Raphaël Noé, Laurent Chen, Eléa Dorier et Barnabé Roussel."
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="EventDelay" type="Timer" parent="." unique_id=1926915563]
 wait_time = 10.0
 one_shot = true
 
 [node name="SilenceDelay" type="Timer" parent="." unique_id=1592238620]
 
+[node name="Audio" type="Node" parent="." unique_id=320543647]
+
+[node name="MetroAmbience" type="AudioStreamPlayer" parent="Audio" unique_id=987881030]
+stream = ExtResource("15_ycywx")
+volume_db = -8.0
+autoplay = true
+parameters/looping = true
+
+[node name="PorteOuvre" type="AudioStreamPlayer" parent="Audio" unique_id=310103841]
+stream = ExtResource("18_ummif")
+
+[node name="PorteFerme" type="AudioStreamPlayer" parent="Audio" unique_id=1621715242]
+stream = ExtResource("19_wn26i")
+
 [connection signal="update_hover_ui" from="Platform_background" to="." method="hover_ui"]
 [connection signal="update_hover_ui" from="Metro_background" to="." method="hover_ui"]
 [connection signal="end_dialog" from="UI_Elements/DialogUI" to="." method="_on_dialog_end"]
 [connection signal="mouse_entered" from="UI_Elements/Phone" to="." method="phone_up"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/CenterContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="EventDelay" to="." method="_on_event_delay_timeout"]

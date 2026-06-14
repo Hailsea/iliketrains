@@ -5,9 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://du0tndmxqqsi1" path="res://Assets/SI28_metro_assets/Metro_ouvert_img.png" id="2_m25kg"]
 [ext_resource type="Texture2D" uid="uid://3yocw0vbu64c" path="res://Assets/SI28_metro_assets/environnement_exterieur_sansmetro.png" id="3_li70b"]
 [ext_resource type="Texture2D" uid="uid://yvkarkvod5s2" path="res://Assets/SI28_metro_assets/Metro_ferme_img.png" id="5_2afdj"]
-[ext_resource type="Texture2D" uid="uid://7cg03daa6cgu" path="res://Assets/SI28_metro_assets/Pub_img.png" id="5_h307s"]
+[ext_resource type="Texture2D" uid="uid://c1gbbt5lkce7q" path="res://Assets/SI28_metro_assets/Pub_convention.png" id="6_2afdj"]
 [ext_resource type="Texture2D" uid="uid://bxarb3tvafk5a" path="res://Assets/SI28_metro_assets/Banc_img.png" id="6_2mlkf"]
 [ext_resource type="Texture2D" uid="uid://cuswgh3ukii0" path="res://Assets/SI28_metro_assets/Garcon_img.png" id="6_li70b"]
+[ext_resource type="Texture2D" uid="uid://cjpgbnqpylkpa" path="res://Assets/SI28_metro_assets/Plan.png" id="7_a16gc"]
 [ext_resource type="Texture2D" uid="uid://ci7pwc68u4ov4" path="res://Assets/SI28_metro_assets/Distributeur_avant_img.png" id="7_d3bao"]
 [ext_resource type="Texture2D" uid="uid://b1jw7h2rm6r44" path="res://Assets/SI28_metro_assets/alix.png" id="9_2mlkf"]
 [ext_resource type="Texture2D" uid="uid://c0jy0ejc7xs7b" path="res://Assets/SI28_metro_assets/Eulalie silhouette.png" id="10_d3bao"]
@@ -64,10 +65,21 @@ input_pickable = true
 
 [node name="Pub_img" type="Sprite2D" parent="Pub" unique_id=577220901]
 position = Vector2(961, 547)
-texture = ExtResource("5_h307s")
+texture = ExtResource("6_2afdj")
 
 [node name="Pub_hitbox" type="CollisionPolygon2D" parent="Pub" unique_id=1748727091]
 polygon = PackedVector2Array(71, 287, 87, 285, 142, 291, 195, 302, 476, 363, 463, 451, 458, 518, 456, 621, 458, 665, 51, 836, 39, 841, 34, 806, 28, 659, 31, 531, 37, 464, 43, 411, 52, 353)
+
+[node name="Plan" type="StaticBody2D" parent="." unique_id=763517031]
+input_pickable = true
+
+[node name="Plan_img" type="Sprite2D" parent="Plan" unique_id=245916733]
+position = Vector2(961, 547)
+texture = ExtResource("7_a16gc")
+
+[node name="Plan_hitbox" type="CollisionPolygon2D" parent="Plan" unique_id=766335180]
+position = Vector2(961, 547)
+polygon = PackedVector2Array(-838, -222.1, -838, -220.4, -846.5, -217, -848.9, -217, -854.9, -210, -856.3, -210, -883.3, -153, -884.6, -153, -901.5, -82, -902.8, -82, -905.9, -44, -907, -44, -907, 109.29999, -904, 120, -904, 123, -900, 126, -900, 128, -895, 128, -895, 129.59998, -748, 91.5, -748, 90.70001, -690.6, 80, -686.7, 80, -659, 70.400024, -659, 69.5, -613.9, 58, -610.9, 58, -604.9, 49, -602.7, 49, -606, 23.700012, -606, 1.2999878, -599, -43.799988, -599, -48.799988, -584, -96.70001, -584, -99.5, -575.8, -116, -574.5, -116, -569, -134.70001, -569, -138.6, -545.9, -179, -543.7, -179, -545, -189.20001, -545, -192.20001, -556, -198.29999, -556, -199.9, -632.9, -204, -646.8, -204, -775, -218.79999, -775, -219.9)
 
 [node name="Garcon" type="StaticBody2D" parent="." unique_id=1076014158]
 input_pickable = true

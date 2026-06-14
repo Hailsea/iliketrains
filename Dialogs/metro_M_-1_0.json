@@ -51,6 +51,7 @@
 				["silence",2],
 				["line",[
 					{"character":"protag","emotion":"neutral","text":"L'arrêt du quartier du Verger... C'était proche de chez Alix, il me semble.","properties":[]},
+					{"character":"protag","emotion":"neutral","text":"Si je veux faire un petit détour, je dois me décider maintenant. Si j'attends trop, le métro continuera son chemin.","properties":[]},
 				]],
 				["thought","Background",["neutral","J'espère que je ne vais pas arriver en retard."]],
 				["doorstimer"]

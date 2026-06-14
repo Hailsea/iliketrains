@@ -3,7 +3,7 @@
 	"events":{
 		"triggers":{
 			"Alix":[{"condition":["dialog_alix_quai1"],"event":"dialog_alix_quai2"},{"condition":[],"event":"dialog_alix_quai1"}],
-			"Train_ouvert":[{"condition":[],"event":"train"}],
+			"Metro_ouvert":[{"condition":[],"event":"train"}],
 			"Banc":[],
 		},
 		"events":{
@@ -22,7 +22,7 @@
 				{"character": "alix", "emotion": "neutral", "text": "On fait aller... J'enchaîne les petits boulots de dépannage informatique ces temps-ci. Il n'y a plus grand monde à la maison. Ma soeur est partie faire ses études loin d'ici.", "properties": []}, 
 				{"character": "alix", "emotion": "sad", "text": "Je suis un peu toute seule, mais je m'en sors...", "properties": []}, 
 				{"character": "alix", "emotion": "neutral", "text": "A peu près.", "properties": []}]],
-				["train"],
+				["metro"],
 				["line",[
 					{"character": "alix", "emotion": "neutral", "text": "Tu prends ce train ?", "properties": []},
 					{"character": "protag", "emotion": "surprise", "text": "Oui, toi aussi ?", "properties": []},
@@ -34,8 +34,7 @@
 			"dialog_alix_quai2":[
 				["line",[
 					{"character":"alix","emotion":"surprise","text":"Allons-y, le train va partir !"}
-				]],
-				["scene","metro_A_0_1"]
+				]]
 			],
 			
 		}
@@ -43,7 +42,8 @@
 	"thoughts":{
 		"Background":["neutral","Si je prends la ligne A, je peux quand même retrouver mon chemin"],
 		"Alix":["neutral","Cette personne me semble familière..."],
-		"Banc":["neutral","C'est un banc"]
+		"Banc":["neutral","C'est un banc"],
+		"Metro_ouvert":["surprise","Allons-y, le train risque de partir !"]
 	},
 	"default_trigger":"none"
 }

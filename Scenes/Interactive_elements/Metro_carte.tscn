@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://dg47l01o711ow"]
 
-[ext_resource type="Texture2D" uid="uid://bahsdjqnpdmvr" path="res://Assets/Assets_interieur/interieur_metro_carte.png" id="1_nk0mb"]
+[ext_resource type="Texture2D" uid="uid://b23d16winruap" path="res://Assets/SI28_metro_assets/planM.png" id="1_nk0mb"]
 
 [node name="Metro_carte" type="StaticBody2D" unique_id=1811555854]
 
 [node name="Metro_carte_img" type="Sprite2D" parent="." unique_id=1681162742]
+use_parent_material = true
 position = Vector2(966, 553)
 texture = ExtResource("1_nk0mb")
 

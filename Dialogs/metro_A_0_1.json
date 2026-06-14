@@ -39,9 +39,9 @@
 					{"character":"protag","emotion":"neutral","text":"On a passé des bons moments avec tout le monde quand même !"},
 				]],
 				["choice",[
-					{"condition":[], "text":"Ton alchimiste était carrément classe !", "trigger":"choice1_good"},
-					{"condition":[], "text":"Ta guerrière avait un vrai quelque chose.", "trigger":"choice1_bad"},
-					{"condition":[], "text":"On pouvait compter sur ton prêtre.", "trigger":"choice1_bad"},
+					{"condition":[], "text":"\"Ton alchimiste était carrément classe !\"", "trigger":"choice1_good"},
+					{"condition":[], "text":"\"Ta guerrière avait un vrai quelque chose.\"", "trigger":"choice1_bad"},
+					{"condition":[], "text":"\"On pouvait compter sur ton prêtre.\"", "trigger":"choice1_bad"},
 				]]],
 			"alix_choice1_good":[
 				["line",[
@@ -65,9 +65,9 @@
 					{"character":"protag","emotion":"sad","text":"Hé ! Toi aussi tu passais ton temps hors des cours !"},
 				]],
 				["choice",[
-					{"condition":[], "text":"Ça bossait pas fort en bio.", "trigger":"choice2_bad"},
-					{"condition":[], "text":"Les informaticiens, vous faisiez tout sauf aller en amphi.", "trigger":"choice2_good"},
-					{"condition":[], "text":"La méca ça avait l'air d'être fun !", "trigger":"choice2_bad"},
+					{"condition":[], "text":"\"Ça bossait pas fort en bio.\"", "trigger":"choice2_bad"},
+					{"condition":[], "text":"\"Les informaticiens, vous faisiez tout sauf aller en amphi.\"", "trigger":"choice2_good"},
+					{"condition":[], "text":"\"La méca ça avait l'air d'être fun !\"", "trigger":"choice2_bad"},
 				]]
 			],
 			"alix_choice2_good":[

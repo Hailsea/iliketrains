@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bv4awkm0uqunf"]
+
+[ext_resource type="Script" uid="uid://bva4742bvgmjb" path="res://Scripts/final_scene.gd" id="1_fi7pp"]
+[ext_resource type="Texture2D" uid="uid://by37hqbhk8nrj" path="res://Assets/Backgrounds/sortie.png" id="1_l225o"]
+[ext_resource type="FontFile" uid="uid://c5n75krl4gd5g" path="res://Assets/Fonts/Molengo/Molengo-Regular.ttf" id="2_ay78q"]
+
+[node name="FinalScene" type="Node2D" unique_id=1019448529]
+script = ExtResource("1_fi7pp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=322387910]
+texture = ExtResource("1_l225o")
+centered = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1160120163]
+offset_left = 829.0
+offset_top = 202.0
+offset_right = 1185.0
+offset_bottom = 249.0
+theme_override_colors/default_color = Color(0.05490196, 0.11764706, 0.0627451, 1)
+theme_override_font_sizes/bold_italics_font_size = 30
+bbcode_enabled = true
+text = "[i][b]Phare Lointain[/b][/i]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FinalText" type="CanvasLayer" parent="." unique_id=1489682124]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="FinalText" unique_id=607590282]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="FinalText/ColorRect" unique_id=2133208964]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_ay78q")
+theme_override_font_sizes/normal_font_size = 40
+text = "Peut-être, au cours d'un nouveau voyage, trouverez-vous un autre chemin...
+
+
+
+Rails et Royaumes
+
+Une histoire par Raphaël, Laurent, Eléa et Barnabé"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Timer" type="Timer" parent="." unique_id=752473853]

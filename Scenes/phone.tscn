@@ -102,11 +102,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Message12" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1728638422]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 10
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
 bbcode_enabled = true
 text = "[b][color=green]Lucien[/color][/b]
@@ -114,11 +114,11 @@ D'ailleurs j'ai relu le livret de règles et tu peux en effet débloquer un nouv
 fit_content = true
 
 [node name="Message13" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1739046991]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 10
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
 bbcode_enabled = true
 text = "[b][color=magenta]Vous[/color][/b]
@@ -126,11 +126,11 @@ C'est pas un peu trop fort sur un paladin ?"
 fit_content = true
 
 [node name="Message14" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=382382802]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 10
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
 bbcode_enabled = true
 text = "[b][color=green]Lucien[/color][/b]
@@ -138,11 +138,11 @@ text = "[b][color=green]Lucien[/color][/b]
 fit_content = true
 
 [node name="Message15" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=541863237]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 10
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
 bbcode_enabled = true
 text = "[b][color=magenta]Vous[/color][/b]
@@ -150,11 +150,11 @@ Bon bah je prends alors xD Avec la furie chevalresque d'Eulalie ça va taper for
 fit_content = true
 
 [node name="Message16" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1667837017]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 10
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
 bbcode_enabled = true
 text = "[b][color=green]Lucien[/color][/b]
@@ -170,11 +170,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Message9" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=799034381]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 10
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
 bbcode_enabled = true
 text = "[b][color=green]Lucien[/color][/b]
@@ -182,11 +182,11 @@ C'est bon, Eulalie est là ce soir, on a bien Rails et Royaume."
 fit_content = true
 
 [node name="Message10" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1600886763]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 10
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
 bbcode_enabled = true
 text = "[b][color=magenta]Vous[/color][/b]
@@ -194,11 +194,11 @@ Cool ! Tant mieux. Va-t-on enfin pouvoir passer la porte du Royaume Banni ?"
 fit_content = true
 
 [node name="Message11" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=380739959]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 10
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
 bbcode_enabled = true
 text = "[b][color=green]Lucien[/color][/b]
@@ -214,11 +214,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Message7" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1130758027]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 10
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
 bbcode_enabled = true
 text = "[b][color=magenta]Vous[/color][/b]
@@ -226,11 +226,11 @@ Salut, est-ce qu'on a une date pour la prochaine session de JDR ?"
 fit_content = true
 
 [node name="Message8" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=352054794]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 10
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
 bbcode_enabled = true
 text = "[b][color=green]Lucien[/color][/b]
@@ -245,27 +245,49 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Message3" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1561364977]
-custom_minimum_size = Vector2(200, 0)
+[node name="Message17" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1208331104]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 10
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
 bbcode_enabled = true
 text = "[b][color=green]Lucien[/color][/b]
-Salut ! Comment ça va depuis le temps ? Tu te souviens de moi ? ^^
+Salut ! "
+fit_content = true
 
+[node name="Message18" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1733430122]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=green]Lucien[/color][/b]
+Comment ça va depuis le temps ? Tu te souviens de moi ? ^^"
+fit_content = true
+
+[node name="Message3" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1561364977]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=green]Lucien[/color][/b]
 Je sais que ça fait trois ans qu'on s'est pas vus, mais est-ce que tu serais disponible vendredi soir ? On pourrait se retrouver à Phare Lointain ?
 Il me semble que c'est pas si loin de chez toi."
 fit_content = true
 
 [node name="Message4" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=536935325]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 10
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
 bbcode_enabled = true
 text = "[b][color=magenta]Vous[/color][/b]
@@ -273,11 +295,11 @@ Hey ! Ça va pas trop mal, et toi ?Oui en effet ça date. J'ai déménagé depui
 fit_content = true
 
 [node name="Message6" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1871316898]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 10
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
 bbcode_enabled = true
 text = "[b][color=green]Lucien[/color][/b]
@@ -285,11 +307,11 @@ Super ! On se retrouve là-bas alors. Il s'en est passé du temps depuis nos pre
 fit_content = true
 
 [node name="Message5" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=969864284]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 10
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
 bbcode_enabled = true
 text = "[b][color=magenta]Vous[/color][/b]
@@ -305,11 +327,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Message" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=903653108]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 10
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
 bbcode_enabled = true
 text = "[b][color=green]Lucien[/color][/b]
@@ -317,11 +339,11 @@ Je serai à la sortie de Phare Lointain vers 18h. Je t'attendrai là-bas !"
 fit_content = true
 
 [node name="Message2" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=2118991807]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 10
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
 bbcode_enabled = true
 text = "[b][color=magenta]Vous[/color][/b]

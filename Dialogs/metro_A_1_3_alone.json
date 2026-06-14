@@ -32,7 +32,7 @@
 			],
 			"close_doors":[
 				["doors"],
-				["scene","metro_M_0_1"]
+				["final","final_A"]
 			]
 			
 		}

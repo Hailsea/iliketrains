@@ -41,7 +41,7 @@ func connect_signals() -> void:
 			#print("res://Scenes/Interactive_elements/"+child.name+".tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	current_element=element_hovered()
 	pass
 
@@ -62,7 +62,7 @@ func element_hovered() -> String:
 	if on_Background(): return "Background"
 	return interactive_element["last"]
 
-func change_elements(background: String, elements: Array) -> void:
+func change_elements(_background: String, elements: Array) -> void:
 	open="Porte_ouverte" in elements
 	for i in scene_nodes.keys():
 		if i in elements:
@@ -95,12 +95,12 @@ func switch_doors():
 	#print(open)
 	return
 
-func create_node_from_instance(instance:PackedScene, name:String,place:int):
+func create_node_from_instance(instance:PackedScene, _name:String,place:int):
 	add_child(instance.instantiate())
 	get_child(-1).name=name
 	if place!=-1: move_child(get_child(-1),place)
 
-func show_tree(balise):
+func show_tree(_balise):
 	#print(balise)
 	for i in get_children():
 		#print(i.name)

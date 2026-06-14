@@ -9,6 +9,10 @@
 		},
 		"events":{
 			"monolog":[
+				["silence",2],
+				["line",[
+					{"character":"protag","emotion":"sad","text":"Ce train est presque trop calme.","properties":[]},
+				]],
 				["flashback",true],
 				["line",[
 					{"character":"lucien","character_name":"Garçon enthousiaste","emotion":"neutral","text":"C'était fun comme première session de Rails et Royaumes ! Merci à tous !","properties":[]},
@@ -22,10 +26,13 @@
 					{"character":"protag","emotion":"neutral","text":"Ça va aller, j'ai hâte d'apprende à vous connaître aussi. Vous avez l'air d'être une bande bien sympathique.","properties":[]},
 				]],
 				["flashback",false],
+				["line",[
+					{"character":"protag","emotion":"neutral","text":"Pourquoi Lucien veut-il me parler ? ","properties":[]},
+				]],
 				["doors"],
 				["silence",2],
 				["line",[
-					{"character":"protag","emotion":"neutral","text":"Salut","properties":[]},
+					{"character":"protag","emotion":"neutral","text":"Cet arrêt permet d'accéder à la ligne D, celle que prenait Eulalie je crois.","properties":[]},
 				]],
 				["thought","Background",["neutral","J'espère que je ne vais pas arriver en retard."]],
 				["doorstimer"]
@@ -38,7 +45,13 @@
 			"close_doors":[
 				["doors"],
 				["scene","metro_M_1_2"]
-			]
+			],
+			"exit_to_lineD":[
+				["line",[
+					{"character":"protag","emotion":"neutral","text":"Bon, peut-être que j'ai le temps pour un petit détour...","properties":[]},
+				]],
+				["scene","quai_A1D0"]
+			],
 		}
 	},
 	"thoughts":{

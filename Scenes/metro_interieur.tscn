@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://2sfkdn8ytcge" path="res://Scripts/metro_background_change.gd" id="1_t3cai"]
 [ext_resource type="Texture2D" uid="uid://d18p2or1kck3d" path="res://Assets/Backgrounds/metro_ouvert.png" id="2_2bcgp"]
+[ext_resource type="Shader" uid="uid://fcf6sos0cums" path="res://Shaders/shake.gdshader" id="2_rb21n"]
 [ext_resource type="PackedScene" uid="uid://dge1r32e3m5jb" path="res://Scenes/Interactive_elements/Portes_metro_interieur.tscn" id="3_5pnae"]
 [ext_resource type="PackedScene" uid="uid://bipbbp87islpu" path="res://Scenes/Interactive_elements/Homme_debout.tscn" id="3_t3cai"]
 [ext_resource type="PackedScene" uid="uid://bik7vfcwhc1w0" path="res://Scenes/Interactive_elements/Homme_assis.tscn" id="4_5pnae"]
@@ -11,11 +12,18 @@
 [ext_resource type="Texture2D" uid="uid://d23ribsl3e8oo" path="res://Assets/SI28_metro_assets/Paul silouhette.png" id="9_248dk"]
 [ext_resource type="Texture2D" uid="uid://csvm5vt84iing" path="res://Assets/SI28_metro_assets/Theodore silhouette.png" id="10_gj1ws"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rb21n"]
+shader = ExtResource("2_rb21n")
+shader_parameter/amplitude = 0.0870000041325
+shader_parameter/speed = 0.070000003325
+
 [node name="Metro_background" type="Node2D" unique_id=991292017]
+material = SubResource("ShaderMaterial_rb21n")
 script = ExtResource("1_t3cai")
 
 [node name="Fond_img" type="Sprite2D" parent="." unique_id=1970532212]
 z_index = -1
+use_parent_material = true
 texture = ExtResource("2_2bcgp")
 centered = false
 
@@ -23,6 +31,7 @@ centered = false
 input_pickable = true
 
 [node name="Metro_carte" parent="." unique_id=1811555854 instance=ExtResource("5_geocu")]
+use_parent_material = true
 input_pickable = true
 
 [node name="Homme_debout" parent="." unique_id=1263324402 instance=ExtResource("3_t3cai")]
@@ -34,9 +43,11 @@ input_pickable = true
 
 [node name="Alix" type="StaticBody2D" parent="." unique_id=584847081]
 visible = false
+use_parent_material = true
 input_pickable = true
 
 [node name="Alix_img" type="Sprite2D" parent="Alix" unique_id=2126784993]
+use_parent_material = true
 position = Vector2(2076, 558)
 texture = ExtResource("7_0mtfp")
 
@@ -46,9 +57,11 @@ polygon = PackedVector2Array(-578, -32.600006, -578, -30.899994, -597.2, -29, -5
 
 [node name="Eulalie" type="StaticBody2D" parent="." unique_id=1472712317]
 visible = false
+use_parent_material = true
 input_pickable = true
 
 [node name="Eulalie_img" type="Sprite2D" parent="Eulalie" unique_id=1853296538]
+use_parent_material = true
 position = Vector2(1576.0001, 760)
 scale = Vector2(1.0353773, 1.0474565)
 texture = ExtResource("8_rb21n")
@@ -60,9 +73,11 @@ polygon = PackedVector2Array(23, -403, -9, -403, -24.899994, -388, -26.199997, -
 
 [node name="Paul" type="StaticBody2D" parent="." unique_id=18355720]
 visible = false
+use_parent_material = true
 input_pickable = true
 
 [node name="Paul_img" type="Sprite2D" parent="Paul" unique_id=470251529]
+use_parent_material = true
 position = Vector2(1454.1177, 688.6351)
 scale = Vector2(0.77663815, 0.76134914)
 texture = ExtResource("9_248dk")
@@ -73,9 +88,11 @@ scale = Vector2(0.77663815, 0.76134914)
 polygon = PackedVector2Array(-49.5, -483.7, -53.1, -485.5, -59.5, -485.5, -68.4, -475.5, -70.2, -475.5, -74.5, -448.7, -74.5, -446.6, -95.5, -429.5, -95.5, -423.7, -91.5, -419.7, -91.5, -417.5, -82, -417.5, -89.5, -405.1, -89.5, -401.5, -85.5, -398.5, -85.5, -395.7, -80.2, -397.5, -79.4, -397.5, -78.5, -384.4, -78.5, -380.8, -66.4, -366.5, -62.699997, -366.5, -54.800003, -350.7, -55.5, -344.6, -55.5, -335.3, -80.5, -309.3, -81, -308.5, -87.1, -308.5, -100, -299.5, -102.2, -299.5, -124.2, -281.5, -126.4, -281.5, -136.4, -269.5, -138, -269.5, -140.5, -260.4, -140.5, -189.9, -134.5, -157.1, -134.5, -150.1, -119.5, -116.20001, -119.5, -113.600006, -102.3, -98.5, -92.7, -98.5, -100.3, -28.5, -101.5, -28.5, -102.5, 23.5, -102.5, 27, -99.7, 32.5, -94.5, 78.70001, -94.5, 87.70001, -84.1, 136.5, -83.3, 136.5, -67.5, 272.7, -67.5, 281.7, -58.1, 324.5, -57.4, 324.5, -52.5, 395.59998, -52.5, 412.90002, -49.6, 420.8, -75.4, 449.5, -76.9, 449.5, -80.5, 460.2, -80.5, 473.3, -72.5, 482.2, -72.5, 483.90002, -67.7, 485.5, -34.6, 485.5, -26, 480.5, -23.699997, 480.5, -5.5, 463.40002, -5.5, 462.59998, 11.199997, 451.5, 13.399994, 451.5, 14.5, 423.5, 14.5, 422.90002, 15.800003, 422.5, 18.699997, 422.5, 22.600006, 415.5, 24.600006, 415.5, 22.5, 380.40002, 22.5, 375.40002, 14.199997, 319.5, 13.399994, 319.5, 8.399994, 229.5, 7.399994, 229.5, 3.5, 132.40002, 3.5, 106.5, 9.199997, 81.79999, 10.5, 83.5, 11.100006, 83.5, 18.5, 102.900024, 18.5, 106.099976, 40.399994, 141.5, 41.100006, 141.5, 46.100006, 155.5, 47, 155.5, 48.5, 160.5, 48.5, 179.70001, 55.899994, 209.5, 56.699997, 209.5, 57.5, 215.70001, 57.5, 243.5, 48.699997, 330.5, 47.399994, 330.5, 50.5, 389.59998, 50.5, 395.3, 65.600006, 412.5, 66.2, 412.5, 76.5, 436.8, 76.5, 439.2, 85.5, 450.09998, 85.5, 451.8, 102.5, 458.8, 102.5, 460.40002, 116.5, 461.3, 116.5, 462.7, 128.70001, 461.5, 132.4, 461.5, 140.4, 452.5, 140.5, 425.3, 128.5, 410.5, 122.5, 390.5, 122.5, 384.8, 113.899994, 373.09998, 118, 359.5, 119.29999, 359.5, 132.5, 238.59998, 132.5, 148.40002, 127.5, 114.20001, 127.5, 109.20001, 108, 38.5, 107.3, 38.5, 94.5, -54.799988, 94.5, -64.70001, 86.7, -102.29999, 103.600006, -106.5, 108.399994, -106.5, 113.399994, -112.5, 115, -112.5, 125, -149.5, 126.600006, -149.5, 125.5, -182.6, 125.5, -196.6, 118.5, -248.8, 118.5, -254.9, 108.5, -280, 108.5, -284.2, 99.5, -296.2, 99.5, -297.8, 46.899994, -320.5, 45.5, -320.5, 40.5, -327.2, 40.5, -328.7, 11.199997, -344.4, 10.5, -347.9, 10.5, -350.1, 13.600006, -355.5, 15, -355.5, 20.5, -375.2, 20.5, -379.9, 25.5, -386.5, 27.100006, -386.5, 28.5, -393.3, 28.5, -408.2, 24.5, -413.2, 24.5, -413.8, 28.399994, -418.5, 30.699997, -418.5, 29.5, -433.7, 29.5, -436.2, 36.5, -451.1, 36.5, -456.5, 32.5, -459.5, 32.5, -460.7, 30.399994, -461.8, 22.899994, -457, 17, -458.4, 18.5, -463.2, 18.5, -471.1, 14.5, -477.2, 14.5, -480.9, 0.8999939, -473.5, -2.100006, -473.5, -13.099998, -477.5, -13.5, -483.3, -15.699997, -485.5, -28.300003, -485.5, -31.5, -482.3, -39.800003, -479.5, -43.199997, -479.5, -49.5, -474.8)
 
 [node name="Theodore" type="StaticBody2D" parent="." unique_id=1411021287]
+use_parent_material = true
 input_pickable = true
 
 [node name="Theodore_img" type="Sprite2D" parent="Theodore" unique_id=1295819363]
+use_parent_material = true
 position = Vector2(1701.0001, 714)
 scale = Vector2(0.77663815, 0.76134914)
 texture = ExtResource("10_gj1ws")
