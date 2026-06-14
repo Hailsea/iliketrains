@@ -23,6 +23,11 @@ window/size/mode=3
 window/size/resizable=false
 window/stretch/aspect="expand"
 
+[editor]
+
+movie_writer/movie_file="/home/barnab/Documents/Godot/iliketrains/trailer.avi"
+movie_writer/fps=24
+
 [input]
 
 dialog_next={

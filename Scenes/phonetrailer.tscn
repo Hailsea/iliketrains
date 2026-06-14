@@ -1,0 +1,252 @@
+[gd_scene format=3 uid="uid://cu0pplr8dvvg1"]
+
+[ext_resource type="Script" uid="uid://7yjj7pn3w03b" path="res://Scripts/phonetriler.gd" id="1_6g4xw"]
+[ext_resource type="Texture2D" uid="uid://yp87mludlns4" path="res://Assets/Sprites/phone.png" id="1_veqly"]
+[ext_resource type="Texture2D" uid="uid://0hpkjk8cqt8i" path="res://Assets/Sprites/Portraits/lucien/neutral.png" id="2_6g4xw"]
+[ext_resource type="Script" uid="uid://c0ydinlem8o1f" path="res://Shaders/scroll_container.gd" id="3_5nypc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_knwvw"]
+content_margin_left = 35.0
+content_margin_top = 30.0
+content_margin_right = 55.0
+content_margin_bottom = 45.0
+texture = ExtResource("1_veqly")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5ye2"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knwvw"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.1, 0.1, 0.1, 1)
+corner_detail = 20
+
+[node name="Phone" type="Control" unique_id=820931979]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 430.0
+offset_bottom = 684.0
+script = ExtResource("1_6g4xw")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1245196087]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_knwvw")
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer" unique_id=1987083888]
+show_behind_parent = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m5ye2")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/PanelContainer" unique_id=1408357351]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 45
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer" unique_id=1807018211]
+layout_mode = 2
+
+[node name="TopName" type="HBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1670034675]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+alignment = 1
+
+[node name="Lucien" type="TextureRect" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/TopName" unique_id=863321940]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_6g4xw")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/TopName" unique_id=16526071]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "[b]Lucien[/b]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1680547092]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2069378867]
+layout_mode = 2
+size_flags_vertical = 3
+scroll_horizontal_custom_step = 1.0
+script = ExtResource("3_5nypc")
+
+[node name="Messages" type="VBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=524064129]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Separator3" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=948074453]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.74, 0.74, 0.74, 1)
+theme_override_font_sizes/normal_font_size = 22
+text = "-- 18/05/23 --"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message7" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1130758027]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=magenta]Vous[/color][/b]
+Salut, est-ce qu'on a une date pour la prochaine session de JDR ?"
+fit_content = true
+
+[node name="Message8" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=352054794]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=green]Lucien[/color][/b]
+Salut, non désolé, j'ai pas trop la pêche en ce moment..."
+fit_content = true
+
+[node name="separatordisplay" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1607333334]
+visible = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0.74, 0.74, 0.74, 1)
+theme_override_font_sizes/normal_font_size = 22
+text = "-- 09/06/26 --"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="messagedisplay1" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1208331104]
+visible = false
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=green]Lucien[/color][/b]
+Salut ! "
+fit_content = true
+
+[node name="messagedisplay2" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1733430122]
+visible = false
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=green]Lucien[/color][/b]
+Comment ça va depuis le temps ? Tu te souviens de moi ? ^^"
+fit_content = true
+
+[node name="messagedisplay3" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1561364977]
+visible = false
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=green]Lucien[/color][/b]
+Je sais que ça fait trois ans qu'on s'est pas vus, mais est-ce que tu serais disponible vendredi soir ? On pourrait se retrouver à Phare Lointain ?
+Il me semble que c'est pas si loin de chez toi."
+fit_content = true
+
+[node name="Message4" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=536935325]
+visible = false
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=magenta]Vous[/color][/b]
+Hey ! Ça va pas trop mal, et toi ?Oui en effet ça date. J'ai déménagé depuis donc c'est un peu loin mais bien sûr. "
+fit_content = true
+
+[node name="Message6" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1871316898]
+visible = false
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=green]Lucien[/color][/b]
+Super ! On se retrouve là-bas alors. Il s'en est passé du temps depuis nos premiers TP de chimie, et nos séances de JDR."
+fit_content = true
+
+[node name="Message5" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=969864284]
+visible = false
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=magenta]Vous[/color][/b]
+Le temps passe vite..."
+fit_content = true
+
+[node name="Separator" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=1217932288]
+visible = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0.57, 0.57, 0.57, 1)
+text = "-- 12/06/26 --"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=903653108]
+visible = false
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=green]Lucien[/color][/b]
+Je serai à la sortie de Phare Lointain vers 18h. Je t'attendrai là-bas !"
+fit_content = true
+
+[node name="Message2" type="RichTextLabel" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Messages" unique_id=2118991807]
+visible = false
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_knwvw")
+bbcode_enabled = true
+text = "[b][color=magenta]Vous[/color][/b]
+Ça marche, je suis monté dans le métro, je te rejoins."
+fit_content = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1566556539]
+wait_time = 10.0
+autostart = true

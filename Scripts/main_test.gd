@@ -62,6 +62,11 @@ func load_final():
 	$Platform_background.hide()
 	$Metro_background.hide()
 	$FinalScene.show()
+	$Audio/MusiqueAmbiance.stop()
+	if data["music"] == "good":
+		$Audio/GoodEnding.play()
+	else:
+		$Audio/MidEnding.play()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -152,6 +157,8 @@ func process_action(action):
 		await tween.finished
 		events_file = "res://Dialogs/"+action[1]+".json"
 		load_final()
+		$EndingDelay.start()
+		await $EndingDelay.timeout
 		tween = create_tween()
 		tween.tween_property($White/Black,"modulate:a",0,0.5);
 		await tween.finished

@@ -19,6 +19,9 @@
 [ext_resource type="FontFile" uid="uid://c5n75krl4gd5g" path="res://Assets/Fonts/Molengo/Molengo-Regular.ttf" id="16_ummif"]
 [ext_resource type="AudioStream" uid="uid://bebosq67xoait" path="res://Assets/Audio/SFX/porte_ouvre.mp3" id="18_ummif"]
 [ext_resource type="AudioStream" uid="uid://b0ax2s6ytnsbb" path="res://Assets/Audio/SFX/porte_ferme.mp3" id="19_wn26i"]
+[ext_resource type="AudioStream" uid="uid://bmqgkgsm2vtl1" path="res://Assets/Audio/Music/musique_ambiance.mp3" id="20_mqyf8"]
+[ext_resource type="AudioStream" uid="uid://de0tcpum28lah" path="res://Assets/Audio/Music/midending.mp3" id="21_31uua"]
+[ext_resource type="AudioStream" uid="uid://sxf0rhhi5seh" path="res://Assets/Audio/Music/goodending.mp3" id="22_gw8hr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3a646"]
 shader = ExtResource("5_ycov7")
@@ -221,6 +224,14 @@ offset_top = 397.0
 offset_right = -347.0
 offset_bottom = 397.0
 
+[node name="Control" type="Control" parent="UI_Elements" unique_id=1582554965]
+layout_mode = 3
+anchor_top = 0.349
+anchor_right = 0.052
+anchor_bottom = 0.95900005
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Menu" type="CanvasLayer" parent="." unique_id=1041028326]
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu" unique_id=426127901]
@@ -290,6 +301,10 @@ vertical_alignment = 1
 wait_time = 10.0
 one_shot = true
 
+[node name="EndingDelay" type="Timer" parent="." unique_id=1513462166]
+wait_time = 4.0
+one_shot = true
+
 [node name="SilenceDelay" type="Timer" parent="." unique_id=1592238620]
 
 [node name="Audio" type="Node" parent="." unique_id=320543647]
@@ -306,9 +321,23 @@ stream = ExtResource("18_ummif")
 [node name="PorteFerme" type="AudioStreamPlayer" parent="Audio" unique_id=1621715242]
 stream = ExtResource("19_wn26i")
 
+[node name="MusiqueAmbiance" type="AudioStreamPlayer" parent="Audio" unique_id=232192790]
+stream = ExtResource("20_mqyf8")
+autoplay = true
+parameters/looping = true
+
+[node name="MidEnding" type="AudioStreamPlayer" parent="Audio" unique_id=1616080593]
+stream = ExtResource("21_31uua")
+parameters/looping = true
+
+[node name="GoodEnding" type="AudioStreamPlayer" parent="Audio" unique_id=875436722]
+stream = ExtResource("22_gw8hr")
+parameters/looping = true
+
 [connection signal="update_hover_ui" from="Platform_background" to="." method="hover_ui"]
 [connection signal="update_hover_ui" from="Metro_background" to="." method="hover_ui"]
 [connection signal="end_dialog" from="UI_Elements/DialogUI" to="." method="_on_dialog_end"]
 [connection signal="mouse_entered" from="UI_Elements/Phone" to="." method="phone_up"]
+[connection signal="mouse_entered" from="UI_Elements/Control" to="." method="phone_up"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/CenterContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="EventDelay" to="." method="_on_event_delay_timeout"]
