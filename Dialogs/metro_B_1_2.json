@@ -1,0 +1,66 @@
+{
+	"background":"metro_ferme",
+	"events":{
+		"triggers":{
+			"Paul":[{"condition":[],"event":"theopaul_B1"}],
+			"Theodore":[],
+			"choice3_1":[{"condition":[],"event":"choice3_1"}],
+			"choice3_2":[{"condition":[],"event":"choice3_2"}],
+		},
+		"events":{
+			"theopaul_B1":[
+				["line",[
+					{"character":"paul","emotion":"neutral","text":"Plus qu'un arrêt et on est arrivés."},
+					{"character":"protag","emotion":"neutral","text":"D'ailleurs..."},
+				]],
+				["choice",[
+					{"condition":[], "text":"\"Vous continuez votre groupe ?\"", "trigger":"choice3_1"},
+					{"condition":[], "text":"\"Vous faites quoi maintenant ?\"", "trigger":"choice3_2"},
+					null
+				]]
+			],
+			"choice3_1":[
+				["line",[
+					{"character":"paul","emotion":"neutral","text":"Pas vraiment... Depuis la fin de l’université, on a eu pas mal de difficulté à joindre Lucien et encore plus à trouver des créneaux pour se retrouver."},
+					{"character":"paul","emotion":"neutral","text":"Avec Théo on a réussi à se trouver un travail pas trop loin. Donc on réussit à se synchroniser un peu, mais on a quand même du mal à trouver le temps et l’énergie pour faire tout ce qu’on veut."},
+					{"character":"protag","emotion":"neutral","text":"Ouais, je vois. C’est toujours compliqué de s’habituer à un nouveau rythme."},
+					{"character":"protag","emotion":"neutral","text":"Mais bon, il faut bien passer à autre chose un jour ou l’autre."},
+				]],
+				["doors"],
+				["silence",2],
+				["line",[
+					{"character":"paul","emotion":"neutral","text":"On doit changer pour prendre la ligne E, ne traînons pas."},
+				]],
+				["scene","quai_A3B2D2"]
+				
+			],
+			"choice3_2":[
+				["line",[
+					{"character":"paul","emotion":"neutral","text":"On a réussi à se trouver une place comme ingés son dans un petit studio d’enregistrement à 20 minutes d’ici. Le truc, c’est qu’on se relaie sur les sessions donc on galère à se synchroniser en dehors du travail."},
+					{"character":"protag","emotion":"neutral","text":"À quoi est-ce que je m’attendais de deux personnes faisant de la musique pendant les 25 ans de votre vie ?"},
+					{"character":"theodore","emotion":"sad","text":"J’ai que 24 ans tu sais ?"},
+					{"character":"protag","emotion":"neutral","text":"Oui, mes calculs sont corrects."},
+					{"character":"theodore","emotion":"sad","text":"..."},
+					{"character":"paul","emotion":"neutral","text":"On a réussi à se trouver une place comme ingés son dans un petit studio d’enregistrement à 20 minutes d’ici. Le truc, c’est qu’on se relaie sur les sessions donc on galère à se synchroniser en dehors du travail."},
+					{"character":"theodore","emotion":"neutral","text":"Oui bon... Et toi, Andrea ? Tu fais quoi maintenant?"},
+					{"character":"protag","emotion":"neutral","text":"J’aide dans une petite librairie entre la galerie et Belleville. Ça change pas mal des études mais bon, faut bien passer à autre chose un jour ou l’autre."},
+				]],
+				["doors"],
+				["silence",2],
+				["line",[
+					{"character":"paul","emotion":"neutral","text":"On doit changer pour prendre la ligne E, ne traînons pas."},
+				]],
+				["scene","quai_A3B2D2"]
+				
+			]
+			
+		}
+	},
+	"thoughts":{
+		"Background":["neutral",""],
+		"Paul":["neutral",""],
+		"Theodore":["neutral",""],
+		"Portes_metro_interieur":["neutral",""],
+	},
+	"default_trigger":"Paul"
+}

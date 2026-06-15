@@ -24,9 +24,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="FinalText" type="CanvasLayer" parent="." unique_id=1489682124]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="FinalText" unique_id=607590282]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

@@ -1,0 +1,48 @@
+{
+	"background":"sortie",
+	"music":"mid",
+	"events":{
+		"triggers":{
+			"final":[{"condition":[],"event":"final"}],
+		},
+		"events":{
+			"final":[
+				["silence",2],
+				["meet","lucien"],
+				["line",[
+					{"character":"paul","emotion":"neutral","text":"Salut Lucien."},
+					{"character":"lucien","emotion":"surprise","text":"Paul ? Mais... Oh waou vous êtes tous là ? Bon sang, j’y croyais pas ! J’ai l’impression que ça fait un siècle qu’on s’est pas vu, c’est fou. Vous avez presque pas changé en trois ans et..."},
+					{"character":"eulalie","emotion":"surprise","text":"Alix n’est pas déjà arrivée ?"},
+					{"character":"protag","emotion":"surprise","text":"Je ne la vois nulle part..."},
+					{"character":"lucien","emotion":"surprise","text":"Alix ? Elle n’est pas avec vous ?"},
+					{"character":"paul","emotion":"neutral","text":"..."},
+					{"character":"eulalie","emotion":"neutral","text":"Non. On pensait qu’elle serait déjà arrivée. Elle était tout le temps la première à..."},
+					{"character":"theodore","emotion":"sad","text":"On peut attendre un peu ? Peut-être que son métro a eut du retard."},
+					{"character":"lucien","emotion":"sad","text":"Je... Je doute que ce soit à cause du métro."},
+					{"character":"eulalie","emotion":"neutral","text":"Qu’est-ce que tu entends par là ?"},
+					{"character":"lucien","emotion":"sad","text":"..."},
+					{"character":"lucien","emotion":"neutral","text":"Ecoutez, j’espérais pouvoir nous réunir à nouveau. Tous ensemble, histoire de mettre les choses au clair ou au moins mettre un terme à la grande aventure que nous avons commencé y a trois ans. Mais on dirait que c’est raté."},
+					{"character":"eulalie","emotion":"sad","text":"Lucien..."},
+					{"character":"lucien","emotion":"neutral","text":"Merci à vous d’être là. Je suis sincèrement touché. Pour être honnête, je m’attendais à ce que personne ne vienne."},
+					{"character":"theodore","emotion":"sad","text":"A ce point ? Boh, quand même on est pas..."},
+					{"character":"paul","emotion":"neutral","text":"Théo."},
+					{"character":"theodore","emotion":"neutral","text":"Pardon."},
+					{"character":"lucien","emotion":"sad","text":"Peut-être que je ne suis qu’un idiot qui s’accroche à une époque achevée qui ne peut être ressuscitée."},
+					{"character":"lucien","emotion":"sad","text":"Peut-être qu’après tout, Rails et Royaumes appartient au passé."},
+					{"character":"protag","emotion":"neutral","text":"Ne dis pas ça... Aujourd’hui, je pense que chacun en garde un merveilleux souvenir, pas vrai ?"},
+					{"character":"eulalie","emotion":"neutral","text":"Oui."},
+					{"character":"paul","emotion":"neutral","text":"Exactement."},
+					{"character":"protag","emotion":"neutral","text":"Certes, nous avons tous une vie différente, aujourd’hui. Mais on ne peut pas effacer toutes les péripéties que nous avons vécues grâce à toi."},
+					{"character":"eulalie","emotion":"neutral","text":"Ni toutes les émotions que tu nous as fait ressentir."},
+					{"character":"lucien","emotion":"neutral","text":"..."},
+					{"character":"lucien","emotion":"neutral","text":"Merci. Vraiment, merci du fond du cœur. Malheureusement, je pense que cette histoire restera inachevée. La porte du dernier Royaume demeurera close."},
+					{"character":"lucien","emotion":"neutral","text":"Peut-être qu’un jour, nos voies se rejoindront à nouveau. Et, pour quelques stations peut-être, nous voyagerons côte à côte tous les six."},
+					{"character":"lucien","emotion":"neutral","text":"Je n’ai jamais eu l’opportunité de le dire. Merci pour ce périple à vos côtés. Et puissent vos vies cheminer vers des horizons rayonnants."}
+				]],
+				["silence",2],
+				["endtext"]
+			]
+		}
+	},
+	"default_trigger":"final"
+}

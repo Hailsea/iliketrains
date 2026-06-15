@@ -11,6 +11,7 @@
 			"post_choice2":[{"condition":[],"event":"dialog_alix_metro13"}],
 			"lie":[{"condition":[],"event":"alix_lie"}],
 			"truth":[{"condition":["alix_choice1_bad","alix_choice2_bad"],"event":"alix_truth_notrust"},{"condition":[],"event":"alix_truth_trust"},],
+			"Portes_metro_interieur":[{"condition":[],"event":"sortie_metro_alix"}]
 		},
 		"events":{
 			"dialog_alix_metro11":[
@@ -96,6 +97,7 @@
 				]]
 			],
 			"alix_lie":[
+				["doors"],
 				["line",[
 					{"character":"protag","emotion":"surprise","text":"Ah ! Euh... Je prends l'air."},
 					{"character":"protag","emotion":"surprise","text":"Un peu d'oxygène."},
@@ -106,7 +108,6 @@
 					{"character":"alix","emotion":"sad","text":"Tu salueras Lucien de ma part."},
 					{"character":"protag","emotion":"surprise","text":"Alix ! Attends !"},
 				]],
-				["scene","metro_A_1_3_alone"]
 			],
 			"alix_truth_notrust":[
 				["doors"],
@@ -135,13 +136,16 @@
 			"close_doors":[
 				["doors"],
 				["scene","metro_M_0_1"]
+			],
+			"sortie_metro_alix":[
+				["scene","quai_A1B0"]
 			]
 		}
 	},
 	"thoughts":{
 		"Background":["neutral","Ça me fait plaisir de revoir Alix."],
 		"Alix":["sad","Alix semble un peu anxieuse."],
-		"Portes_metro_interieur":["sad","Je ne peux pas sortir maintenant, je ne pourrais pas rejoindre Lucien."],
+		"Portes_metro_interieur":["surprise","Je peux essayer de rattraper Alix !"],
 	},
 	"default_trigger":"none"
 }

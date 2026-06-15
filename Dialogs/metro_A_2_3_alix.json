@@ -39,15 +39,12 @@
 				["line",[
 					{"character":"alix","emotion":"neutral","text":"L'arrêt de l'hopital. Ça me rappelle des mauvais souvenirs."},
 				]],
-				["choice",[
-					{"condition":[], "text":"Ça va aller ?", "trigger":"normal"},
-					{"condition":[], "text":"Faisons un petit détour.", "trigger":"detour"},
-					null
-				]]
+				["trigger","normal"]
 			],
 			"normal":[
 				["line",[
-					{"character":"alix","emotion":"neutral","text":"Oui, tout va bien. Plus qu'un arrêt et nous y sommes"},
+					{"character":"alix","emotion":"neutral","text":"Ça va aller ?"},
+					{"character":"alix","emotion":"neutral","text":"Oui, tout va bien. Plus qu'un arrêt et nous y sommes."},
 				]],
 				["scene","metro_A_3_4_alix"]
 			],

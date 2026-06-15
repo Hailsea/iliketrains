@@ -38,7 +38,8 @@ input_pickable = true
 input_pickable = true
 
 [node name="Homme_assis" parent="." unique_id=3933043 instance=ExtResource("4_5pnae")]
-visible = false
+position = Vector2(255, 21)
+scale = Vector2(0.9, 0.9)
 input_pickable = true
 
 [node name="Alix" type="StaticBody2D" parent="." unique_id=584847081]

@@ -2,10 +2,13 @@
 	"background":"metro_ferme",
 	"events":{
 		"triggers":{
-			"Eulalie":[{"condition":[],"event":"eulalie_1"}],
+			"Eulalie":[{"condition":[],"event":"eulalie_D1"}],
+			"eulalie_11":[{"condition":[],"event":"eulalie_11"}],
+			"these_1":[{"condition":[],"event":"these_1"}],
+			"these_2":[{"condition":[],"event":"these_2"}]
 		},
 		"events":{
-			"eulalie_1":[
+			"eulalie_D1":[
 				["meet","eulalie"],
 				["line",[
 					{"character":"eulalie","emotion":"surprise","text":"Tiens donc, qui voilà."},
@@ -14,10 +17,66 @@
 					{"character":"protag","emotion":"surprise","text":"Euh... Si. Mais t'inquiète pas ça va."},
 					{"character":"eulalie","emotion":"neutral","text":"C'était pas le but. Peu importe, comment ça va depuis tout ce temps ?"},
 				]],
+				["choice",
+					[
+						{"condition":[], "text":"Déprimant.", "trigger":"these_1"},
+						{"condition":[], "text":"On s'y fait.", "trigger":"these_2"},
+						null
+					]
+				]
 			],
-			"close_doors":[
+			"these_1":[
+				["line",[
+					{"character":"protag","emotion":"neutral","text":"La vie sans les associations et des discussions dans les couloirs c’est pas la même vie. Tout l’environnement de l’université me manque, mais écoute on doit apprendre à faire sans."},
+					{"character":"eulalie","emotion":"neutral","text":"Haha, je comprends. J’avoue que c’est une des raisons de pourquoi je suis partie en thèse."},
+				]],
+				["trigger","eulalie_11"]
+			],
+			"these_2":[
+				["line",[
+					{"character":"protag","emotion":"neutral","text":"Oh bah tu sais, la vie se passe. On s’habitue petit à petit au rythme du travail écoute. Ca change bien de l’université et des associations mais le silence de la librairie est quand même agréable au quotidien. Et toi tu deviens quoi ?"},
+					{"character":"eulalie","emotion":"neutral","text":"Haha, pour le coup moi j’ai préféré rester dans cet environnement, je fais ma thèse je te rappelle."},
+				]],
+				["trigger","eulalie_11"]
+			],
+			"eulalie_11":[
+				["line",[
+					{"character":"protag","emotion":"neutral","text":"Oh ? Je m’en rappelle que tu en avais parlé, mais j’avoue que je me rappelle de pas grand chose d’autre."},
+					{"character":"protag","emotion":"neutral","text":"Tu fais quoi du coup?"},
+					{"character":"eulalie","emotion":"neutral","text":"Pour faire simple, comment les jeux de rôles peuvent influencer notre perception en général."},
+					{"character":"eulalie","emotion":"neutral","text":"Mais je t’avoue j’ai pas trop envie d’en parler maintenant. Ca a beau être passionnant, je suis déjà plongé dedans toute la semaine donc j’ai juste envie de me poser au parc et rester tranquille."},
+					{"character":"protag","emotion":"surprise","text":"Tu vas au parc du phare ?"},
+					{"character":"eulalie","emotion":"surprise","text":"Euh ouais ? Toi aussi ?"},
+				]],
 				["doors"],
-				["scene","metro_M_0_1"]
+				["silence",2],
+				["line",[
+					{"character":"protag","emotion":"neutral","text":"Oui, je dois justement y retrouver Lucien."},
+					{"character":"eulalie","emotion":"neutral","text":"..."},
+					{"character":"eulalie","emotion":"angry","text":"Sérieusement ?"},
+					{"character":"protag","emotion":"neutral","text":"Oui ?"},
+				]],
+				["flashback",true],
+				["line",[
+					{"character":"lucien","character_name":"MJ concentré","emotion":"neutral","text":"Vous vous infiltrez sans bruit dans la station. Votre expérience d’hier vous a durement fait comprendre qu’il ne faut pas s’avancer en terrain inconnu sans..."},
+					{"character":"theodore","character_name":"Garçon malicieux","emotion":"neutral","text":"C’est “en terre inconnue”, bien aimable MJ"},
+					{"character":"lucien","character_name":"MJ concentré","emotion":"sad","text":"... Qu’il ne faut pas s’avancer en terre inconnue sans avoir, en amont, scruté les moindres recoins. Autour de vous, l’obscurité est reine. Seule une petite lueur..."},
+					{"character":"paul","character_name":"Garçon amusé","emotion":"surprise","text":"C’est pour moi ! Je m’élance en brandissant ma lyre et..."},
+					{"character":"eulalie","emotion":"sad","text":"Paul, laisse le finir."},
+					{"character":"paul","character_name":"Garçon amusé","emotion":"neutral","text":"Vaillante camarade, je ne connais point de “Paul” et ne répond qu’à “l’Indomptable” ."},
+					{"character":"theodore","character_name":"Garçon malicieux","emotion":"neutral","text":"L’Indomptable ! Ah ! Je crois que votre charisme m’ébloui, je..."},
+					{"character":"eulalie","emotion":"angry","text":"Taisez-vous, bon sang !"},
+					{"character":"alix","emotion":"sad","text":"Pas besoin de crier..."},
+					{"character":"eulalie","emotion":"angry","text":"Sérieux, arrêtez de l’interrompre, c’est insupportable. Sinon, à ce rythme là, on est pas couché."},
+					{"character":"paul","character_name":"Garçon amusé","emotion":"sad","text":"Dit celle qui dort ici ce soir..."},
+					{"character":"protag","emotion":"neutral","text":"Paul..."},
+					{"character":"eulalie","emotion":"angry","text":"Vous savez quoi ? Finissez la soirée sans moi. J’ai des rendus pour demain."},
+					{"character":"lucien","character_name":"MJ concentré","emotion":"surprise","text":"Eulalie, attends !"},
+				]],
+				["flashback",false],
+				["doors"],
+				["scene","metro_D_1_2"],
+				
 			]
 		}
 	},
@@ -25,6 +84,7 @@
 		"Background":["neutral","Eulalie me fixe d'un regard étrange."],
 		"Eulalie":["sad","Eulalie paraît stressée."],
 		"Portes_metro_interieur":["sad","Je ne peux pas sortir maintenant, je ne pourrais pas rejoindre Lucien."],
+		
 	},
 	"default_trigger":"Eulalie"
 }

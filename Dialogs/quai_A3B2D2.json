@@ -1,0 +1,101 @@
+{
+	"background":"quai",
+	"events":{
+		"triggers":{
+			"SpawnTrain":[{"condition":[],"event":"SpawnTrain"}],
+			"Metro_ouvert":[{"condition":["group_theopaul"],"event":"train_theopaul"},
+							{"condition":["group_eulalie"],"event":"train_eulalie"}],
+			"Paul":[{"condition":[],"event":"quai_paul"}],
+			"Theodore":[{"condition":[],"event":"quai_theo"}],
+			"Eulalie":[{"condition":[],"event":"quai_eulalie"}],
+			"group":[{"condition":["theopaul_B1"],"event":"group_theopaul"},
+					{"condition":["eulalie_D2"],"event":"group_eulalie"}]
+		},
+		"events":{
+			"train_theopaul":[["final","final_theopaul"]],
+			"train_eulalie":[["final","final_eulalie"]],
+			"SpawnTrain":[
+				["metro"],
+				["trigger","group"]
+			],
+			"group_theopaul":[
+				["meet","eulalie"],
+				["line",[
+					{"character":"paul","emotion":"surprise","text":"\"Faut bien passer à autre chose\" qu’on disait. Ben tiens qui voilà..."},
+					{"character":"eulalie","emotion":"sad","text":"Hey..."},
+					{"character":"protag","emotion":"surprise","text":"Salut, comment tu..."},
+					{"character":"theodore","emotion":"surprise","text":"Mais non, la dinguerie ! Regardez qui voilà en chair et en os ! "},
+					{"character":"paul","emotion":"neutral","text":"Ça pour une coïncidence..."},
+					{"character":"eulalie","emotion":"sad","text":"Vous aussi vous avez reçu l’invitation de Lucien j’imagine ?"},
+					{"character":"theodore","emotion":"neutral","text":"Absolument pas."},
+					{"character":"theodore","emotion":"neutral","text":"Non c’est juste une coïncidence qu’on se soit retrouvés tous les quatre au même endroit."},
+					{"character":"theodore","emotion":"neutral","text":"En même temps."},
+					{"character":"theodore","emotion":"neutral","text":"Tous ensemble."},
+					{"character":"theodore","emotion":"neutral","text":"Dans une station de métro aléatoire de la ville."},
+					{"character":"eulalie","emotion":"sad","text":"..."},
+					{"character":"eulalie","emotion":"neutral","text":"Alix n’est pas avec vous ?"},
+					{"character":"protag","emotion":"surprise","text":"A vrai dire, je l’ai vu dans le métro A en venant ici. Mais, elle s’est sentie mal et elle a fini par rentrer."},
+					{"character":"eulalie","emotion":"surprise","text":"Est-ce qu’elle va bien ? Il s’est passé quelque chose ?"},
+					{"character":"protag","emotion":"surprise","text":"Sur le moment, j’ai paniqué en la voyant et j’ai pas été honnête avec elle. Je sais pas ce qui m’a pris, mais elle l’a senti et a décidé de rentrer."},
+					{"character":"theodore","emotion":"neutral","text":"T’en fais pas, ne t’en veux pas trop. C’est dommage qu’elle ne nous rejoigne pas surtout après tout ce temps, mais ça lui arrivait déjà parfois avant, ça ne m’étonne pas qu’elle ait encore cette habitude."},
+					{"character":"eulalie","emotion":"neutral","text":"J’aurai bien voulu la recroiser mais bon, on trouvera bien une autre occasion."},
+					{"character":"paul","emotion":"neutral","text":"Bon, allons enfin voir pourquoi Lucien nous a réunis ici aujourd’hui."},
+				]],
+			],
+			"group_eulalie":[
+				["meet","theodore"],
+				["meet","paul"],
+				["line",[
+					{"character":"eulalie","emotion":"neutral","text":"Ben tiens, en parlant des loups..."},
+					{"character":"theodore","emotion":"surprise","text":"Mais non, la dinguerie ! Regardez qui voilà en chair et en os !"},
+					{"character":"paul","emotion":"surprise","text":"ça pour une coïncidence..."},
+					{"character":"eulalie","emotion":"sad","text":"M’en parle pas..."},
+					{"character":"protag","emotion":"sad","text":"..."},
+					{"character":"theodore","emotion":"neutral","text":"Ça fait un bail ! Comment vous allez ?"},
+					{"character":"eulalie","emotion":"sad","text":"Hm... ça va."},
+					{"character":"protag","emotion":"neutral","text":"Et vous ?"},
+					{"character":"theodore","emotion":"neutral","text":"On pète la forme !"},
+					{"character":"paul","emotion":"neutral","text":"Ah bon ?"},
+					{"character":"theodore","emotion":"surprise","text":"Eh ouais ! Mais c’est quoi les têtes que vous tirez là, vous êtes pas contents de retrouver Lucien pour un p’tit verre ?"},
+					{"character":"eulalie","emotion":"sad","text":"Tu savais que Lucien nous avais aussi convié à son rendez-vous ?"},
+					{"character":"theodore","emotion":"neutral","text":"Absolument pas."},
+					{"character":"theodore","emotion":"neutral","text":"Non c’est juste une coïncidence qu’on se soit retrouvés tous les quatre au même endroit."},
+					{"character":"theodore","emotion":"neutral","text":"En même temps."},
+					{"character":"theodore","emotion":"neutral","text":"Tous ensemble."},
+					{"character":"theodore","emotion":"neutral","text":"Dans une station de métro aléatoire de la ville."},
+					{"character":"eulalie","emotion":"neutral","text":"Tous ensemble ? Alix n’est pas là je te signale."},
+					{"character":"paul","emotion":"neutral","text":"Elle est peut-être déjà arrivée... C’était souvent la première à arriver aux sessions."},
+					{"character":"theodore","emotion":"neutral","text":"Y a qu’un moyen de le savoir !"},
+					{"character":"eulalie","emotion":"sad","text":"J’imagine qu’à partir de maintenant, on n’a plus vraiment le choix..."},
+					{"character":"protag","emotion":"neutral","text":"Au moins, on sera vite fixé sur les raisons qui ont poussé Lucien à nous réunir aujourd’hui. Même si je doute déjà qu’il veuille juste prendre un verre avec nous."},
+					{"character":"theodore","emotion":"surprise","text":"Allez, en avant p’tite troupe !"},
+					{"character":"paul","emotion":"neutral","text":"Calme toi, on est pas en concert..."}
+				]],
+			],
+			"quai_paul":[
+				["line",
+					[{"character":"paul","emotion":"surprise","text":"Ça fait bizarre de tous se revoir ici..."}]
+				]
+			],
+			"quai_theo":[
+				["line",
+					[{"character":"theodore","emotion":"neutral","text":"Ne perdons pas de temps !"},]
+				]
+			],
+			"quai_eulalie":[
+				["line",
+					[{"character":"eulalie","emotion":"sad","text":"L'ambiance a quelque chose d'étrange... Peut-être que c'est juste moi."}]
+				]
+			],
+			
+		}
+	},
+	"thoughts":{
+		"Background":["neutral","Allons-y, on peut rejoindre Phare Lointain par ce train."],
+		"Metro_ouvert":["surprise","Le métro va partir !"],
+		"Paul":["neutral","Paul a toujours son calme habituel."],
+		"Theodore":["neutral","Théodore est encore essouflé."],
+		"Eulalie":["neutral","Eulalie a une petite mine."],
+	},
+	"default_trigger":"SpawnTrain"
+}

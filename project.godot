@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="iliketrains"
+config/name="rails_et_royaumes"
 run/main_scene="uid://cgkk25uwth81n"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"

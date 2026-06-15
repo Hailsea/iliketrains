@@ -55,7 +55,7 @@
 		}
 	},
 	"thoughts":{
-		"Background":["neutral","Il reste deux arrêts avant Phare Lointain."],
+		"Background":["neutral","Il reste un arrêt avant Phare Lointain."],
 		"Metro_carte":["neutral","C'est le tableau d'affichage des stations."],
 		"Portes_metro_interieur":["surprise","Si je sors maintenant, je vais rejoindre la ligne A. Je ferai mieux de rester, Phare lointain est dans trois arrêts."],
 	},

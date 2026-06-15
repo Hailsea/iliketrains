@@ -1,0 +1,82 @@
+{
+	"background":"quai",
+	"events":{
+		"triggers":{
+			"SpawnTrain":[{"condition":[],"event":"SpawnTrain"}],
+			"Metro_ouvert":[{"condition":[],"event":"train"}],
+			"Paul":[{"condition":[],"event":"quai_paul"}],
+			"Theodore":[{"condition":[],"event":"quai_theo"}],
+			"choice1_good":[{"condition":[],"event":"theopaul_choice1_alix"}],
+			"choice1_bad":[{"condition":[],"event":"theopaul_choice1_pasalix"}],
+		},
+		"events":{
+			"train":[["scene","metro_B_0_1"]],
+			"SpawnTrain":[
+				["metro"],
+				["meet","paul"],
+				["meet","theodore"],
+				["line",[
+					{"character":"protag","emotion":"sad","text":"Elle n'est plus la..."},
+					{"character":"theodore","character_name":"Garçon bruyant","emotion":"surprise","text":"ANDREAAAA !"},
+					{"character":"protag","emotion":"surprise","text":"Oulà... Tu m’as pas l’air en forme... Ça va ?"},
+					{"character":"theodore","character_name":"Garçon bruyant","emotion":"sad","text":"Si... Tout... va... nickel..."},
+					{"character":"paul","emotion":"surprise","text":"Hey ! Salut Andrea, comment est-ce que tu vas ?"},
+					{"character":"paul","emotion":"sad","text":"Respire Théo, t’es sûr que tu veux pas t’asseoir ?"},
+					{"character":"theodore","emotion":"sad","text":"Non, tout va parfaitement. Fiou... Salut Andrea."},
+					{"character":"protag","emotion":"surprise","text":"Dans quoi est-ce que vous vous êtes encore embarqué vous deux ?"},
+					{"character":"paul","emotion":"neutral","text":"Une certaine personne s’est dit qu’il serait intelligent de courser un métro."},
+					{"character":"protag","emotion":"neutral","text":"Nan, mais à quoi je m’attendais de quelqu’un capable de kidnapper un cultiste lézard au milieu de mille autres cultistes..."},
+					{"character":"theodore","emotion":"sad","text":"Alors de une, je vous l’ai déjà dis et répété, je croyais que c’était ma soeur perdue. Et ensuite, c’était pas mon idée hein..."},
+					{"character":"protag","emotion":"sad","text":"Vraiment Paul ?"},
+					{"character":"paul","emotion":"neutral","text":"Eh, je savais qu’il en était capable, au pire, il aurait attendu le prochain."},
+					{"character":"protag","emotion":"surprise","text":"Celui qui passe dans 45 min ?"},
+					{"character":"paul","emotion":"surprise","text":"Oui bon, ou alors il aurait fini à pied."},
+					{"character":"protag","emotion":"sad","text":"..."},
+					{"character":"protag","emotion":"neutral","text":"Vous allez à Phare Lointain aussi ?"},
+					{"character":"theodore","emotion":"sad","text":"Oh, yes ! Tu viens avec nous du coup ?"},
+				]],
+				["choice",[
+					{"condition":[], "text":"Mentionner la rencontre avec Alix", "trigger":"choice1_good"},
+					{"condition":[], "text":"Omettre la rencontre avec Alix", "trigger":"choice1_bad"},
+					null
+				]]
+			],
+			"theopaul_choice1_alix":[
+				["line",[
+					{"character":"protag","emotion":"sad","text":"Oui, j’ai justement croisé Alix en chemin, mais je crois qu’elle ne se sentait plus à l’aise à l’idée de venir. Vous ne vous l'avez pas vue passer ?"},
+					{"character":"theodore","emotion":"sad","text":"Quoi ? Non, on vient d'arriver. Ça aurait été cool de la revoir elle aussi..."},
+					{"character":"paul","emotion":"neutral","text":"Attends donc on a tous été invités en fait ? Elle va bien ? Il s’est passé quelque chose en chemin ?"},
+					{"character":"protag","emotion":"surprise","text":"Je ne sais pas trop, elle est partie sans trop donner d'explication."},
+					{"character":"paul","emotion":"neutral","text":"En tout cas, le train va partir !"},
+				]]
+			],
+			"theopaul_choice1_pasalix":[
+				["line",[
+					{"character":"protag","emotion":"neutral","text":"Oui, j’ai reçu un message de Lucien pour l’y rejoindre. Il vous a contacté aussi je suppose ?"},
+					{"character":"theodore","emotion":"neutral","text":"Yep, on se croirait comme à l’univsersité. Il manquerait plus que Alix et ce serait parfait."},
+					{"character":"protag","emotion":"neutral","text":"Et Eulalie aussi."},
+					{"character":"theodore","emotion":"sad","text":"..."},
+					{"character":"paul","emotion":"neutral","text":"En tout cas, le train va partir !"},
+				]]
+			],
+			"quai_paul":[
+				["line",
+					[{"character":"paul","emotion":"surprise","text":"Dépêchons-nous !"}],
+				]
+			],
+			"quai_theo":[
+				["line",
+					[{"character":"theodore","emotion":"surprise","text":"Go go go !"}],
+				]
+			],
+			
+		}
+	},
+	"thoughts":{
+		"Background":["neutral","Allons-y, on peut rejoindre Phare Lointain par la ligne B."],
+		"Metro_ouvert":["surprise","Le métro va partir !"],
+		"Paul":["neutral","Paul a toujours son calme habituel."],
+		"Theodore":["neutral","Théodore est encore essouflé."],
+	},
+	"default_trigger":"SpawnTrain"
+}

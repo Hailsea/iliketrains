@@ -1,0 +1,96 @@
+{
+	"background":"metro_ferme",
+	"events":{
+		"triggers":{
+			"Eulalie":[{"condition":[],"event":"eulalie_D2"}],
+			"eulalie_21":[{"condition":[],"event":"eulalie_21"}],
+			"eulalie2_yes":[{"condition":[],"event":"eulalie2_yes"}],
+			"eulalie2_no":[{"condition":[],"event":"eulalie2_no"}]
+		},
+		"events":{
+			"eulalie_D2":[
+				["line",[
+					{"character":"protag","emotion":"phare","text":"Il m’a dit de le retrouver à Phare Lointain."},
+					{"character":"eulalie","emotion":"neutral","text":"Pareil. Il t‘a indiqué pourquoi ?"},
+					{"character":"protag","emotion":"sad","text":"Non. Pour être honnête, je pensais juste qu’on allait boire un coup ensemble et papoter de nos vies respectives. Mais visiblement, je me suis trompé."},
+					{"character":"eulalie","emotion":"neutral","text":"Je te le fais pas dire. Tu penses qu’il a invité les autres ?"},
+				]],
+				["choice",
+					[
+						{"condition":[], "text":"Oui", "trigger":"eulalie2_yes"},
+						{"condition":[], "text":"Non", "trigger":"eulalie2_no"},
+						null
+					]
+				]
+			],
+			"eulalie2_yes":[
+				["line",[
+					{"character":"protag","emotion":"neutral","text":"Pourquoi nous aurait-il invité que tous les deux ?"},
+					{"character":"eulalie","emotion":"neutral","text":"Je sais pas... Je t’avoue que j’espérais que ce tête à tête me permettrait de mettre les choses au clair avec lui."},
+				]],
+				["trigger","eulalie_21"]
+			],
+			"eulalie2_no":[
+				["line",[
+					{"character":"protag","emotion":"neutral","text":"S’il nous a convié tous les deux, c’est sans doute en lien avec les projets de cours qu’on faisait ensemble. Même si on a terminé nos études, il a dû avoir besoin d’un de ses travaux récemment. C’est encore plus cohérent pour toi, vu le temps que vous avez passé sur votre mémoire."},
+					{"character":"eulalie","emotion":"sad","text":"Tu étais vraiment au courant de rien alors..."},
+				]],
+				["trigger","eulalie_21"]
+			],
+			"eulalie_21":[
+				["line",[
+					{"character":"protag","emotion":"sad","text":"Comment ça ?"},
+					{"character":"eulalie","emotion":"neutral","text":"T’as vraiment rien remarqué au fil des séances de ReR entre Lucien et moi ?"},
+				]],
+				["flashback",true],
+				["line",[
+					{"character":"theodore","character_name":"Garçon circonspect","emotion":"angry","text":"Et merde, j’ai raté mon jet de constitution."},
+					{"character":"lucien","character_name":"MJ concentré","emotion":"neutral","text":"Zahel s’écroule de fatigue. Dorénia, il ne reste plus que toi. Que fais-tu ?"},
+					{"character":"eulalie","emotion":"neutral","text":"Je récupère ma hache. Mon regard déterminé se pose sur la créature déchaînée : je ne reculerai pas avant d’avoir pu sécuriser ce wagon."},
+					{"character":"paul","character_name":"Garçon suspicieux","emotion":"sad","text":"Tu pourrais quand même aider Zahel..."},
+					{"character":"lucien","character_name":"MJ concentré","emotion":"neutral","text":"Chut. La créature se tourne vers Dorénia. Elle non plus ne reculera pas. Eulalie, fais-moi un jet de perception."},
+					{"character":"eulalie","emotion":"sad","text":"..."},
+					{"character":"eulalie","emotion":"surprise","text":"Vingt ! Ah ah, rien ne contourne la vigilance de Dorénia."},
+					{"character":"lucien","character_name":"MJ concentré","emotion":"surprise","text":"Impressionnant ! Alors que rien ne l’annonçait, Dorénia anticipa l’attaque de la créature avec perfection. Sans la moindre erreur, elle esquiva les sièges qui volèrent dans sa direction, tout en se rapprochant de l’ennemi."},
+					{"character":"alix","character_name":"Fille confuse","emotion":"sad","text":"C’était pas à mon tour ?"},
+					{"character":"protag","emotion":"sad","text":"Je crois..."},
+					{"character":"eulalie","emotion":"angry","text":"Je brandis ma hache en direction de la tête de la créature. Je vois un éclair de terreur dans son regard, mais plus rien ne m’arrête."},
+					{"character":"lucien","character_name":"MJ concentré","emotion":"angry","text":"Fais-moi un jet de force !"},
+					{"character":"eulalie","emotion":"angry","text":"Dix-huit !"},
+					{"character":"lucien","character_name":"MJ concentré","emotion":"angry","text":"Mais quelle championne !"},
+					{"character":"theodore","character_name":"Garçon circonspect","emotion":"sad","text":"Tu parles... Comme par hasard, y a que ses coups qui passent..."},
+					{"character":"lucien","character_name":"MJ concentré","emotion":"neutral","text":"La hache fend l’air dans un sifflement. Slack ! En moins d’une petite seconde, la tête de la créature tombe au sol, aussitôt suivi par son corps gargouillant. Dorénia, tu viens de sauver tous les voyageurs de ce train. Ils ne l’oublieront pas, sache-le."},
+					{"character":"paul","character_name":"Garçon suspicieux","emotion":"sad","text":"Et nous ?"},
+					{"character":"lucien","character_name":"MJ concentré","emotion":"neutral","text":"Malheureusement, vous avez été moins habiles que la grande Dorénia. Les secouristes vous relèvent et vous ramènent au premier poste de secours pendant que Dorénia célèbre sa victoire avec les voyageurs."},
+					{"character":"alix","character_name":"Fille confuse","emotion":"alix","text":"Tu parles d’un MJ neutre..."},
+				]],
+				["flashback",false],
+				["line",[
+					{"character":"eulalie","emotion":"neutral","text":"Avant de commencer le JDR, Lucien et moi étions ensemble sur un mémoire pour les cours. La rédaction de ce mémoire a été assez laborieuse et compliquée, d’autant plus que Lucien a décidé de lancer la campagne de ReR au beau milieu du projet."},
+					{"character":"eulalie","emotion":"sad","text":"Evidemment, je n’ai pas pu refuser. Tu connais mon amour pour les JDR..."},
+					{"character":"protag","emotion":"neutral","text":"C’est sûr. Tu semblais être la plus motivée par l’idée de Lucien."},
+					{"character":"eulalie","emotion":"sad","text":"Je l’étais, mais pas seulement pour le sujet. En plus de passer du temps à rire et rêver sur la narration de Lucien, je me suis mise à apprécier de plus en plus sa personne."},
+					{"character":"eulalie","emotion":"sad","text":"Le fait qu’on passe la majorité de notre temps ensemble à cause du mémoire et du JDR a forcément beaucoup joué dans notre relation... Tout comme ça a impacté celle entre Théodore, Paul et moi."},
+					{"character":"protag","emotion":"neutral","text":"C’est vrai qu’au début du JDR, vous étiez très proches tous les trois."},
+					{"character":"eulalie","emotion":"sad","text":"On s'est un peu éloignés après car on avait moins de cours en commun. Je pense qu'ils voulaient peut-être passer à autre chose."},
+					{"character":"protag","emotion":"neutral","text":"Pourquoi ça ?"},
+					{"character":"eulalie","emotion":"neutral","text":"Je sais pas, une intuition. Je pense qu’ils n’ont pas digéré le fait que je passe plus de temps avec Lucien qu’avec eux."},
+					{"character":"protag","emotion":"surprise","text":"Mais ce n’était pas à cause du travail ?"},
+				]],
+				["doors"],
+				["silence",2],
+				["line",[
+					{"character":"eulalie","emotion":"neutral","text":"Pas que... Tiens, on arrive à Phare Lointain. Tu me suis ?"},
+					{"character":"protag","emotion":"neutral","text":"Allons-y."}
+				]],
+				["scene","quai_A3B2D2"]
+			]
+		}
+	},
+	"thoughts":{
+		"Background":["neutral","Eulalie me fixe d'un regard étrange."],
+		"Eulalie":["sad","Eulalie paraît stressée."],
+		"Portes_metro_interieur":["sad","Je ne peux pas sortir maintenant, je ne pourrais pas rejoindre Lucien."],
+	},
+	"default_trigger":"Eulalie"
+}

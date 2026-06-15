@@ -1,0 +1,86 @@
+{
+	"background":"metro_ferme",
+	"events":{
+		"triggers":{
+			"Paul":[{"condition":[],"event":"theopaul_B0"}],
+			"Theodore":[],
+			"choice2_lucien":[{"condition":[],"event":"choice2_lucien"}],
+			"choice2_groupe":[{"condition":[],"event":"choice2_groupe"}],
+			"choice2_fin":[{"condition":[],"event":"choice2_fin"}],
+		},
+		"events":{
+			"theopaul_B0":[
+				["line",[
+					{"character":"protag","emotion":"surprise","text":"Bref... Vous savez ce qu'est devenue Eulalie ?"},
+					{"character":"theodore","emotion":"sad","text":"Hmmm... Pas vraiment. Disons qu’on ne s’est pas quittés sur de très bons termes."},
+					{"character":"protag","emotion":"surprise","text":"C’est-à-dire ?"},
+					{"character":"paul","emotion":"neutral","text":"Ça commence à remonter, je sais pas si tu te souviens mais Eulalie et Lucien avait commencé à passer pas mal de temps ensemble."},
+					{"character":"paul","emotion":"sad","text":"Mais quelques temps après, Eulalie à commencé à être plus ou moins hostile à notre égard sans vraiment qu’on sache pourquoi."},
+					{"character":"theodore","emotion":"neutral","text":"Non en vrai ça allait, mais c’est surtout un jour où elle avait l’air de nous en vouloir et à clairement nous éviter. Donc à partir de là, on a pas trop essayer de recoller les morceaux."},
+					{"character":"theodore","emotion":"sad","text":"Donc à partir de là, on a pas trop essayer de recoller les morceaux. En tout cas moi j’ai arrêté de lui parler. Je sais que toi tu as continué à la voir."},
+					{"character":"paul","emotion":"neutral","text":"Oui, on avait surtout un cours en commun, mais à part ça, on parlait plus vraiment d’autre chose."},
+					{"character":"paul","emotion":"sad","text":"Je pense que ça avait à voir avec le groupe de musique mais sinon je saurai même pas te dire ce qu’il s’est passé."},
+				]],
+				["choice",[
+					{"condition":[], "text":"A cause de Lucien", "trigger":"choice2_lucien"},
+					{"condition":[], "text":"A cause du groupe", "trigger":"choice2_groupe"},
+					{"condition":[], "text":"A cause de la fin d'année", "trigger":"choice2_fin"},
+				]]
+			],
+			"choice2_lucien":[
+				["line",[
+					{"character":"protag","emotion":"surprise","text":"Est-ce que ça aurait pas un lien avec Lucien ?"},
+					{"character":"theodore","emotion":"neutral","text":"Possible, après je vois pas ce qu’il aurait pu dire, ni pourquoi, ni en quoi, est-ce que ça nous concernerait..."},
+				]],
+				["flashback",true],
+				["line",[
+					{"character":"theodore","emotion":"surprise","text":"Eulalie est pas là ? Je croyais qu'elle avait dit qu'elle venait..."},
+					{"character":"alix","emotion":"surprise","text":"Oui c'est bizarre, il me semblait qu'elle était disponible."},
+					{"character":"lucien","character_name":"Garçon absent","emotion":"sad","text":"..."},
+					{"character":"theodore","emotion":"surprise","text":"Lucien, tu sais quelque chose ?"},
+					{"character":"lucien","character_name":"Garçon absent","emotion":"surprise","text":"Hein ? Ah, euh non, rien... Rien du tout."},
+				]],
+				["flashback",false],
+				["doors"],
+				["silence",2],
+				["line",[
+					{"character":"paul","emotion":"neutral","text":"C’est pas du genre de Lucien de commencer des embrouilles comme ça."},
+					{"character":"paul","emotion":"neutral","text":"Continuons, on se rapproche."},
+				]],
+				["scene","metro_B_1_2"]
+			],
+			"choice2_groupe":[
+				["line",[
+					{"character":"protag","emotion":"surprise","text":"Un rapport avec le groupe ?"},
+					{"character":"theodore","emotion":"neutral","text":"Je pense pas non. Surtout à la fin de l’année où Lucien s’est déjà pas mal éclipsé de nos dernières répet’. Il n’y a pas de raison pour que ça soit le moment où ça a empiré..."},
+				]],
+				["doors"],
+				["silence",2],
+				["line",[
+					{"character":"paul","emotion":"neutral","text":"Continuons, on se rapproche."},
+				]],
+				["scene","metro_B_1_2"]
+			],
+			"choice2_fin":[
+				["line",[
+					{"character":"protag","emotion":"surprise","text":"C’était peut être juste à cause du stress de la fin d’année ? Les exams, les évènements et la fin en général ?"},
+					{"character":"theodore","emotion":"neutral","text":"Alors pourquoi est-ce qu’elle continuait de nous éviter même après ?"},
+				]],
+				["doors"],
+				["silence",2],
+				["line",[
+					{"character":"paul","emotion":"neutral","text":"Continuons, on se rapproche."},
+				]],
+				["scene","metro_B_1_2"]
+			]
+			
+		}
+	},
+	"thoughts":{
+		"Background":["neutral",""],
+		"Paul":["neutral",""],
+		"Theodore":["neutral",""],
+		"Portes_metro_interieur":["neutral",""],
+	},
+	"default_trigger":"Paul"
+}
